@@ -5,10 +5,10 @@
 
 void RectaStep(PID& pid, float speed, float dir)
 {
-	float error = (getMotorEncoder(motorC) - getMotorEncoder(motorB)) / 1.0;
+	float error = (getMotorEncoder(motorC) - getMotorEncoder(motorB)) / -360.0;
 	float turnRate = UpdatePID(pid, error);
 
-	datalogAddValue(0, (int)error);
+	datalogAddValue(0, (int)(error * 360.0));
 	datalogAddValue(1, turnRate);
 
 	setMotorSync(motorB, motorC, turnRate, speed * dir);
@@ -17,7 +17,7 @@ void RectaStep(PID& pid, float speed, float dir)
 void Recta(float dir, float distance, float speed)
 {
 	PID pid;
-	InitPID(pid, 0, 0, 0);
+	InitPID(pid, 500, 25, 0);
 
 	// Constrain the direction to {-1, 1}
 	if (dir < 0)
@@ -43,11 +43,11 @@ void Recta(float dir, float distance, float speed)
 		endDist = log((speed - 5) / 5.0) / (log(2) * decMult);
 		medDist = distance - iniDist - endDist;
 
-		speed -= 5;
+		speed -= 1;
 	}
 	while (medDist < 0.2);
 
-	speed += 5;
+	speed += 1;
 
 
 	// Acceleration
@@ -81,8 +81,7 @@ void Recta(float dir, float distance, float speed)
 		RectaStep(pid, 7, dir);
 	}
 
-	setMotorSpeed(motorB, 0);
-	setMotorSpeed(motorC, 0);
+	setMotorSync(motorB, motorC, 0, 0);
 }
 
 #endif
