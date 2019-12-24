@@ -1,5 +1,5 @@
-#ifndef _LINE
-#define _LINE
+#ifndef _ALIGN
+#define _ALIGN
 
 #include "PID.h"
 
@@ -10,7 +10,7 @@ typedef enum
 	Right,
 } Side;
 
-void Line(float time, float dir)
+void Align(float dir, float time)
 {
 	const int wThreshold = 50;	// White threshold
 	const int bThreshold = 15;	// Black threshold
@@ -39,8 +39,6 @@ void Line(float time, float dir)
 
 			setLEDColor(ledOrangePulse);
 
-			delay(1000);
-
 			setMotorSpeed(motorB, 10 * dir);
 			while (getColorReflected(S3) < wThreshold) {}
 		}
@@ -52,8 +50,6 @@ void Line(float time, float dir)
 			side = Right;
 
 			setLEDColor(ledRedPulse);
-
-			delay(1000);
 
 			setMotorSpeed(motorC, 10 * dir);
 			while (getColorReflected(S4) < wThreshold) {}
