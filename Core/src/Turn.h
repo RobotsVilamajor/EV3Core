@@ -5,11 +5,11 @@
 
 void AdjustWheel(float target, tMotor m)
 {
-	float lError = getMotorEncoder(m) - target;
-	if (lError != 0)
+	float error = getMotorEncoder(m) - target;
+	if (error != 0)
 	{
 		float dir = 0;
-		if (lError < 0)
+		if (error < 0)
 			dir = -1;
 		else
 			dir = 1;
@@ -23,34 +23,49 @@ void AdjustWheel(float target, tMotor m)
 
 void Turn(float dir, float angle, float speed)
 {
+	resetMotorEncoder(motorB);
+	resetMotorEncoder(motorC);
+
+	//angle /= 163.5;
+
 	if (dir < 0)
 		dir = -1;
 	else
 		dir = 1;
 
 	Accelerate acc;
-	InitAcc(acc, speed, angle, 10, 10, 0);
+	InitAcc(acc, speed, angle * 1.1, 10, 10, 0);
 
 	while (fabs(getMotorEncoder(motorB) / 360.0) < angle || fabs(getMotorEncoder(motorC) / 360.0) < angle)
 	{
 		float c_speed = UpdateAcc(acc, fabs(getMotorEncoder(motorC)) / 360.0);
 
+		datalogAddValue(0, (int)(c_speed * 100.0));
+
 		setMotorSpeed(motorB, -c_speed * dir);
 		setMotorSpeed(motorC, c_speed * dir);
+
+		delay(10);
 	}
+
+	setLEDColor(ledRedFlash);
 
 	for (int i = 0; i < 100; i++)
 	{
-		displayCenteredBigTextLine(4, "%.4f", getMotorEncoder(motorB) / 360.0);
-		displayCenteredBigTextLine(6, "%.4f", getMotorEncoder(motorC) / 360.0);
-		displayCenteredBigTextLine(8, "%.4f", (fabs(getMotorEncoder(motorB)) - fabs(getMotorEncoder(motorC))) / 360.0);
+		//displayCenteredBigTextLine(4, "%.4f", getMotorEncoder(motorB) / 360.0);
+		//displayCenteredBigTextLine(6, "%.4f", getMotorEncoder(motorC) / 360.0);
+		//displayCenteredBigTextLine(8, "%.4f", (fabs(getMotorEncoder(motorB)) - fabs(getMotorEncoder(motorC))) / 360.0);
 
-		AdjustWheel(angle, motorB);
-		AdjustWheel(-angle, motorC);
+		AdjustWheel(-angle * dir, motorB);
+		AdjustWheel(angle * dir, motorC);
 	}
 
-	setMotorSync(motorB, motorC, 0, 0);
+	//setMotorSync(motorB, motorC, 0, 0);
+	setMotorSpeed(motorB, 0);
+	setMotorSpeed(motorC, 0);
 
+	resetMotorEncoder(motorB);
+	resetMotorEncoder(motorC);
 }
 
 //void Turn(float dir, float angle, float speed)
