@@ -26,7 +26,7 @@ void Turn(float dir, float angle, float speed)
 	resetMotorEncoder(motorB);
 	resetMotorEncoder(motorC);
 
-	//angle /= 163.5;
+	angle /= 160.0;
 
 	if (dir < 0)
 		dir = -1;
