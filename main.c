@@ -14,7 +14,6 @@ task main()
 	//	displayCenteredBigTextLine(6, "%.4f", getMotorEncoder(motorC) / 360.0);
 	//	displayCenteredBigTextLine(8, "%.4f", (fabs(getMotorEncoder(motorB)) - fabs(getMotorEncoder(motorC))) / 360.0);
 	//}
-	// prova fede
 	//Recta(-1, 2, 70);
 
 	//delay(5000);
