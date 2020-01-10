@@ -1,7 +1,7 @@
 #pragma config(Sensor, S3,     ,               sensorEV3_Color)
 #pragma config(Sensor, S4,     ,               sensorEV3_Color)
 // Sortida 3; Missió a fer: M6, M7 + possar una peça, M8, M12, M9, M10; Comentari: possiblement no es podran fer totes
-// Comentar quins motors falten
+// MotorA = Vertical, MotorD = Horitzontal.
 
 #include "Core/Core.h"
 
