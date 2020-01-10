@@ -16,9 +16,9 @@ task main()
 
 	//Retrosedim, girem a la dreta i avancem
 	Recta(-1, 2, 70);
-	Turn(1, 20, 70)
+	Turn(1, 20, 70);
 	Recta(1, 2, 70);
-	Turn(-1, 20, 70)
+	Turn(-1, 20, 70);
 
 	//Deixar ratpanat
 	setMotorTarget(motorA, -1, 20);
