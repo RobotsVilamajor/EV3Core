@@ -1,7 +1,7 @@
 #pragma config(Sensor, S3,     ,               sensorEV3_Color)
 #pragma config(Sensor, S4,     ,               sensorEV3_Color)
 //Sortida Arbre; Missions: , ; Gadget 1
-// MotorA = . MotorD =
+// MotorA = Vertical. MotorD = Horitzontal.
 
 #include "Core/Core.h"
 
