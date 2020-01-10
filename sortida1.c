@@ -40,7 +40,7 @@ task main()
 
 	//Baixem pala i ens movem fins la grua
 	setMotorTarget(motorA, -2, 20);
-	Turn(1, 60, 70)
+	Turn(1, 60, 70);
 	Recta(-1, 3, 50);
 
 	//Movem la grua
