@@ -6,9 +6,9 @@
 
 task main()
 {
-	//Recta(1, 2, 70);
-	delay(5000);
-	Turn(1, 90, 30);
+	Recta(1, 4, 70);
+	delay(100);
+	// Turn(1, 90, 30);
 	delay(500);
 	//delay(10 * 1000);
 	//Turn(1, 90, 30);
