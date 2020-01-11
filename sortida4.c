@@ -7,5 +7,14 @@
 
 task main()
 {
+//Primera accelerada fins al cercle Vermell: +__ Punts
+	Recta (1, -, 40)
+	Recta (-1, -, 10)
+	Gir ()
+
+//Avançar fins al cercle marró per deixar bloc marró i estructura innovadora: +__ Punts
+	Recta (1, -, 40)
+
+
 
 }
