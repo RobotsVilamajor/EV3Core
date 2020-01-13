@@ -6,10 +6,20 @@
 
 task main()
 {
-	Recta(1, 4, 70);
-	delay(100);
-	// Turn(1, 90, 30);
-	delay(500);
-	//delay(10 * 1000);
-	//Turn(1, 90, 30);
+	// Moure el motorB 0.5 voltes a una velocitat de 20
+	// La seguent funció no s'executarà fins que hagi acabat aquesta
+	MoveMotor(motorB, 0.5, 20);
+
+	// Moure el motorB -0.5 voltes a una velocitat de 20
+	// La seguent funció s'executarà immediatament
+	MoveMotorAsync(motorB, -0.5, 20);
+
+	// Aquesta funció s'executarà mentres el motorB s'està movent
+	setLEDColor(ledRed);
+
+	// Aquesta funció espera que tots els motors que has mogut amb la funció MoveMotorAsync parin
+	WaitForMotors();
+
+	// Aquesta funció s'executarà just després que el motorB s'hagui parat
+	setLEDColor(ledOrange);
 }
