@@ -7,26 +7,20 @@
 
 task main()
 {
-	//resetMotorEncoder(motorD) = motorD;
-	//resetMotorEncoder(motorA) = motorA;
-
 	//Avancem i deixem pessa blanca (M12)
 	Recta(1, 4, 70);
 
 	//Tirem enrrere i apartem pala
 	Recta(-1, 2, 70);
-	resetMotorEncoder(motorD);
-	setMotorTarget(motorD, 1*360, 40);
+	MoveMotor(motorD, 1, 20);;
 
 	//Avancem i movem el cub petit fins el cercle blau (M2: Part 1)
 	Recta(1, 3, 70);
 
 	//Tirem enrrere i baixem grua (M2: Part 2)
 	Recta(-1, 2, 70);
-	resetMotorEncoder(motorD);
-	setMotorTarget(motorD, 0.2*360, 20);
-	resetMotorEncoder(motorA);
-	setMotorTarget(motorA, 1*360, 20);
+	MoveMotor(motorD, 0.2, 20);
+	MoveMotor(motorA, 1, 20);
 
 	//Tornem a casa
 	Recta(-1, 4, 70);
