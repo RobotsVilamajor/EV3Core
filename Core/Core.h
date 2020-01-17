@@ -3,6 +3,7 @@
 #include "src/Recta.h"
 #include "src/Turn.h"
 #include "src/MoveMotor.h"
+#include "src/AlignWall.h"
 
 // Forwards and backwards defines
 #define F 1
