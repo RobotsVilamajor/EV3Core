@@ -48,8 +48,6 @@ void Turn(float dir, float angle, float speed)
 		delay(10);
 	}
 
-	setLEDColor(ledRedFlash);
-
 	for (int i = 0; i < 100; i++)
 	{
 		//displayCenteredBigTextLine(4, "%.4f", getMotorEncoder(motorB) / 360.0);
@@ -60,69 +58,11 @@ void Turn(float dir, float angle, float speed)
 		AdjustWheel(angle * dir, motorC);
 	}
 
-	//setMotorSync(motorB, motorC, 0, 0);
 	setMotorSpeed(motorB, 0);
 	setMotorSpeed(motorC, 0);
 
 	resetMotorEncoder(motorB);
 	resetMotorEncoder(motorC);
 }
-
-//void Turn(float dir, float angle, float speed)
-//{
-//	// Constrain the direction to {-1, 1}
-//	if (dir < 0)
-//		dir = -1;
-//	else
-//		dir = 1;
-
-//	PID lPID;
-//	PID rPID;
-//	InitPID(lPID, 200, 50, 10);
-//	InitPID(rPID, 200, 50, 10);
-
-//	bool finished = false;
-
-//	while (!finished)
-//	{
-//		float lError = -(getMotorEncoder(motorB) / 360.0 - angle);
-//		float c_lSpeed = UpdatePID(lPID, lError);
-
-
-//		if (c_lSpeed > speed)
-//			c_lSpeed = speed;
-//		else if (c_lSpeed < -speed)
-//			c_lSpeed = -speed;
-
-//		setMotorSpeed(motorB, c_lSpeed * dir);
-
-
-//		float rError = -(getMotorEncoder(motorC) / 360.0 + angle);
-//		float c_rSpeed = UpdatePID(rPID, rError);
-
-//		if (c_lSpeed > speed)
-//			c_lSpeed = speed;
-//		else if (c_lSpeed < -speed)
-//			c_lSpeed = -speed;
-
-//		setMotorSpeed(motorC, c_rSpeed * dir);
-
-//		if (fabs(c_lSpeed) < 5 && fabs(c_rSpeed) < 5)
-//			finished = true;
-
-//		//displayCenteredBigTextLine(2, "%.3f - %.3f", lError, rError);
-//		//displayCenteredBigTextLine(4, "%.3f - %.3f", c_lSpeed, c_rSpeed);
-//		datalogAddValue(0, (int)(lError * 1000));
-//		datalogAddValue(1, (int)(c_lSpeed * 100));
-//	}
-
-//	for (int i = 0; i < 100; i++)
-//	{
-//		AdjustWheel(angle, motorB);
-//		AdjustWheel(-angle, motorC);
-//	}
-
-//	setMotorSync(motorB, motorC, 0, 0);
-//}
 
 #endif

@@ -33,11 +33,7 @@ float UpdatePID(PID& pid, float error)
 
 	pid.prevError = error;
 
-	//pid.dt = time1[T4] / 1.0;
-
 	//displayCenteredBigTextLine(4, "%lf", 1 / pid.dt);
-
-	//clearTimer(T4);
 
 	delay(pid.dt * 1000.0);
 

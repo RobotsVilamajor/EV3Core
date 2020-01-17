@@ -6,7 +6,7 @@
 
 void RectaStep(PID& pid, float speed, float dir)
 {
-	float error = (getMotorEncoder(motorC) - getMotorEncoder(motorB)) / -360.0;
+	float error = (getMotorEncoder(motorC) - getMotorEncoder(motorB)) / (360.0 * dir);
 	float turnRate = UpdatePID(pid, error);
 
 	//datalogAddValue(0, (int)(error * 360.0));
@@ -39,8 +39,8 @@ void Recta(float dir, float distance, float speed)
 
 		float dist = fabs(getMotorEncoder(motorC) / 360.0);
 
-		datalogAddValue(1, (int)dist * 100);
-		displayCenteredBigTextLine(4, "%f", dist);
+		//datalogAddValue(1, (int)dist * 100);
+		//displayCenteredBigTextLine(4, "%f", dist);
 
 		RectaStep(pid, c_speed, dir);
 	}
