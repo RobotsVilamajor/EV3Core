@@ -15,5 +15,5 @@
 
 task main()
 {
-	Align(B, 3);
+		AlignWall();
 }
