@@ -9,18 +9,31 @@
 
 task main(){
 
-//!!!!falta cambiar-ho tot a les indicacions de dalt!!!!. ex: -1=x   f= si
+	//AlignWall();
 
-	MoveMotor (motorD, 0.4, 40);
-	MoveMotor (motorA, -0.2, 40);
-	Recta(1, 3.2, 40); // vaig cap a M6
+	//Preparar Wall i Avançar fins a M6: FET
 
+	MoveMotorAsync (motorD, 0.3, 70);
+	MoveMotorAsync (motorA, -0.2, 70);
+	Recta(1, 3.2, 70); // vaig cap a M6
+
+	// Executar prova M6
 	MoveMotor (motorA, -1.5, 50);//Pujar la pala
-	MoveMotorAsync (motorA, -1.5, 30);
-	MoveMotorAsync(motorD, -3, 30);
-//	WaitForMotors();
-//	// Això si no poden pujar a la vegada: MoveMotor (motorD //que tiri cap a la dreta (o mens al mateix temps que puja)
-//	Recta(-1, 0.2, 10);	// tiro enrere per sortir i anar diractament a M7
+	MoveMotorAsync (motorA, -1.8, 70);
+	MoveMotorTime(motorD, 1, -60);
+	//WaitForMotors ();
+	Turn (R, 30, 70);
+	////M6: +__ Punts
+
+	////Sortir d'M6
+	Recta (B, 0.5, 60);
+	Turn (L, 30, 70);
+
+	//Reposicionar pala per tornar a començar
+	delay (5000);
+	MoveMotor (motorD, 0.68, 60);
+	MoveMotor (motorA, 3.5, 60);
+
 //	MoveMotor (motorD, 0.5, 30);
 //	MoveMotorAsync (motorD, 0.5, 30);
 //	MoveMotorAsync(motorA, 0.8, 30);

@@ -15,5 +15,6 @@
 
 task main()
 {
-		AlignWall();
+		//Turn (R, 40, 60);
+	AlignWall();
 }

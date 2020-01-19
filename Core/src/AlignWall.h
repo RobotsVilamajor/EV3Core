@@ -1,8 +1,8 @@
 void AlignWall()
 {
-	MoveMotorTime(motorA, 5, -20);
-	MoveMotorTime(motorD, 5, -20);
+	MoveMotorTime(motorA, 3, -50);
+	MoveMotorTime(motorD, 1.5, -40);
 
 	MoveMotor(motorD, 0.68, 40);
-	MoveMotor(motorA, 3.72, 40);
+	MoveMotor(motorA, 3.65, 40);
 }
