@@ -9,18 +9,20 @@
 
 task main(){
 
-	//AlignWall();
+	AlignWall();
 
 	//Preparar Wall i Avançar fins a M6: FET
 
-	MoveMotorAsync (motorD, 0.3, 70);
-	MoveMotorAsync (motorA, -0.2, 70);
+	MoveMotorAsync (motorD, 0.9, 70);
+	MoveMotorAsync (motorA, -0.15, 70);
 	Recta(1, 3.2, 70); // vaig cap a M6
 
+	delay (10000);
+
 	// Executar prova M6
-	MoveMotor (motorA, -1.5, 50);//Pujar la pala
-	MoveMotorAsync (motorA, -1.8, 70);
-	MoveMotorTime(motorD, 1, -60);
+	MoveMotor (motorA, -1, 50);//Pujar la pala
+	MoveMotorAsync (motorA, -2.3, 70);
+	MoveMotorTime(motorD, 2, -60);
 	//WaitForMotors ();
 	Turn (R, 30, 70);
 	////M6: +__ Punts
@@ -32,7 +34,7 @@ task main(){
 	//Reposicionar pala per tornar a començar
 	delay (5000);
 	MoveMotor (motorD, 0.68, 60);
-	MoveMotor (motorA, 3.5, 60);
+	MoveMotor (motorA, 3.45, 60);
 
 //	MoveMotor (motorD, 0.5, 30);
 //	MoveMotorAsync (motorD, 0.5, 30);
