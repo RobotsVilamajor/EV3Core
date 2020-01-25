@@ -11,6 +11,18 @@ struct Accelerate
 	float iniDist, endDist, medDist;
 };
 
+//struct AccData
+//{
+//	float speed;
+//	float distance;
+//	float accMult = 5;
+//	float decMult = 5;
+//	float safeDist = 0.15;
+//	float acc
+//}
+
+//void InitAcc
+
 void InitAcc(Accelerate& acc, float speed, float distance, float accMult, float decMult, float safeDist)
 {
 	acc.speed = speed;
@@ -22,7 +34,7 @@ void InitAcc(Accelerate& acc, float speed, float distance, float accMult, float 
 
 	do
 	{
-		acc.iniDist = log(acc.speed / 5.0) / (log(2) * acc.accMult);
+		acc.iniDist = log(acc.speed / 7.0) / (log(2) * acc.accMult);
 		acc.endDist = log((acc.speed - 5) / 5.0) / (log(2) * acc.decMult);
 		acc.medDist = acc.distance - acc.iniDist - acc.endDist;
 
@@ -37,7 +49,7 @@ float UpdateAcc(Accelerate& acc, float x)
 {
 	// Accelerate
 	if (x <= acc.iniDist)
-		return (pow(2, x	* acc.accMult)) * 5;
+		return (pow(2, x	* acc.accMult)) * 7.0;
 
 	// Constant speed
 	if (x <= acc.medDist + acc.iniDist)

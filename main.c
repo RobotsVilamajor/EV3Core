@@ -11,10 +11,37 @@
 // MoveMotor(Motor, Count, Power)
 // MoveMotorAsync(Motor, Count, Power)
 
+
 #include "Core/Core.h"
 
 task main()
 {
-		//Turn (R, 40, 60);
-	AlignWall();
+	////setMotorSync(motorB, motorC, 0, 0);
+	//setMotorBrakeMode(motorB, motorCoast);
+	//setMotorBrakeMode(motorC, motorCoast);
+
+	//delay(50);
+
+	////setMotorSync(motorB, motorC, 1, 3);
+	//float c_speed = 5;
+	//float dt = 0.01;
+	//while (c_speed < 10)
+	//{
+	//	float err = (getMotorEncoder(motorC) - getMotorEncoder(motorB)) / 360.0;
+	//	float turn = GetCorrection(err * 10000, 20, 5);
+
+	//	datalogAddValue(0, (int)(err * 10000));
+	//	datalogAddValue(1, (int)(turn * 10));
+	//	datalogAddValue(2, (int)(c_speed));
+
+	//	setMotorSync(motorB, motorC, turn, c_speed);
+
+	//	c_speed += 10 * dt;
+
+	//	delay(dt * 1000);
+	//}
+
+	//delay(5000);
+	Recta(F, 5, 70);
+	//FollowLine(R, 2, 20);
 }
