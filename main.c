@@ -41,7 +41,24 @@ task main()
 	//	delay(dt * 1000);
 	//}
 
+	//AlignWall();
+
 	//delay(5000);
 	Recta(F, 5, 70);
+
+	//FollowLine(R, 2, 40);
+	//Turn(L, 90, 20);
+	//setMotorSync(motorB, motorC, 50, 30);
+
+	//while (true)
+	//{
+	//	float b = getMotorEncoder(motorB) / 360.0;
+	//	float c = getMotorEncoder(motorC) / 360.0;
+
+	//	datalogAddValue(0, (int)(b * 100));
+	//	datalogAddValue(1, (int)(c * 100));
+	//}
+
+	//delay(7000);
 	//FollowLine(R, 2, 20);
 }

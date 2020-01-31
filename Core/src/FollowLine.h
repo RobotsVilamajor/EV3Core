@@ -7,7 +7,7 @@ void FollowLine(float side, float distance, float speed, float target = 50)
 
 	while (fabs(getMotorEncoder(motorB) / 360.0) < distance)
 	{
-		float error = getColorReflected(side == R ? S3 : S4) - target;
+		float error = getColorReflected(side == R ? S4 : S3) - target;
 		float turnRate = UpdatePID(pid, error);
 
 		float diff = (getMotorEncoder(motorC) - getMotorEncoder(motorB)) / (360.0);
@@ -16,8 +16,8 @@ void FollowLine(float side, float distance, float speed, float target = 50)
 		//datalogAddValue(1, (int)(turnRate));
 		//datalogAddValue(2, (int)(pid.integ * pid.k_i));
 
-		setMotorSpeed(motorB, -(speed + turnRate * side));
-		setMotorSpeed(motorC, -(speed - turnRate * side));
+		setMotorSpeed(motorB, (speed - turnRate * side));
+		setMotorSpeed(motorC, (speed + turnRate * side));
 
 		//setMotorSync(motorB, motorC, turnRate, speed * dir);
 	}

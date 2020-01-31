@@ -26,7 +26,11 @@ void Turn(float dir, float angle, float speed)
 	resetMotorEncoder(motorB);
 	resetMotorEncoder(motorC);
 
+	// Arnau
 	angle /= 160.0;
+
+	// Vilabots
+	//angle /= gg
 
 	if (dir < 0)
 		dir = -1;
@@ -40,7 +44,8 @@ void Turn(float dir, float angle, float speed)
 	{
 		float c_speed = UpdateAcc(acc, fabs(getMotorEncoder(motorC)) / 360.0);
 
-		datalogAddValue(0, (int)(c_speed * 100.0));
+		datalogAddValue(0, (int)((angle - fabs(getMotorEncoder(motorB) / 360.0)) * 100));
+		datalogAddValue(2, (int)(c_speed));
 
 		setMotorSpeed(motorB, -c_speed * dir);
 		setMotorSpeed(motorC, c_speed * dir);
