@@ -17,9 +17,9 @@ float GetCorrection(float err, float turnRate, float threshold)
 
 void Recta(float dir, float distance, float speed)
 {
-	setMotorSync(motorB, motorC, 0, 0);
+	//setMotorSync(motorB, motorC, 0, 0);
 
-	delay(50);
+	//delay(50);
 
 	resetMotorEncoder(motorB);
 	resetMotorEncoder(motorC);
@@ -44,8 +44,8 @@ void Recta(float dir, float distance, float speed)
 
 	delay(50);
 
-	setMotorSync(motorB, motorC, 0, 0);
-	delay(50);
+	//setMotorSync(motorB, motorC, 0, 0);
+	//delay(50);
 
 	//setMotorSync(motorB, motorC, 1, 3);
 	float c_speed = 5;
@@ -53,15 +53,17 @@ void Recta(float dir, float distance, float speed)
 	while (c_speed < 9)
 	{
 		float err = (getMotorEncoder(motorC) - getMotorEncoder(motorB)) / 360.0;
-		float turn = GetCorrection(err * 10000, 15 + 1 * c_speed, 5);
+		float turn = GetCorrection(err * 10000, 50, 55);
 
 		datalogAddValue(0, (int)(err * 10000));
-		datalogAddValue(1, (int)(turn * 10));
+		datalogAddValue(1, (int)(turn * 1));
 		datalogAddValue(2, (int)(c_speed));
 
 		setMotorSync(motorB, motorC, turn, c_speed);
+		//20 + 4 * c_speed
+		//setMotorSpeed(motorC, (c_speed - turnRate) * dir);
 
-		c_speed += 10 * dt;
+		c_speed += 5 * dt;
 
 		delay(dt * 1000);
 	}
@@ -79,9 +81,9 @@ void Recta(float dir, float distance, float speed)
 
 		if (dist < acc.iniDist)
 		{
-			pid.k_p = 1000;
-			pid.k_i = 300;
-			pid.k_d = 2;
+			pid.k_p = 1200;
+			pid.k_i = 600;
+			pid.k_d = 0;
 		}
 		else if (dist < acc.medDist + acc.iniDist)
 		{
@@ -93,7 +95,7 @@ void Recta(float dir, float distance, float speed)
 		{
 			pid.k_p = 500;
 			pid.k_i = 100;
-			pid.k_d = 0;
+			pid.k_d = 5;
 		}
 
 		float error = diff - iError;
