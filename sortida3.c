@@ -5,7 +5,7 @@
 //Negatiu= Pujar/ Positiu= Baixar
 //F - Forward(endevant); B - Backward(enrere). Recta
 //L - Left(esquerra); R - Right(dreta)
-//Coeficient de Desviació: 0.0030
+//Coeficient de Desviació: 0.0030.
 
 #include "Core/Core.h"
 
