@@ -35,4 +35,23 @@ void InitAcc (Accelerate& acc, float speed, float distance, float accMult, float
 	acc.speed += 1;
 }
 
+
+float GetSpeed (Accelerate& acc, float x)
+{
+	if (x < acc.iniDist)
+		return acc.startSpeed + pow(2, acc.accMult * x) - 1;
+
+	else if (x < acc.iniDist + acc.medDist)
+		return acc.speed;
+
+	else if (x < acc.distance)
+		return acc.startSpeed - pow(2, acc.decMult * (x - (acc.iniDist + acc.medDist)) + 1;
+
+	else if (x < acc.distance + acc.safeDist)
+		return acc.endSpeed;
+
+	else
+		return 0;
+}
+
 #endif
