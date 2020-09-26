@@ -16,49 +16,4 @@
 
 task main()
 {
-	////setMotorSync(motorB, motorC, 0, 0);
-	//setMotorBrakeMode(motorB, motorCoast);
-	//setMotorBrakeMode(motorC, motorCoast);
-
-	//delay(50);
-
-	////setMotorSync(motorB, motorC, 1, 3);
-	//float c_speed = 5;
-	//float dt = 0.01;
-	//while (c_speed < 10)
-	//{
-	//	float err = (getMotorEncoder(motorC) - getMotorEncoder(motorB)) / 360.0;
-	//	float turn = GetCorrection(err * 10000, 20, 5);
-
-	//	datalogAddValue(0, (int)(err * 10000));
-	//	datalogAddValue(1, (int)(turn * 10));
-	//	datalogAddValue(2, (int)(c_speed));
-
-	//	setMotorSync(motorB, motorC, turn, c_speed);
-
-	//	c_speed += 10 * dt;
-
-	//	delay(dt * 1000);
-	//}
-
-	//AlignWall();
-
-	//delay(5000);
-	Recta(F, 5, 70);
-
-	//FollowLine(R, 2, 40);
-	//Turn(L, 90, 20);
-	//setMotorSync(motorB, motorC, 50, 30);
-
-	//while (true)
-	//{
-	//	float b = getMotorEncoder(motorB) / 360.0;
-	//	float c = getMotorEncoder(motorC) / 360.0;
-
-	//	datalogAddValue(0, (int)(b * 100));
-	//	datalogAddValue(1, (int)(c * 100));
-	//}
-
-	//delay(7000);
-	//FollowLine(R, 2, 20);
 }
