@@ -13,25 +13,26 @@ struct Accelerate
 
 void InitAcc (Accelerate& acc, float speed, float distance, float accMult, float decMult, float startSpeed, float endSpeed, float safeDist)
 {
-	acc.distance = distance - safeDist;
 	acc.speed = speed;
-	acc.startSpeed = startSpeed;
-	acc.endSpeed = startSpeed;
+	acc.distance = distance - safeDist;
 	acc.accMult = accMult;
 	acc.decMult = decMult;
+	acc.startSpeed = startSpeed;
+	acc.endSpeed = endSpeed;
+	acc.safeDist = safeDist;
 
-	while (true)
+
+	do
 	{
 		acc.iniDist = log(acc.speed - acc.startSpeed + 1) / acc.accMult * log(2);
 		acc.endDist = log(acc.speed - acc.endSpeed + 1) / acc.accMult * log(2);
 		acc.medDist = acc.distance - acc.iniDist - acc.endDist;
 
-		if (medDist > 0.2)
-			break;
-
-		else
-			acc.speed -= 1;
+		acc.speed -= 1;
 	}
+	while (acc.medDist < 0.2);
+
+	acc.speed += 1;
 }
 
 #endif
