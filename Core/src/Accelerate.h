@@ -4,9 +4,9 @@
 struct Accelerate
 {
 	float speed;
-	float distance;
-	float accMult, decMult;
-	float safeDist;
+	float disMult, decMult;
+	float satance;
+	float accfeDist;
 	float startSpeed, endSpeed;
 	float iniDist, medDist, endDist;
 };
