@@ -10,19 +10,21 @@ void Recta (float dir, float distance, float speed)
 	resetMotorEncoder(motorC);
 
 	PID pid;
-	InitPID(PID, 300, 200, 1, 0.005);
+	InitPID(pid, 300, 200, 1, 0.005);
 
 	Accelerate acc;
-	InitAcc (acc, speed, distance, 7, 5, 5, 5, 0.1);
+	InitAcc (acc, speed, distance, 7, 7, 5, 5, 0.1);
 
 	while (fabs(getMotorEncoder(motorC) / 360.0) <= distance)
 	{
 		float x = fabs(getMotorEncoder(motorC) / 360.0);
 		float c_speed = GetSpeed(acc, x);
 
-		float error = (getMotorEncoder(motorB) - getMotorEncoder(motorC)) * (360.0 * dir);
+		float error = (getMotorEncoder(motorC) - getMotorEncoder(motorB)) / (360.0 * dir);
 
 		float turnRate = UpdatePID(pid, error);
+
+		datalogAddValue(0, (int)(c_speed));
 
 		setMotorSpeed(motorB, (c_speed + turnRate) * dir);
 		setMotorSpeed(motorC, (c_speed - turnRate) * dir);

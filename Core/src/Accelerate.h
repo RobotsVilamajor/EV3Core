@@ -4,9 +4,9 @@
 struct Accelerate
 {
 	float speed;
-	float disMult, decMult;
-	float satance;
-	float accfeDist;
+	float accMult, decMult;
+	float distance;
+	float safeDist;
 	float startSpeed, endSpeed;
 	float iniDist, medDist, endDist;
 };
@@ -24,8 +24,8 @@ void InitAcc (Accelerate& acc, float speed, float distance, float accMult, float
 
 	do
 	{
-		acc.iniDist = log(acc.speed - acc.startSpeed + 1) / acc.accMult * log(2);
-		acc.endDist = log(acc.speed - acc.endSpeed + 1) / acc.accMult * log(2);
+		acc.iniDist = log(acc.speed - acc.startSpeed + 1) / (acc.accMult * log(2));
+		acc.endDist = log(acc.speed - acc.endSpeed + 1) / (acc.accMult * log(2));
 		acc.medDist = acc.distance - acc.iniDist - acc.endDist;
 
 		acc.speed -= 1;
@@ -39,13 +39,13 @@ void InitAcc (Accelerate& acc, float speed, float distance, float accMult, float
 float GetSpeed (Accelerate& acc, float x)
 {
 	if (x < acc.iniDist)
-		return acc.startSpeed + pow(2, acc.accMult * x) - 1;
+		return acc.startSpeed + pow(2.0, acc.accMult * x) - 1;
 
 	else if (x < acc.iniDist + acc.medDist)
 		return acc.speed;
 
 	else if (x < acc.distance)
-		return acc.startSpeed - pow(2, acc.decMult * (x - (acc.iniDist + acc.medDist)) + 1;
+		return acc.speed - pow(2.0, acc.decMult * (x - (acc.iniDist + acc.medDist))) + 1;
 
 	else if (x < acc.distance + acc.safeDist)
 		return acc.endSpeed;

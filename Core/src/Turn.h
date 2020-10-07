@@ -11,10 +11,9 @@ void AdjustWheel (tMotor m, float target)
 		float dir = 0;
 
 		if (error < 0)
-			float dir = -1;
-
+			dir = -1;
 		else
-			float dir = 1;
+			dir = 1;
 
 		setMotorSpeed(m, -6 * dir);
 
@@ -36,12 +35,12 @@ void Turn (float dir, float angle, float speed)
 	Accelerate acc;
 	InitAcc (acc, speed, target * 1.1,  7,  5, 5, 5, 0.1);
 
-	while (fabs(getMotorEncoder(motorB)) / 360.0 < target || fabs(getMotorEncoder(motorB)) / 360.0 < target)
+	while (fabs(getMotorEncoder(motorB)) / 360.0 < target || fabs(getMotorEncoder(motorC)) / 360.0 < target)
 	{
 		float c_speed = GetSpeed (acc, fabs(getMotorEncoder(motorB)) / 360.0;
 
 		setMotorSpeed(motorB, c_speed * dir);
-		setMotorSpeed(motorB, -c_speed * dir);
+		setMotorSpeed(motorC, -c_speed * dir);
 
 		delay(10);
 	}
@@ -49,8 +48,8 @@ void Turn (float dir, float angle, float speed)
 
 	for (int i = 0; i < 100; i++)
 	{
-		AdjustWheel (-target * dir, motorB);
-		AdjustWheel (target * dir, motorC);
+		AdjustWheel (motorB, target * dir);
+		AdjustWheel (motorC, -target * dir);
 	}
 
 	setMotorSpeed(motorB, 0);

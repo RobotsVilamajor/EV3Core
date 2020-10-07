@@ -2,7 +2,7 @@
 #define _MoveMotor
 
 
-void MoveMotor(tMotor m, float target, float speed);
+void MoveMotor(tMotor m, float target, float speed)
 {
 
 	resetMotorEncoder(m);
@@ -12,13 +12,20 @@ void MoveMotor(tMotor m, float target, float speed);
 	resetMotorEncoder(m);
 
 }
-void MoveMotorTime(tMotor m, float time, float speed);
+void MoveMotorTime(tMotor m, float time, float speed)
 {
 
 	setMotorSpeed(m, speed);
 	delay(time * 1000);
 	setMotorSpeed(m, 0);
 
+}
+
+void MoveMotorAsync(tMotor m, float target, float speed)
+{
+	resetMotorEncoder(m);
+
+	setMotorTarget(m, target * 360, speed);
 }
 
 #endif

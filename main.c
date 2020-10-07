@@ -16,4 +16,10 @@
 
 task main()
 {
+	MoveMotorAsync(motorD, -5, 7);
+	setMotorSync(motorB, motorC, 0, 20);
+
+	delay(3000);
+	setMotorBrakeMode(motorA, motorCoast);
+	setMotorBrakeMode(motorD, motorCoast);
 }

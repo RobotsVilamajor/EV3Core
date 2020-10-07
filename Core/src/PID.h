@@ -10,7 +10,7 @@ struct PID
 	float dt;
 }
 
-void InitPID(PID& pid, float kp, float ki, float kd, float dt);
+void InitPID(PID& pid, float kp, float ki, float kd, float dt)
 {
 	pid.kp = kp;
 	pid.ki = ki;
@@ -20,7 +20,7 @@ void InitPID(PID& pid, float kp, float ki, float kd, float dt);
 	pid.prevError = 0;
 }
 
-float UpdatePID(PID pid, float error)
+float UpdatePID(PID& pid, float error)
 {
 	pid.integ += error * pid.dt;
 	float output = pid.kp * error + pid.ki * pid.integ * pid.dt + pid.kd * (error - pid.prevError) / pid.dt;
