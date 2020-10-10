@@ -37,7 +37,7 @@ void Turn (float dir, float angle, float speed)
 
 	while (fabs(getMotorEncoder(motorB)) / 360.0 < target || fabs(getMotorEncoder(motorC)) / 360.0 < target)
 	{
-		float c_speed = GetSpeed (acc, fabs(getMotorEncoder(motorB)) / 360.0;
+		float c_speed = GetSpeed (acc, fabs(getMotorEncoder(motorB)) / 360.0);
 
 		setMotorSpeed(motorB, c_speed * dir);
 		setMotorSpeed(motorC, -c_speed * dir);

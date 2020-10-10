@@ -13,7 +13,7 @@ void Recta (float dir, float distance, float speed)
 	InitPID(pid, 300, 200, 1, 0.005);
 
 	Accelerate acc;
-	InitAcc (acc, speed, distance, 7, 7, 5, 5, 0.1);
+	InitAcc (acc, speed, distance, 10, 10, 7, 5, 0.1);
 
 	while (fabs(getMotorEncoder(motorC) / 360.0) <= distance)
 	{
