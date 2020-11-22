@@ -4,9 +4,9 @@ void Align (float dir, float time)
 {
 	setMotorSync(motorC, motorB, 0, 10*dir);
 
-	while (getColorReflected(S3) < 70 || getColorReflected(S4) < 70);
+	while (getColorReflected(S3) < 70 || getColorReflected(S4) < 70) {}
 
-	while (getColorReflected(S3) > 30 || getColorReflected(S4) > 30);
+	while (getColorReflected(S3) > 30 || getColorReflected(S4) > 30) {}
 
 	setMotorSync(motorC, motorB, 0, 0);
 

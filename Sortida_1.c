@@ -17,12 +17,17 @@
 task main()
 {
 	//Anem fins a la canasta
-	Recta(-1, 0.75, 75);
-		delay(100);
-	Turn(1, 45, 20);
-	Recta(-1, 2.3, 75);
-	Turn(-1, 45, 20);
-	Recta(-1, 1.5, 75);
+	Recta(Fwd, 0.75, 75);
+	MoveMotorAsync(motorA, 0.975, 50);
+	delay(500);
+	Turn(Rgt, 60, 50);
+	delay(10);
+	Recta(Fwd, 2.3, 75);
+	delay(10);
+	Turn(Lft, 60, 50);
+	delay(10);
+	Recta(Fwd, 1.75, 75);
+	delay(10);
 
-	MoveMotor(motorA, 2, 100);
+	MoveMotor(motorA, 0.975, 100);
 }

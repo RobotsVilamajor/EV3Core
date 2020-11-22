@@ -1,12 +1,14 @@
 #ifndef _TURN
 #define _TURN
 
+#include "Functions.h"
 
-void AdjustWheel (tMotor m, float target)
+
+void AdjustWheel(tMotor m, float target)
 {
 	float error = getMotorEncoder(m) / 360.0 - target;
 
-	if (error != 0)
+	if (!InBetween(error, -0.005, 0.005))
 	{
 		float dir = 0;
 
@@ -33,7 +35,7 @@ void Turn (float dir, float angle, float speed)
 	float target = angle / 160.0;
 
 	Accelerate acc;
-	InitAcc (acc, speed, target * 1.1,  7,  5, 5, 5, 0.1);
+	InitAcc (acc, speed, target * 1.1,  30,  30, 5, 5, 0.1);
 
 	while (fabs(getMotorEncoder(motorB)) / 360.0 < target || fabs(getMotorEncoder(motorC)) / 360.0 < target)
 	{
@@ -46,7 +48,7 @@ void Turn (float dir, float angle, float speed)
 	}
 
 
-	for (int i = 0; i < 100; i++)
+	for (int i = 0; i < 50; i++)
 	{
 		AdjustWheel (motorB, target * dir);
 		AdjustWheel (motorC, -target * dir);

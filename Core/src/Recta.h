@@ -6,6 +6,9 @@
 
 void Recta (float dir, float distance, float speed)
 {
+	setMotorSpeed(motorC, 0);
+	setMotorSpeed(motorB, 0);
+
 	resetMotorEncoder(motorB);
 	resetMotorEncoder(motorC);
 
