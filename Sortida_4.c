@@ -17,8 +17,12 @@
 task main()
 {
 	//Avançem fins a la petanca
-	Recta(-1, 2.3, 75);
+	Recta(-1, 2, 25);
+
 	//Girem per colocarnos i deixar tots els blocs
 	Turn(1, 17, 20);
-	setMotorSyncTime(motorB, motorC, 0, 2000, 20);
+
+	MoveMotor(motorA, 1.2, 100);
+	Recta(-1, 0.5, 75);
+	Recta(1, 2.6, 100);
 }
