@@ -30,4 +30,6 @@ task main()
 	delay(10);
 
 	MoveMotor(motorA, 0.975, 100);
+
+	Recta(Fwd, 01, 10);
 }

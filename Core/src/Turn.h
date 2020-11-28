@@ -8,7 +8,7 @@ void AdjustWheel(tMotor m, float target)
 {
 	float error = getMotorEncoder(m) / 360.0 - target;
 
-	if (!InBetween(error, -0.005, 0.005))
+	if (!InBetween(error, -0.01, 0.01))
 	{
 		float dir = 0;
 
