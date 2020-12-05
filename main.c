@@ -16,6 +16,19 @@
 
 task main()
 {
-	Turn(Lft, 45, 50);
-	Recta(Fwd, 2, 70);
+	setMotorBrakeMode(motorB, motorBrake);
+	setMotorBrakeMode(motorC, motorBrake);
+	setMotorSpeed(motorC,0);
+	setMotorSpeed(motorB,0);
+
+	waitForButtonPress();
+
+	Recta(Fwd, 1, 50);
+	Turn(Rgt, 90, 50);
+
+	delay(5000);
+
+	Recta(Fwd, 1, 50);
+	Turn(Rgt, 90, 50);
+	//Recta(Fwd, 1, 50);
 }

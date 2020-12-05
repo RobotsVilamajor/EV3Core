@@ -27,7 +27,7 @@ void Recta (float dir, float distance, float speed)
 
 		float turnRate = UpdatePID(pid, error);
 
-		datalogAddValue(0, (int)(c_speed));
+		//datalogAddValue(0, (int)(c_speed));
 
 		setMotorSpeed(motorB, (c_speed + turnRate) * dir);
 		setMotorSpeed(motorC, (c_speed - turnRate) * dir);
