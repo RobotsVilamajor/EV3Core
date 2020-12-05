@@ -51,7 +51,7 @@ float GetSpeed (Accelerate& acc, float x)
 		return acc.endSpeed;
 
 	else
-		return 0;
+		return acc.endSpeed;
 }
 
 #endif

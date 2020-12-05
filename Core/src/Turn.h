@@ -2,6 +2,7 @@
 #define _TURN
 
 #include "Functions.h"
+#include "Defines.h"
 
 
 void AdjustWheel(tMotor m, float target)
@@ -32,7 +33,7 @@ void Turn (float dir, float angle, float speed)
 	resetMotorEncoder(motorB);
 	resetMotorEncoder(motorC);
 
-	float target = angle / 179.19;
+	float target = angle / TURN_CONVERSION;
 
 	Accelerate acc;
 	InitAcc (acc, speed, target * 1.1,  30,  30, 7, 7, 0.1);

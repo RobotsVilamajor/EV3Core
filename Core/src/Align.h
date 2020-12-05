@@ -1,12 +1,13 @@
 #include "PID.h"
+#include "Defines.h"
 
 void Align (float dir, float time)
 {
 	setMotorSync(motorC, motorB, 0, 10*dir);
 
-	while (getColorReflected(S3) < 70 || getColorReflected(S4) < 70) {}
+	while (getColorReflected(S3) < ALIGN_MIN_WHITE || getColorReflected(S4) < ALIGN_MIN_WHITE) {}
 
-	while (getColorReflected(S3) > 30 || getColorReflected(S4) > 30) {}
+	while (getColorReflected(S3) > ALIGN_MIN_BLACK || getColorReflected(S4) > ALIGN_MIN_BLACK) {}
 
 	setMotorSync(motorC, motorB, 0, 0);
 
@@ -18,7 +19,7 @@ void Align (float dir, float time)
 	while (time1[T1] < time * 1000)
 	{
 		// pidL
-		float errorL = getColorReflected(S4) - 50;
+		float errorL = getColorReflected(S4) - ALIGN_TARGET_LEFT;
 		float speedL = UpdatePID (pidL, errorL);
 		setMotorSpeed(motorC, speedL * dir);
 
@@ -26,7 +27,7 @@ void Align (float dir, float time)
     datalogAddValue(1, (int)(speedL * 10));
 
 		// pidR
-		float errorR = getColorReflected(S3) - 50;
+		float errorR = getColorReflected(S3) - ALIGN_TARGET_RIGHT;
 		float speedR = UpdatePID (pidR, errorR);
 		setMotorSpeed(motorB, speedR * dir);
 	}

@@ -3,6 +3,7 @@
 
 #include "PID.h"
 #include "Accelerate.h"
+#include "Defines.h"
 
 void Recta (float dir, float distance, float speed)
 {
@@ -23,7 +24,7 @@ void Recta (float dir, float distance, float speed)
 		float x = fabs(getMotorEncoder(motorC) / 360.0);
 		float c_speed = GetSpeed(acc, x);
 
-		float error = (getMotorEncoder(motorC) - getMotorEncoder(motorB)) / (360.0 * dir);
+		float error = (getMotorEncoder(motorC) - getMotorEncoder(motorB) + RECTA_REGRESSION * x) / (360.0 * dir);
 
 		float turnRate = UpdatePID(pid, error);
 
