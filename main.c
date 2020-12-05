@@ -30,11 +30,14 @@ task main()
 	waitForButtonPress();
 
 	Recta(Fwd, 1, 50);
+
+	delay(2000);
+
 	Turn(Rgt, 90, 50);
 
-	delay(5000);
+	//delay(5000);
 
-	Recta(Fwd, 1, 50);
-	Turn(Rgt, 90, 50);
+	//Recta(Fwd, 1, 50);
+	//Turn(Rgt, 90, 50);
 	//Recta(Fwd, 1, 50);
 }
