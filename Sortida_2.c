@@ -10,19 +10,13 @@
 // Align(Direction, Time)
 // MoveMotor(Motor, Count, Power)
 // MoveMotorAsync(Motor, Count, Power)
+// Motor A --> horitzontal
+// Motor B --> vertical
 
 
 #include "Core/Core.h";
 
 task main()
 {
-//Fem M??
-	//Abancem fins M??
-	Recta(Fwd, ?, 75);
 
-	//Fem M??
-	Recta(Fwd, ?, 30);
-
-
-//Deixem unitats
 }

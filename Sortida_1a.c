@@ -11,18 +11,27 @@
 // MoveMotor(Motor, Count, Power)
 // MoveMotorAsync(Motor, Count, Power)
 
+//Colocació: Pala màxim dreta i la part dreta del robot a la segona linea fosca començant des de la esquerra
+
 
 #include "Core/Core.h";
 
 task main()
 {
-//Fem M??
-	//Abancem fins M??
-	Recta(Fwd, ?, 75);
+	//Avançem fins a la petanca
+	Recta(Fwd, 1.7, 50);
 
-	//Fem M??
-	Recta(Fwd, ?, 30);
+	//Ens coloquem per deixar els blocs
+	Turn(Rgt, 20, 75);
+	Recta(Fwd, 0.5, 75);
+	MoveMotor(motorA, 1.2, 100);
 
+	//Coloquem els cubs
+	Recta(Fwd, 0.25, 50);
 
-//Deixem unitats
+	//Tornem a base i coloquem pala
+	Recta(Bwd, 2.4, 100);
+	delay(500);
+	MoveMotorAsync(motorA, -1.2, 100;
+
 }
