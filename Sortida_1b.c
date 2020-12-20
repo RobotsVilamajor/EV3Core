@@ -39,13 +39,13 @@ task main()
 	//Abancem fins humans
 	Turn(Rgt, 60, 50);
 	delay(10);
-	Recta(Fwd, 2.3, 75);
+	Recta(Fwd, 2.1, 75);
 	delay(10);
 
 	//Arribem a canasta
-	Turn(Lft, 50, 50);
+	Turn(Lft, 60, 50);
 	delay(10);
-	Recta(Fwd, 1.75, 75);
+	Recta(Fwd, 1.95, 75);
 	delay(10);
 
 
@@ -57,10 +57,10 @@ task main()
 	MoveMotor(motorD, 3, 70);
 
 	//Pujem segon pis
-//	MoveMotor(motorD, ?, 100);
-//	MoveMotor(motorA, ?, 100);
-//	MoveMotor(motorD, ?, 100);
-//	MoveMotor(motorA, ?, 100);
+	MoveMotor(motorA, -1, 100);
+	MoveMotor(motorD, -3, 100);
+	MoveMotor(motorA, 1, 100);
+	MoveMotor(motorD, 7, 100);
 
 ////Tornem base
 //	//Sortim canasta
