@@ -27,7 +27,7 @@ void Recta (float dir, float distance, float speed, bool align = false)
 
 		float error = (getMotorEncoder(motorC) - getMotorEncoder(motorB) + RECTA_REGRESSION * x) / (360.0 * dir);
 
-		float turnRate = UpdatePID(pid, error);
+	  float turnRate = UpdatePID(pid, error);
 
 		datalogAddValue(0, (int)(error * 1000));
 		datalogAddValue(1, (int)(c_speed));
