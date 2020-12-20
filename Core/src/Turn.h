@@ -11,7 +11,7 @@ void Turn (float dir, float angle, float speed)
 	resetMotorEncoder(motorB);
 	resetMotorEncoder(motorC);
 
-	float target = angle / TURN_CONVERSION;
+	loat target = angle / TURN_CONVERSION;
 
 	Accelerate acc;
 	InitAcc (acc, speed, target, 2000, 2000, 2, 2, 7, 7, 0.1);
