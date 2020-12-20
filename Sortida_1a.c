@@ -15,6 +15,7 @@
 
 
 #include "Core/Core.h";
+#define ROBOPRO
 
 task main()
 {

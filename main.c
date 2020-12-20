@@ -16,7 +16,7 @@
 // MoveMotorAsync(Motor, Count, Power)
 
 // ROBOPRO || VEATRIZ
-#define VEATRIZ
+#define ROBOPRO
 
 #include "Core/Core.h"
 
@@ -24,20 +24,16 @@ task main()
 {
 	setMotorBrakeMode(motorB, motorBrake);
 	setMotorBrakeMode(motorC, motorBrake);
-	setMotorSpeed(motorC,0);
-	setMotorSpeed(motorB,0);
+
+	setMotorSpeed(motorB, 0);
+	setMotorSpeed(motorC, 0);
 
 	waitForButtonPress();
 
-	Recta(Fwd, 1, 50);
+	delay(1000);
+	//Recta(Fwd, 4, 70, true);
 
-	delay(2000);
+	Turn(Rgt, 360, 7);
 
-	Turn(Rgt, 90, 50);
-
-	//delay(5000);
-
-	//Recta(Fwd, 1, 50);
-	//Turn(Rgt, 90, 50);
-	//Recta(Fwd, 1, 50);
+	delay(10000);
 }

@@ -3,30 +3,8 @@
 
 #include "Functions.h"
 #include "Defines.h"
+#include "Accelerate.h"
 
-
-void AdjustWheel(tMotor m, float target)
-{
-	float error = getMotorEncoder(m) / 360.0 - target;
-
-	if (!InBetween(error, -0.005, 0.005))
-	{
-		float dir = 0;
-
-		if (error < 0)
-			dir = -1;
-		else
-			dir = 1;
-
-		setMotorSpeed(m, -6 * dir);
-
-		waitUntil((getMotorEncoder(m) / 360.0 - target) * dir <= 0);
-
-		setMotorSpeed(m, 0);
-
-		delay(100);
-	}
-}
 
 void Turn (float dir, float angle, float speed)
 {
@@ -36,11 +14,11 @@ void Turn (float dir, float angle, float speed)
 	float target = angle / TURN_CONVERSION;
 
 	Accelerate acc;
-	InitAcc (acc, speed, target * 1.1,  30,  30, 7, 7, 0.1);
+	InitAcc (acc, speed, target, 2000, 2000, 2, 2, 7, 7, 0.1);
 
 	while (fabs(getMotorEncoder(motorB)) / 360.0 < target || fabs(getMotorEncoder(motorC)) / 360.0 < target)
 	{
-		float c_speed = GetSpeed (acc, fabs(getMotorEncoder(motorB)) / 360.0);
+		float c_speed = GetSpeed(acc, fabs(getMotorEncoder(motorB)) / 360.0);
 
 		setMotorSpeed(motorB, c_speed * dir);
 		setMotorSpeed(motorC, -c_speed * dir);
@@ -58,6 +36,9 @@ void Turn (float dir, float angle, float speed)
 		AdjustWheel (motorB, target * dir);
 		AdjustWheel (motorC, -target * dir);
 	}
+
+	displayCenteredBigTextLine(2, "%.3f - %.3f", getMotorEncoder(motorB), (TURN_CONVERSION * getMotorEncoder(motorB)) / 360.0);
+	displayCenteredBigTextLine(5, "%.3f - %.3f", getMotorEncoder(motorC), (TURN_CONVERSION * getMotorEncoder(motorC)) / 360.0);
 
 	setMotorSpeed(motorB, 0);
 	setMotorSpeed(motorC, 0);
