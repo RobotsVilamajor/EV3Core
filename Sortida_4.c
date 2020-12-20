@@ -11,18 +11,46 @@
 // MoveMotor(Motor, Count, Power)
 // MoveMotorAsync(Motor, Count, Power)
 
-
+#define VEATRIZ
 #include "Core/Core.h";
 
 task main()
 {
-//Fem M??
+	//Fem M??
+	setMotorBrakeMode(motorB, motorBrake);
+	setMotorBrakeMode(motorC, motorBrake);
+	setMotorSpeed(motorC,0);
+	setMotorSpeed(motorB,0);
+	waitForButtonPress();
+
 	//Abancem fins M??
-	Recta(Fwd, ?, 75);
+	Recta(Fwd, 4.2, 75);
+	delay(5000);
+	for(int i = 0; i < 11; i++)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			setMotorSpeed(motorB,-10);
+			setMotorSpeed(motorC,-10);
+
+			delay(305);
+
+			setMotorSpeed(motorB,0);
+			setMotorSpeed(motorC,0);
+
+			delay(10);
+		}
+		setMotorSpeed(motorB, 10);
+		setMotorSpeed(motorC, 10);
+
+		delay(225);
+	}
 
 	//Fem M??
-	Recta(Fwd, ?, 30);
-
-
-//Deixem unitats
+	/*Recta(Bwd, 0.5, 30);// Hem fet la M
+	Turn(Lft, 20, 50);
+	Recta(Fwd, 0.2, 30);
+	Turn(Lft, 70, 50);
+	Recta(Bwd, 0.5, 30);//Ens colloquem amb la paret
+//Deixem unitats*/
 }
