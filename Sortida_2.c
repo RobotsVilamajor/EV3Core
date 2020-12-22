@@ -13,10 +13,23 @@
 // Motor A --> horitzontal
 // Motor B --> vertical
 
+#define VEATRIZ
 
 #include "Core/Core.h";
 
 task main()
 {
+	setMotorBrakeMode(motorB, motorBrake);
+	setMotorBrakeMode(motorC, motorBrake);
+
+	setMotorSpeed(motorB, 0);
+	setMotorSpeed(motorC, 0);
+
+	waitForButtonPress();
+
+	Recta(Fwd, 3, 70);
+	MoveMotor(motorA, 1, 50);
+	//Recta(Fwd, 2, 50);
+	//Turn();
 
 }
