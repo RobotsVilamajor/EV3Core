@@ -9,6 +9,7 @@
 // Fwd - Forward; Bwd - Backward. Recta direction definitions
 // Lft - Left; Rgt - Right. Turns direction definitions
 
+// From max side to middle: 1.1
 // Recta(Direction, Count, Power)
 // Turn(Direction, Angle, Power)
 // Align(Direction, Time)
