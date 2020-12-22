@@ -11,7 +11,7 @@
 // MoveMotor(Motor, Count, Power)
 // MoveMotorAsync(Motor, Count, Power)
 // Motor A --> horitzontal
-// Motor B --> vertical
+// Motor D --> vertical
 
 #define VEATRIZ
 
@@ -27,9 +27,53 @@ task main()
 
 	waitForButtonPress();
 
-	Recta(Fwd, 3, 70);
-	MoveMotor(motorA, 1, 50);
-	//Recta(Fwd, 2, 50);
-	//Turn();
+	//Sortir de base direcció a M03 i deixar estructura
+	Recta(Fwd, 3.05, 70);
+	MoveMotor(motorA, 1.8, 50);
+
+	//Avançar i girar cap a M08, després girar l'estructura
+	Recta(Fwd, 2, 50);
+
+	//Fins aquí està correcte
+
+
+	Turn(Rgt, 70, 50);
+	Recta(Fwd, 2, 70);
+
+	//Avançar fins a M13, aixecar Wall per agafar podrions de salut i aixecar M13
+	MoveMotor(motorA, -1, 50);
+	MoveMotorAsync(motorD, 0.4, 50);
+	Recta(Fwd, 4, 70);
+	MoveMotor(motorD, -0.4, 50);
+	MoveMotorAsync(motorA, 1, 50);
+	MoveMotor(motorD, 2.5, 50);
+
+	//Col·locar-nos de nou, anar enrere fins a M10 i orientar-nos cap a M10
+	MoveMotor(motorD, -2.5, 50);
+	MoveMotorAsync(motorA, -1, 50);
+	Recta(Bwd, 3.5, 70);
+	Turn(Lft, 90, 50);
+
+	//Avançar, aixecar Wall per agafar telèfon, acabar d'avançar i baixar Wall per agafar telèfon
+	Recta(Fwd, 0.5, 40);
+	MoveMotor(motorD, 2.5, 50);
+	Recta(Fwd, 0.2, 30);
+	MoveMotor(motorD, -2, 50);
+
+	//Aixecar Wall per moure estructura M08
+	Recta(Fwd, 0.2, 30);
+	MoveMotor(motorD, 1, 50);
+
+	//Anar enrere per moure rodes
+	MoveMotor(motorD, -1.5, 50);
+	Recta(Bwd, 2.5, 70);
+
+	//Avançar i girar per tornar
+	Recta(Fwd, 0.5, 50);
+	Turn(Rgt, 90, 50);
+	Recta(Bwd, 3, 70);
+	Turn(Lft, 40, 70);
+
+	//Part Final
 
 }
