@@ -55,7 +55,7 @@ task main()
 
 	//Fem M14
 	Recta(Fwd, 0.10, 50);
-	Turn(Lft, 90, 50);	// va a agafar la M14 (aquella cosa petita que hi ha moltes i s'ha de penjar i dona punts)
+	Turn(Lft, 90, 50);	// va a agafar la M14 (porcions de salut)
 	MoveMotorAsync(motorA, 0.25, 50);
 	Recta (Fwd, 1.2, 50);
 
