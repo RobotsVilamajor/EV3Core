@@ -6,7 +6,7 @@
 #include "Accelerate.h"
 
 
-void Turn (float dir, float angle, float speed)
+void Turn(float dir, float angle, float speed)
 {
 	resetMotorEncoder(motorB);
 	resetMotorEncoder(motorC);

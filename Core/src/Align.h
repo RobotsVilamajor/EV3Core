@@ -1,9 +1,9 @@
 #include "PID.h"
 #include "Defines.h"
 
-void Align (float dir, float time)
+void Align(float dir, float time)
 {
-	setMotorSync(motorC, motorB, 0, 10*dir);
+	setMotorSync(motorC, motorB, 0, 10 * dir);
 
 	while (getColorReflected(S3) < ALIGN_MIN_WHITE || getColorReflected(S4) < ALIGN_MIN_WHITE) {}
 

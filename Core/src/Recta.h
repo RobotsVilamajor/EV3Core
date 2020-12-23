@@ -6,7 +6,7 @@
 #include "Functions.h"
 #include "Defines.h"
 
-void Recta (float dir, float distance, float speed, bool align = false)
+void Recta(float dir, float distance, float speed, bool align = false)
 {
 	setMotorSpeed(motorC, 0);
 	setMotorSpeed(motorB, 0);
