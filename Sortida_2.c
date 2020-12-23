@@ -13,7 +13,7 @@
 // Motor A --> horitzontal
 // Motor D --> vertical
 
-#define VEATRIZ
+#define ROBOPRO
 
 #include "Core/Core.h";
 
@@ -28,22 +28,23 @@ task main()
 	waitForButtonPress();
 
 	//Sortir de base direcció a M03 i deixar estructura
-	Recta(Fwd, 3.05, 70);
+	Recta(Fwd, 3.05, 50);
 	MoveMotor(motorA, 1.8, 50);
+	MoveMotorAsync(motorD, 2.5, 50);
 
 	//Avançar i girar cap a M08, després girar l'estructura
+	Recta(Fwd, 2.4, 50);
+
+	Turn(Rgt, ?, 20);
+	MoveMotorAsync(motorA, -1.3, 50);
 	Recta(Fwd, 2, 50);
 
-	//Fins aquí està correcte
+	//Avançar fins a M13, aixecar Wall per agafar porcions de salut i aixecar M13
+	MoveMotorAsync(motorD, -1.9, 25);
+	Recta(Fwd, 2.5, 50);
 
+	//Fins aquí fet. Cal definir angle de gir
 
-	Turn(Rgt, 70, 50);
-	Recta(Fwd, 2, 70);
-
-	//Avançar fins a M13, aixecar Wall per agafar podrions de salut i aixecar M13
-	MoveMotor(motorA, -1, 50);
-	MoveMotorAsync(motorD, 0.4, 50);
-	Recta(Fwd, 4, 70);
 	MoveMotor(motorD, -0.4, 50);
 	MoveMotorAsync(motorA, 1, 50);
 	MoveMotor(motorD, 2.5, 50);
