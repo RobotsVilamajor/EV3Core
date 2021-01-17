@@ -29,12 +29,11 @@ task main()
 	setMotorSpeed(motorB, 0);
 	setMotorSpeed(motorC, 0);
 
-	waitForButtonPress();
+	Recta(Fwd, 2, 70, -30, true, false);
+	Recta(Fwd, 2, 70, 30, false, false);
+	Recta(Fwd, 1, 70, 0, false, true);
 
-	delay(1000);
-	//Recta(Fwd, 4, 70, true);
+	setMotorTarget(motorC, 0, 50);
 
-	Turn(Rgt, 360, 7);
-
-	delay(10000);
+	waitUntilMotorStop(motorC);
 }
