@@ -23,17 +23,18 @@
 
 task main()
 {
-	setMotorBrakeMode(motorB, motorBrake);
-	setMotorBrakeMode(motorC, motorBrake);
+	setMotorSpeed(motorC, -50);
+	waitUntilMotorStop(motorC);
+	delay (2000);
+	resetMotorEncoder(motorC);
 
-	setMotorSpeed(motorB, 0);
-	setMotorSpeed(motorC, 0);
-
-	Recta(Fwd, 2, 70, -30, true, false);
-	Recta(Fwd, 2, 70, 30, false, false);
-	Recta(Fwd, 1, 70, 0, false, true);
-
-	setMotorTarget(motorC, 0, 50);
+	setMotorTarget(motorC, 31.25, 50);
 
 	waitUntilMotorStop(motorC);
+	resetMotorEncoder(motorC);
+	waitForButtonPress();
+
+	Recta(Fwd, 0.5, 70, 0, true, true);
+
+	waitUntilMotorStop(motorb);
 }
