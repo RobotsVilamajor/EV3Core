@@ -23,12 +23,13 @@
 
 task main()
 {
+
 	setMotorSpeed(motorC, -50);
 	waitUntilMotorStop(motorC);
 	delay (2000);
 	resetMotorEncoder(motorC);
 
-	setMotorTarget(motorC, 31.25, 50);
+	setMotorTarget(motorC, 109, 50);
 
 	waitUntilMotorStop(motorC);
 	resetMotorEncoder(motorC);
@@ -37,4 +38,5 @@ task main()
 	Recta(Fwd, 0.5, 70, 0, true, true);
 
 	waitUntilMotorStop(motorb);
+
 }
