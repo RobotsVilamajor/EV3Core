@@ -17,7 +17,7 @@
 
 #elif defined(VEATRIZ)
 
-#define RECTA_REGRESSION 0
+#define RECTA_REGRESSION 8.8
 #define ALIGN_MIN_WHITE 70
 #define ALIGN_MIN_BLACK 30
 #define ALIGN_TARGET_LEFT 50
