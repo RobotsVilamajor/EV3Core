@@ -13,7 +13,7 @@
 // Motor A --> horitzontal
 // Motor D --> vertical
 
-#define ROBOPRO
+#define VEATRIZ
 
 #include "Core/Core.h";
 
@@ -25,56 +25,61 @@ task main()
 	setMotorSpeed(motorB, 0);
 	setMotorSpeed(motorC, 0);
 
-	waitForButtonPress();
+	//Fer ajust inicial
+	delay(250);
+
+	Recta(Bwd, 0.08, 70);
+
+	delay(250);
 
 	//Sortir de base direcció a M03 i deixar estructura
-	Recta(Fwd, 3.05, 50);
+	Recta(Fwd, 3.1, 50);
 	MoveMotor(motorA, 1.8, 50);
 	MoveMotorAsync(motorD, 2.5, 50);
 
 	//Avançar i girar cap a M08, després girar l'estructura
 	Recta(Fwd, 2.4, 50);
 
-	Turn(Rgt, ?, 20);
-	MoveMotorAsync(motorA, -1.3, 50);
-	Recta(Fwd, 2, 50);
+	Turn(Rgt, 50, 20);
+	//MoveMotorAsync(motorA, -1.3, 50);
+	//Recta(Fwd, 2, 50);
 
-	//Avançar fins a M13, aixecar Wall per agafar porcions de salut i aixecar M13
-	MoveMotorAsync(motorD, -1.9, 25);
-	Recta(Fwd, 2.5, 50);
+	////Avançar fins a M13, aixecar Wall per agafar porcions de salut i aixecar M13
+	//MoveMotorAsync(motorD, -1.9, 25);
+	//Recta(Fwd, 2.5, 50);
 
-	//Fins aquí fet. Cal definir angle de gir
+	////Fins aquí fet. Cal definir angle de gir
 
-	MoveMotor(motorD, -0.4, 50);
-	MoveMotorAsync(motorA, 1, 50);
-	MoveMotor(motorD, 2.5, 50);
+	//MoveMotor(motorD, -0.4, 50);
+	//MoveMotorAsync(motorA, 1, 50);
+	//MoveMotor(motorD, 2.5, 50);
 
-	//Col·locar-nos de nou, anar enrere fins a M10 i orientar-nos cap a M10
-	MoveMotor(motorD, -2.5, 50);
-	MoveMotorAsync(motorA, -1, 50);
-	Recta(Bwd, 3.5, 70);
-	Turn(Lft, 90, 50);
+	////Col·locar-nos de nou, anar enrere fins a M10 i orientar-nos cap a M10
+	//MoveMotor(motorD, -2.5, 50);
+	//MoveMotorAsync(motorA, -1, 50);
+	//Recta(Bwd, 3.5, 70);
+	//Turn(Lft, 90, 50);
 
-	//Avançar, aixecar Wall per agafar telèfon, acabar d'avançar i baixar Wall per agafar telèfon
-	Recta(Fwd, 0.5, 40);
-	MoveMotor(motorD, 2.5, 50);
-	Recta(Fwd, 0.2, 30);
-	MoveMotor(motorD, -2, 50);
+	////Avançar, aixecar Wall per agafar telèfon, acabar d'avançar i baixar Wall per agafar telèfon
+	//Recta(Fwd, 0.5, 40);
+	//MoveMotor(motorD, 2.5, 50);
+	//Recta(Fwd, 0.2, 30);
+	//MoveMotor(motorD, -2, 50);
 
-	//Aixecar Wall per moure estructura M08
-	Recta(Fwd, 0.2, 30);
-	MoveMotor(motorD, 1, 50);
+	////Aixecar Wall per moure estructura M08
+	//Recta(Fwd, 0.2, 30);
+	//MoveMotor(motorD, 1, 50);
 
-	//Anar enrere per moure rodes
-	MoveMotor(motorD, -1.5, 50);
-	Recta(Bwd, 2.5, 70);
+	////Anar enrere per moure rodes
+	//MoveMotor(motorD, -1.5, 50);
+	//Recta(Bwd, 2.5, 70);
 
-	//Avançar i girar per tornar
-	Recta(Fwd, 0.5, 50);
-	Turn(Rgt, 90, 50);
-	Recta(Bwd, 3, 70);
-	Turn(Lft, 40, 70);
+	////Avançar i girar per tornar
+	//Recta(Fwd, 0.5, 50);
+	//Turn(Rgt, 90, 50);
+	//Recta(Bwd, 3, 70);
+	//Turn(Lft, 40, 70);
 
-	//Part Final
+	////Part Final
 
 }
