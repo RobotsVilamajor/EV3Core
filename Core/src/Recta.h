@@ -6,6 +6,15 @@
 #include "Functions.h"
 #include "Defines.h"
 
+// Geogebra link: geogebra.org/graphing/rjzhaafu
+float GetCorrection(float x)
+{
+	float min = 0.85;	// Minimum RECTA_REGRESSION value (percent)
+	float b = 1.5;		// Geogebra
+	float a = 2.5;		// Geogebra
+	return RECTA_REGRESSION * (min - ((1.0 - min) / 2.0) * (tanh((x-a)/b) - 1));
+}
+
 void Recta(float dir, float distance, float speed, bool align = false)
 {
 	setMotorSpeed(motorC, 0);
@@ -25,12 +34,12 @@ void Recta(float dir, float distance, float speed, bool align = false)
 		float x = fabs(getMotorEncoder(motorC) / 360.0);
 		float c_speed = GetSpeed(acc, x);
 
-		float error = (getMotorEncoder(motorC) - getMotorEncoder(motorB) + RECTA_REGRESSION * x) / (360.0 * dir);
+		float error = (getMotorEncoder(motorC) - getMotorEncoder(motorB) + GetCorrection(x) * x) / (360.0 * dir);
 
 	  float turnRate = UpdatePID(pid, error);
 
-		datalogAddValue(0, (int)(error * 1000));
-		datalogAddValue(1, (int)(c_speed));
+		//datalogAddValue(0, (int)(error * 1000));
+		//datalogAddValue(1, (int)(c_speed));
 
 		setMotorSpeed(motorB, (c_speed + turnRate) * dir);
 		setMotorSpeed(motorC, (c_speed - turnRate) * dir);

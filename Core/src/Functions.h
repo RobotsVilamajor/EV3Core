@@ -26,3 +26,13 @@ void AdjustWheel(tMotor m, float target)
 		delay(100);
 	}
 }
+
+float tanh(float x)
+{
+	return (exp(x)-exp(-x)) / (exp(x)+exp(-x));
+}
+
+/*inline float map(const float& value, const float& inputMin, const float& inputMax, const float& outputMin, const float& outputMax)
+{
+	return outputMin + ((outputMax - outputMin) / (inputMax - inputMin)) * (value - inputMin);
+}*/
