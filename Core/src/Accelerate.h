@@ -10,9 +10,10 @@ struct Accelerate
 	float safeDist;
 	float startSpeed, endSpeed;
 	float iniDist, medDist, endDist;
+	bool bAcc, bDec;
 };
 
-void InitAcc(Accelerate& acc, float speed, float distance, float accMult, float decMult, float accExp, float decExp, float startSpeed, float endSpeed, float safeDist)
+void InitAcc(Accelerate& acc, float speed, float distance, float accMult, float decMult, float accExp, float decExp, float startSpeed, float endSpeed, float safeDist, bool bAcc = true, bool bDec = true)
 {
 	acc.speed = speed;
 	acc.distance = distance - safeDist;
@@ -23,7 +24,8 @@ void InitAcc(Accelerate& acc, float speed, float distance, float accMult, float 
 	acc.startSpeed = startSpeed;
 	acc.endSpeed = endSpeed;
 	acc.safeDist = safeDist;
-
+	acc.bAcc = bAcc;
+	acc.bDec = bDec;
 
 	do
 	{
@@ -32,8 +34,7 @@ void InitAcc(Accelerate& acc, float speed, float distance, float accMult, float 
 		acc.medDist = acc.distance - acc.iniDist - acc.endDist;
 
 		acc.speed -= 1;
-	}
-	while (acc.medDist <= 0.0);
+	} while (acc.medDist <= 0.0);
 
 	acc.speed += 1;
 }
@@ -42,19 +43,30 @@ void InitAcc(Accelerate& acc, float speed, float distance, float accMult, float 
 float GetSpeed(Accelerate& acc, float x)
 {
 	if (x < acc.iniDist)
-		return acc.startSpeed + acc.accMult * pow(x, acc.accExp);
+	{
+		if (acc.bAcc)
+			return acc.startSpeed + acc.accMult * pow(x, acc.accExp);
+
+		else
+			return acc.speed;
+	}
 
 	else if (x < acc.iniDist + acc.medDist)
 		return acc.speed;
 
-	else if (x < acc.distance)
-		return acc.speed - acc.decMult * pow(x - (acc.iniDist + acc.medDist), acc.decExp);
+	if (acc.bDec)
+	{
+		if (x < acc.distance)
+			return acc.speed - acc.decMult * pow(x - (acc.iniDist + acc.medDist), acc.decExp);
 
-	else if (x < acc.distance + acc.safeDist)
-		return acc.endSpeed;
+		else if (x < acc.distance + acc.safeDist)
+			return acc.endSpeed;
 
+		else
+			return acc.endSpeed;
+	}
 	else
-		return acc.endSpeed;
+		return acc.speed;
 }
 
 #endif
