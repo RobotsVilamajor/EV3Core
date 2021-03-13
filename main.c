@@ -44,38 +44,7 @@ task main()
 	waitForButtonPress();
 
 	float target = 90;
-	setMotorSync(motorB, motorC, -100, 30);
-	waitUntil(getGyroDegrees(S2) >= target);
 
-
-	//delay(1000);
-
-	for (int i = 0; i < 100; i++)
-	{
-		float error = getGyroDegrees(S2) - target;
-
-		writeDebugStreamLine("error: %f", error);
-
-		//if (!InBetween(error, -0.005, 0.005))
-		if (error != 0)
-		{
-			float dir = 0;
-
-			if (error < 0)
-				dir = -1;
-			else
-				dir = 1;
-
-			setMotorSync(motorB, motorC, 100 * dir, 7);
-
-			waitUntil((getGyroDegrees(S2) - target) * dir <= 0);
-
-			setMotorSpeed(motorB, 0);
-  		setMotorSpeed(motorC, 0);
-
-			//delay(100);
-		}
-	}
 
 
 	//Turn(Lft, 50, 20);
