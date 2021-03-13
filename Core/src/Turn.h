@@ -34,7 +34,7 @@ void AdjustAngle(float angle)
 void Turn(float dir, float angle, float speed)
 {
 	Accelerate acc;
-	InitAcc(acc, speed, target, 1000, 2000, 2, 2, 7, 7, 0.1);
+	InitAcc(acc, speed, target, 1000, 2000, 2, 2, 7, 7, 0.1, false, true);
 
 	setMotorSync(motorB, motorC, 100 * dir, 30);
 	waitUntil(getGyroDegrees(S2) >= angle);
