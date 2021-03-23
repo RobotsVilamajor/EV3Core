@@ -4,6 +4,8 @@
 #include "Functions.h"
 #include "Defines.h"
 #include "Accelerate.h"
+
+
 void AdjustAngle(float angle)
 {
 	float error = getGyroDegrees(S2) - angle;
@@ -34,18 +36,22 @@ void AdjustAngle(float angle)
 void Turn(float dir, float angle, float speed)
 {
 	Accelerate acc;
-	InitAcc(acc, speed, target, 1000, 2000, 2, 2, 7, 7, 0.1, false, true);
+	InitAcc(acc, speed, angle, 1000, 2000, 2, 2, 7, 7, 0.1, false, true);
 
-	setMotorSync(motorB, motorC, 100 * dir, 30);
-	waitUntil(getGyroDegrees(S2) >= angle);
+	while (fabs(getGyroDegrees(S2)) >= angle)
+	{
+		float c_speed = GetAcc(acc, angle);
 
-
-	//delay(1000);
+		setMotorSync(motorB, motorC, 100 * dir, c_speed);
+	}
 
 	for (int i = 0; i < 100; i++)
 	{
 		AdjustAngle(angle * dir);
 	}
+
+	setMotorSpeed(motorB, 0);
+  setMotorSpeed(motorC, 0);
 }
 
 #endif
