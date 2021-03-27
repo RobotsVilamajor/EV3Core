@@ -32,7 +32,7 @@ void Recta(float dir, float distance, float speed, bool align = false)
 	while (fabs(getMotorEncoder(motorC) / 360.0) <= distance)
 	{
 		float x = fabs(getMotorEncoder(motorC) / 360.0);
-		float c_speed = GetSpeed(acc, x);
+		float c_speed = GetAcc(acc, x);
 
 		float error = (getMotorEncoder(motorC) - getMotorEncoder(motorB) + GetCorrection(x) * x) / (360.0 * dir);
 

@@ -40,7 +40,7 @@ void InitAcc(Accelerate& acc, float speed, float distance, float accMult, float 
 }
 
 
-float GetSpeed(Accelerate& acc, float x)
+float GetAcc(Accelerate& acc, float x)
 {
 	if (x < acc.iniDist)
 	{
