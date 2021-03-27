@@ -19,34 +19,36 @@
 
 task main()
 {
-	setMotorBrakeMode(motorB, motorBrake);
-	setMotorBrakeMode(motorC, motorBrake);
-
-	setMotorSpeed(motorB, 0);
-	setMotorSpeed(motorC, 0);
+	//Align
+	MoveMotorTime(motorA, 3, -50)
+	MoveMotorTime(motorD, 4, 50)
+	MoveMotorAsync(motorA, 1.15, 50);
+	MoveMotor(motorD, -6.2, 50);
+	resetGyro(S2);
+	waitForButtonPress();
 
 	//Fer ajust inicial
 	delay(250);
-
-	Recta(Bwd, 0.08, 70);
-
+	Recta(Bwd, 0.08, 20);
 	delay(250);
 
 	//Sortir de base direcció a M03 i deixar estructura
-	Recta(Fwd, 3.1, 50);
-	MoveMotor(motorA, 1.8, 50);
-	MoveMotorAsync(motorD, 2.5, 50);
+	Recta(Fwd, 3.2, 50);
+	//MoveMotor(motorA, -1.1, 30);
+	MoveMotorTime(motorA, 1, -30);
+	MoveMotor(motorA, 1.15, 50);
+	MoveMotor(motorD, 0.75, 50);
 
 	//Avançar i girar cap a M08, després girar l'estructura
-	Recta(Fwd, 2.4, 50);
+	Recta(Fwd, 2.1, 50);
 
-	Turn(Rgt, 50, 20);
+	Turn(Rgt, -38, 20);
 	//MoveMotorAsync(motorA, -1.3, 50);
-	//Recta(Fwd, 2, 50);
+	Recta(Fwd, 2, 50);
 
 	////Avançar fins a M13, aixecar Wall per agafar porcions de salut i aixecar M13
 	//MoveMotorAsync(motorD, -1.9, 25);
-	//Recta(Fwd, 2.5, 50);
+	Recta(Fwd, 2.5, 50);
 
 	////Fins aquí fet. Cal definir angle de gir
 

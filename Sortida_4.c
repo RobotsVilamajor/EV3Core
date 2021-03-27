@@ -18,11 +18,13 @@
 task main()
 {
 	//Fem M??
-	setMotorBrakeMode(motorB, motorBrake);
-	setMotorBrakeMode(motorC, motorBrake);
-	setMotorSpeed(motorC,0);
-	setMotorSpeed(motorB,0);
+	resetGyro(S2);
 	waitForButtonPress();
+
+	//Fer ajust inicial
+	delay(250);
+	Recta(Bwd, 0.08, 20);
+	delay(250);
 
 	////Abancem fins M2
 	//Recta(Fwd, 4.2, 75);

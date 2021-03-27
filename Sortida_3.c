@@ -23,6 +23,14 @@
 
 task main()
 {
+	resetGyro(S2);
+	waitForButtonPress();
+
+	//Fer ajust inicial
+	delay(250);
+	Recta(Bwd, 0.08, 20);
+	delay(250);
+
 	//Anem fins a M9 (Girar rodes)
 	Recta(Fwd, 1.50, 80);
 

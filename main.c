@@ -29,7 +29,7 @@
 task main()
 {
 	resetGyro(S2);
-
+	/*
 	setMotorBrakeMode(motorB, motorBrake);
 	setMotorBrakeMode(motorC, motorBrake);
 
@@ -41,13 +41,11 @@ task main()
 
 	Recta(Bwd, 0.08, 70);
 
+	float target = 90;*/
 	waitForButtonPress();
 
-	float target = 90;
-
-
-
-	//Turn(Lft, 50, 20);
+	MoveMotor(motorD, -6.6, 30);
+	MoveMotor(motorD, 0.4, 30);
 
 	/*
 	setMotorBrakeMode(motorB, motorBrake);

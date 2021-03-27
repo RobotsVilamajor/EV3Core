@@ -22,13 +22,13 @@
 
 task main()
 {
-	setMotorBrakeMode(motorB, motorBrake);
-	setMotorBrakeMode(motorC, motorBrake);
-
-	setMotorSpeed(motorB, 0);
-	setMotorSpeed(motorC, 0);
-
+	resetGyro(S2);
 	waitForButtonPress();
+
+	//Fer ajust inicial
+	delay(250);
+	Recta(Bwd, 0.08, 20);
+	delay(250);
 
 //Anem fins a la canasta
 	//Abancem fins catxarrito
