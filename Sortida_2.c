@@ -40,9 +40,10 @@ task main()
 	MoveMotor(motorD, 0.75, 50);
 
 	//Avançar i girar cap a M08, després girar l'estructura
-	Recta(Fwd, 2.1, 50);
+	Recta(Fwd, 3, 50);
+	Turn(Rgt, 38, 20);
+	MoveMotorTime(motorA, 1, -30);
 
-	Turn(Rgt, -38, 20);
 	//MoveMotorAsync(motorA, -1.3, 50);
 	Recta(Fwd, 2, 50);
 
