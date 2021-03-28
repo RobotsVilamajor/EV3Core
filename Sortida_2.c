@@ -34,22 +34,23 @@ task main()
 
 	//Sortir de base direcció a M03 i deixar estructura
 	Recta(Fwd, 3.2, 50);
-	//MoveMotor(motorA, -1.1, 30);
 	MoveMotorTime(motorA, 1, -30);
 	MoveMotor(motorA, 1.15, 50);
-	MoveMotor(motorD, 0.75, 50);
+	MoveMotor(motorD, 2.3, 50);
 
 	//Avançar i girar cap a M08, després girar l'estructura
-	Recta(Fwd, 3, 50);
-	Turn(Rgt, 38, 20);
-	MoveMotorTime(motorA, 1, -30);
-
-	//MoveMotorAsync(motorA, -1.3, 50);
 	Recta(Fwd, 2, 50);
+	MoveMotorTime(motorA, 1.15, -30);
+	Recta(Fwd, 0.75, 40);
+	Turn(Rgt, 36, 20);
+
+	Recta(Fwd, 4.5, 50);
+	MoveMotor(motorD, -1.9, 50);
+	Recta(Fwd, 0.9, 20);
 
 	////Avançar fins a M13, aixecar Wall per agafar porcions de salut i aixecar M13
 	//MoveMotorAsync(motorD, -1.9, 25);
-	Recta(Fwd, 2.5, 50);
+	//Recta(Fwd, 2.5, 50);
 
 	////Fins aquí fet. Cal definir angle de gir
 
