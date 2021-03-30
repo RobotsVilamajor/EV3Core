@@ -12,6 +12,7 @@
 // MoveMotorAsync(Motor, Count, Power)
 // Motor A --> horitzontal
 // Motor D --> vertical
+//Moviment Wall --> -: avall & dreta / +: amunt & esquerra
 
 #define ROBOPRO
 
@@ -21,7 +22,7 @@ task main()
 {
 	//Align
 	MoveMotorTime(motorA, 3, -50)
-	MoveMotorTime(motorD, 4, 50)
+	MoveMotorTime(motorD, 4, 70)
 	MoveMotorAsync(motorA, 1.15, 50);
 	MoveMotor(motorD, -6.2, 50);
 	resetGyro(S2);
@@ -35,18 +36,31 @@ task main()
 	//Sortir de base direcció a M03 i deixar estructura
 	Recta(Fwd, 3.2, 50);
 	MoveMotorTime(motorA, 1, -30);
-	MoveMotor(motorA, 1.15, 50);
-	MoveMotor(motorD, 2.3, 50);
+	MoveMotorAsync(motorA, 1.35, 50);
+	MoveMotor(motorD, 2.9, 50);
 
 	//Avançar i girar cap a M08, després girar l'estructura
-	Recta(Fwd, 2, 50);
-	MoveMotorTime(motorA, 1.15, -30);
-	Recta(Fwd, 0.75, 40);
-	Turn(Rgt, 36, 20);
+	Recta(Fwd, 2.6, 50);
+	Turn(Rgt, 34, 20);
+	Recta(Fwd, 3.5, 40);
 
-	Recta(Fwd, 4.5, 50);
-	MoveMotor(motorD, -1.9, 50);
-	Recta(Fwd, 0.9, 20);
+	//Moure estructura
+	MoveMotorAsync(motorD, 2.2, -40);
+	MoveMotor(motorA, 1.1, -40);
+	Recta(Fwd, 1.4, 20);
+
+	//Situar l'extremitat sota la M13
+	MoveMotor(motorD, 0.7, -30);
+	MoveMotor(motorA, 1.5, 30);
+
+	//Aixecar M13 i col·locar-se de nou
+	MoveMotor(motorD, 5.4, 70);
+	MoveMotorAsync(motorA, 1.5, -70);
+	MoveMotor(motorD, 5.4, -70);
+
+	//Col·Locar-se contra paret i agafar porcions de salut
+
+
 
 	////Avançar fins a M13, aixecar Wall per agafar porcions de salut i aixecar M13
 	//MoveMotorAsync(motorD, -1.9, 25);
