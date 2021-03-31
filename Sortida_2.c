@@ -55,8 +55,17 @@ task main()
 
 	//Aixecar M13 i col·locar-se de nou
 	MoveMotor(motorD, 5.4, 70);
-	MoveMotorAsync(motorA, 1.5, -70);
-	MoveMotor(motorD, 5.4, -70);
+	MoveMotorAsync(motorA, 1.4, -70);
+	MoveMotor(motorD, 5, -70);
+
+	//Recollir porció i alinear-se
+	Recta(Fwd, 1, 30);
+	MoveMotor(motorD, 1.2, 40);
+
+	//Col·locar-se cap a M08
+	Recta(Bwd, 2, 40);
+	Turn(Lft, 90, 30);
+
 
 	//Col·Locar-se contra paret i agafar porcions de salut
 
