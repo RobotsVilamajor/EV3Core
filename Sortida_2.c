@@ -21,7 +21,7 @@
 task main()
 {
 	//Align
-	MoveMotorTime(motorA, 3, -50)
+	MoveMotorTime(motorA, 3, -70)
 	MoveMotorTime(motorD, 4, 70)
 	MoveMotorAsync(motorA, 1.15, 50);
 	MoveMotor(motorD, -6.2, 50);
@@ -44,28 +44,39 @@ task main()
 	Turn(Rgt, 34, 20);
 	Recta(Fwd, 3.5, 40);
 
-	//Moure estructura
-	MoveMotorAsync(motorD, 2.2, -40);
-	MoveMotor(motorA, 1.1, -40);
-	Recta(Fwd, 1.4, 20);
+	//Moure estructura i agafar porció
+	MoveMotorAsync(motorD, 2.65, -70);
+	MoveMotor(motorA, 1.3, -70);
+	Recta(Fwd, 1.5, 30);
+
+	MoveMotorAsync(motorB, 0.2, -40);
+	MoveMotor(motorC, 0.2, -40);
 
 	//Situar l'extremitat sota la M13
-	MoveMotor(motorD, 0.7, -30);
-	MoveMotor(motorA, 1.5, 30);
+	MoveMotorAsync(motorD, 0.4, 70);
+	MoveMotor(motorA, 1, 70);
+	Recta(Bwd, 0.3, 30);
+	MoveMotorAsync(motorD, 0.2, -70);
+	MoveMotor(motorA, 0.8, 50);
 
 	//Aixecar M13 i col·locar-se de nou
-	MoveMotor(motorD, 5.4, 70);
-	MoveMotorAsync(motorA, 1.4, -70);
-	MoveMotor(motorD, 5, -70);
-
-	//Recollir porció i alinear-se
-	Recta(Fwd, 1, 30);
-	MoveMotor(motorD, 1.2, 40);
+	MoveMotor(motorD, 4.4, 70);
+	MoveMotor(motorA, 1, -70);
+	MoveMotorAsync(motorA, 0.7, -70);
+	MoveMotor(motorD, 3.5, -70);
 
 	//Col·locar-se cap a M08
-	Recta(Bwd, 2, 40);
+	Recta(Bwd, 1.5, 40);
 	Turn(Lft, 90, 30);
 
+	//Aixecar M08
+	MoveMotor(motorA, 0.4, 70);
+	Recta(Bwd, 0.2, 40);
+	MoveMotorTime(motorA, 1, 70);
+	MoveMotor(motorD, 0.5, 70);
+
+	//Moure les rodes enrere
+	Recta(Bwd, 1, 40);
 
 	//Col·Locar-se contra paret i agafar porcions de salut
 
