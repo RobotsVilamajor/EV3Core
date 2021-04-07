@@ -37,7 +37,7 @@ task main()
 	Recta(Fwd, 3.05, 50);
 	MoveMotorTime(motorA, 1, -70);
 	MoveMotorAsync(motorA, 1.35, 70);
-	MoveMotor(motorD, 3.5, 70);
+	MoveMotor(motorD, 3.7, 70);
 
 	//Avançar i girar cap a M08, després girar l'estructura
 	Recta(Fwd, 2.75, 50);
@@ -45,19 +45,20 @@ task main()
 	Recta(Fwd, 3.7, 40);
 
 	//Moure estructura i agafar porció
-	MoveMotorAsync(motorD, 3.35, -70);
+	MoveMotorAsync(motorD, 3.55, -70);
 	MoveMotor(motorA, 0.9, -70);
 	MoveMotorTime(motorA, 0.3, -70);
 	Recta(Fwd, 1.5, 30);
 	MoveMotorAsync(motorB, 0.2, -40);
 	MoveMotor(motorC, 0.2, -40);
 	resetGyro(S2);
+	delay(250);
 	Recta(Bwd, 0.1, 20);
 
 	//Situar l'extremitat sota la M13
 	MoveMotorAsync(motorD, 0.5, 70);
 	MoveMotor(motorA, 0.6, 70);
-	Recta(Bwd, 0.25, 30);
+	Recta(Bwd, 0.18, 30);
 	MoveMotorAsync(motorD, 0.2, -70);
 	MoveMotor(motorA, 1.2, 70);
 	MoveMotorTime(motorA, 0.2, 70);
@@ -72,26 +73,41 @@ task main()
 	//Col·locar-se cap a M08
 	Recta(Bwd, 1.6, 40);
 	Turn(Lft, 90, 20);
-	Recta(Fwd, 0.2, 40);
-	MoveMotorAsync(motorB, 0.2, -40);
-	MoveMotor(motorC, 0.2, -40);
+	MoveMotor(motorA, 0.6, 70);
+	MoveMotorAsync(motorD, 0.5, -70);
+	Recta(Fwd, 0.4, 40);
+	MoveMotorAsync(motorB, 0.2, -30);
+	MoveMotor(motorC, 0.2, -30);
 	resetGyro(S2);
-	Recta(Bwd, 0.4, 40);
+	delay(250);
+	Recta(Bwd, 0.1, 40);
 
 	//Aixecar M08
-	MoveMotor(motorA, 0.6, 70);
-	Recta(Bwd, 0.1, 40);
-	MoveMotorTime(motorA, 0.8, 70);
 	MoveMotor(motorD, 0.5, 70);
+	Recta(Bwd, 0.55, 40);
+	MoveMotor(motorA, 0.2, 70);
+	MoveMotor(motorD, 0.6, 70);
+	MoveMotor(motorA, 0.7, 70);
 
 	//Moure les rodes enrere
-	Recta(Bwd, 0.9, 40);
+	Recta(Bwd, 1, 40);
 	Recta(Fwd, 0.1, 40);
 
 	//Avançar fins M03
-	MoveMotorAsync(motorA, 1.1, 70);
-	MoveMotor(motorD, 2, -70);
+	MoveMotor(motorD, 2.3, -70);
 	Turn(Lft, 55, 20);
+	MoveMotor(motorA, 0.4, 70);
+	Recta(Fwd, 2.3, 40);
+	Turn(Lft, 35, 20);
+	MoveMotorAsync(motorA, 0.4, -70);
+	Recta(Fwd, 0.7, 40);
+	Turn(Lft, 38, 20);
+	Recta(Fwd, 0.2, 40);
+
+	////Avançar fins M03
+	//MoveMotorAsync(motorA, 1.1, 70);
+	//MoveMotor(motorD, 2, -70);
+	//Turn(Lft, 55, 20);
 	//Recta(Fwd, 2.3, 40);
 	//Turn(Lft, 35, 20);
 	//Recta(Fwd, 0.7, 40);
