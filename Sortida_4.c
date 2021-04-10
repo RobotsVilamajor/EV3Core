@@ -33,28 +33,33 @@ task main()
 	//delay(250);
 
 	//Fem M2
-	Recta(Fwd, 6.4, 50);
-	setMotorSpeed(motorB, 50);
-	setMotorSpeed(motorC, 50);
-	delay(200);
+	Recta(Fwd, 5.5, 50);
+	Recta(Fwd, 0.5, 30);
+	setMotorSpeed(motorB, -17);
+	setMotorSpeed(motorC, -15);
+	delay(500);
 	setMotorSpeed(motorB, 0);
 	setMotorSpeed(motorC, 0);
 
 	//desenganchem
-	Recta(Bwd, 0.8, 30);
+	Recta(Bwd, 0.5, 30);
 	MoveMotor(motorA, 0.15, 70);
 	MoveMotor(motorD, 0.1, 70);
 
 
 	//gir
-	Recta(Fwd, 0.9, 30);
-	Recta(Bwd, 0.27, 30);
-	Turn(Lft, 90, 50);
+	Recta(Fwd, 0.4, 30);
+	Recta(Bwd, 0.15, 30);
+	Turn(Lft, 90, 30);
 
 	//Ens col·loquem a la paret
-	Recta(Bwd, 1, 50);
+  Recta(Bwd, 0.5, -30);
+	setMotorSpeed(motorB, 30);
+	setMotorSpeed(motorC, 30);
+	delay(500);
+	setMotorSpeed(motorB, 0);
+	setMotorSpeed(motorC, 0);
 	resetGyro(S2);
-
 
 
 	//Avançem fins a la M14
@@ -66,11 +71,12 @@ task main()
 	//Fem la M14
 	MoveMotor(motorD, 1, -30);
 	Recta(Bwd, 0.4, 40);
-	MoveMotor(motorA, 0.8, -50);
+	MoveMotor(motorA, 0.9, -50);
 	MoveMotor(motorD, 2.25, -70);
 
 	//Avançem fins a M8
 	Recta(Fwd, 3, 50);
+	MoveMotor(motorD, 0.1, -70);
 	Recta(Fwd, 0.5, 30);
 
 
