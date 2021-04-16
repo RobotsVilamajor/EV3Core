@@ -15,7 +15,7 @@ float GetCorrection(float x)
 	return RECTA_REGRESSION * (min - ((1.0 - min) / 2.0) * (tanh((x-a)/b) - 1));
 }
 
-void Recta(float dir, float distance, float speed, bool align = false)
+void Recta(float dir, float distance, float speed, bool bAcc = true, bool bDec = true, bool align = false)
 {
 	setMotorSpeed(motorC, 0);
 	setMotorSpeed(motorB, 0);
@@ -27,7 +27,7 @@ void Recta(float dir, float distance, float speed, bool align = false)
 	InitPID(pid, 300, 200, 1, 0.005);
 
 	Accelerate acc;
-	InitAcc (acc, speed, distance, 150, 125, 2, 2, 7, 5, 0.1);
+	InitAcc(acc, speed, distance, 150, 125, 2, 2, 7, 5, 0.1, bAcc, bDec);
 
 	while (fabs(getMotorEncoder(motorC) / 360.0) <= distance)
 	{
@@ -45,14 +45,17 @@ void Recta(float dir, float distance, float speed, bool align = false)
 		setMotorSpeed(motorC, (c_speed - turnRate) * dir);
 	}
 
-	setMotorSpeed(motorB, 0);
-  setMotorSpeed(motorC, 0);
+	if (!bDec)
+	{
+		setMotorSpeed(motorB, 0);
+		setMotorSpeed(motorC, 0);
+	}
 
-  if (align)
-  {
-  	AdjustWheel(motorB, distance * dir);
-  	AdjustWheel(motorC, distance * dir);
-  }
+	if (align && bDec)
+	{
+		AdjustWheel(motorB, distance * dir);
+		AdjustWheel(motorC, distance * dir);
+	}
 
 	resetMotorEncoder(motorB);
 	resetMotorEncoder(motorC);
