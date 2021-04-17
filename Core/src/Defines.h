@@ -8,7 +8,7 @@
 
 #if defined(ROBOPRO)
 
-#define RECTA_REGRESSION 0
+#define RECTA_REGRESSION -7.07 // estava a zero
 #define ALIGN_MIN_WHITE 70
 #define ALIGN_MIN_BLACK 30
 #define ALIGN_TARGET_LEFT 50
