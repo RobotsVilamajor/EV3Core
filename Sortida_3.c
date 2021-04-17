@@ -23,23 +23,63 @@
 
 task main()
 {
+	MoveMotorTime(motorA, 3, -70);
+	MoveMotorTime(motorD, 4, 70);
+	MoveMotor(motorA, 1.1, 70);
+	MoveMotor(motorD, 3, -70);
+
+
 	resetGyro(S2);
+	delay(300);
 	waitForButtonPress();
 
-	//Fer ajust inicial
+		// corregir rodes
 	delay(250);
-	Recta(Bwd, 0.08, 20);
-	delay(250);
+	Recta(Bwd, 0.08, 8);
 
-	//Anem fins a M9 (Girar rodes)
-	Recta(Fwd, 1.50, 80);
+	//anar a M11
 
-	//Girme M9
-	MoveMotorAsync(motorA, 0.5, 50);
-	Recta(Fwd, 0.15, 50);
-	MoveMotorAsync(motorD, 0.25, 50); //mentres...
-	Recta(Fwd, 0.20, 50);
-	delay(100);
+	Recta(Fwd, 8.3, 70);
+
+	// encaixar gadget a M11
+	Recta(Fwd, 0.5, 40);
+
+	//anem a M12
+
+	Recta(Bwd, 0.5, 50);
+	MoveMotorAsync(motorA, 0.1, 70);
+
+	Turn(Lft, 45, 20);
+	MoveMotorAsync(motorD, 2.1, -70);
+	Recta(Fwd, 1.3, 70);
+
+
+	// Fem Rem
+	MoveMotor(motorD, 0.8, -70);
+	Recta(Bwd, 0.25, 70);
+	Turn(Lft, 30, 30);
+
+	//Anem cap a M9
+
+
+	MoveMotor(motorD, 3, 70);
+	Turn(Rgt, 65, 30);
+	Recta(Bwd, 2, 50);
+	Turn(Rgt, 15, 30);
+	Recta(Bwd, 1.1, 50);
+
+	// Fem M9
+
+	MoveMotorTime(motorA, 0.7, 70);
+	MoveMotor(motorD, 3, -70);
+	Recta(Fwd, 0.5, 70);
+	MoveMotorAsync(motorD, 4, 50);
+	Recta(Fwd, 1, 70);
+
+
+
+
+
 
 	//Coloquem
 	MoveMotorAsync(motorD, -0.25, 30);
