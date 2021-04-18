@@ -23,7 +23,7 @@ task main()
 	//Align
 	MoveMotorTime(motorA, 3, -70)
 	MoveMotorTime(motorD, 4, 70)
-	MoveMotorAsync(motorA, 1.15, 50);
+	//MoveMotorAsync(motorA, 1.15, 50);
 	MoveMotor(motorD, -6.2, 50);
 	resetGyro(S2);
 	waitForButtonPress();
@@ -34,19 +34,26 @@ task main()
 	delay(250);
 
 	//Sortir de base direcció a M03 i deixar estructura
-	Recta(Fwd, 3.05, 50);
+	Recta(Fwd, 3.1, 50);
+	MoveMotorAsync(motorB, 0.2, -30);
+	MoveMotor(motorC, 0.2, -30);
+	resetGyro(S2);
+	delay(250);
+	Recta(Bwd, 0.1, 40);
+
 	MoveMotorTime(motorA, 1, -70);
 	MoveMotorAsync(motorA, 1.35, 70);
 	MoveMotor(motorD, 3.7, 70);
 
 	//Avançar i girar cap a M08, després girar l'estructura
-	Recta(Fwd, 2.75, 50);
-	Turn(Rgt, 35, 20);
+	MoveMotorAsync(motorA, 0.5, -40);
+	Recta(Fwd, 2.55, 50);
+	Turn(Rgt, 37, 20);
 	Recta(Fwd, 3.7, 40);
 
 	//Moure estructura i agafar porció
 	MoveMotorAsync(motorD, 3.55, -70);
-	MoveMotor(motorA, 0.9, -70);
+	MoveMotor(motorA, 0.4, -70);
 	MoveMotorTime(motorA, 0.3, -70);
 	Recta(Fwd, 1.5, 30);
 	MoveMotorAsync(motorB, 0.2, -40);
@@ -75,7 +82,7 @@ task main()
 	Turn(Lft, 90, 20);
 	MoveMotor(motorA, 0.6, 70);
 	MoveMotorAsync(motorD, 0.5, -70);
-	Recta(Fwd, 0.4, 40);
+	Recta(Fwd, 0.3, 40);
 	MoveMotorAsync(motorB, 0.2, -30);
 	MoveMotor(motorC, 0.2, -30);
 	resetGyro(S2);
@@ -83,10 +90,10 @@ task main()
 	Recta(Bwd, 0.1, 40);
 
 	//Aixecar M08
-	MoveMotor(motorD, 0.5, 70);
+	MoveMotor(motorD, 0.6, 70);
 	Recta(Bwd, 0.55, 40);
 	MoveMotor(motorA, 0.2, 70);
-	MoveMotor(motorD, 0.6, 70);
+	MoveMotor(motorD, 0.5, 70);
 	MoveMotor(motorA, 0.7, 70);
 
 	//Moure les rodes enrere
@@ -104,19 +111,19 @@ task main()
 	Turn(Lft, 38, 20);
 	Recta(Fwd, 0.2, 40);
 
-	////Avançar fins M03
-	//MoveMotorAsync(motorA, 1.1, 70);
-	//MoveMotor(motorD, 2, -70);
-	//Turn(Lft, 55, 20);
-	//Recta(Fwd, 2.3, 40);
-	//Turn(Lft, 35, 20);
-	//Recta(Fwd, 0.7, 40);
-	//Turn(Lft, 38, 20);
+	//Avançar fins M03
+	MoveMotorAsync(motorA, 1.1, 70);
+	MoveMotor(motorD, 2, -70);
+	Turn(Lft, 55, 20);
+	Recta(Fwd, 2.3, 40);
+	Turn(Lft, 35, 20);
+	Recta(Fwd, 1, 40);
+	Turn(Lft, 38, 20);
 
-	////Aixecar les figures
-	//MoveMotor(motorA, 1.2, 70);
-	//MoveMotorAsync(motorD, 3.5, 40);
-	//Recta(Fwd, 0.8, 40);
+	//Aixecar les figures
+	MoveMotor(motorA, 1.2, 70);
+	MoveMotorAsync(motorD, 3.5, 40);
+	Recta(Fwd, 0.8, 40);
 
 	////Agafar caixa
 	//Recta(Fwd, 0.5, 40);
