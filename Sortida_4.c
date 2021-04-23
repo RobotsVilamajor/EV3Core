@@ -33,8 +33,19 @@ task main()
 	//delay(250);
 
 	//Fem M2
-	Recta(Fwd, 5.5, 50);
+	/*Recta(Fwd, 5.5, 50);
 	Recta(Fwd, 0.5, 30);
+	setMotorSpeed(motorB, -17);
+	setMotorSpeed(motorC, -15);
+	delay(500);
+	setMotorSpeed(motorB, 0);
+	setMotorSpeed(motorC, 0);*/
+
+	Recta(Fwd, 5.5, 70, true, false);
+
+	setMotorSync(motorB, motorC, 0, 50);
+	waitUntil(getMotorEncoder(motorB) < 0.5));
+
 	setMotorSpeed(motorB, -17);
 	setMotorSpeed(motorC, -15);
 	delay(500);
@@ -46,14 +57,13 @@ task main()
 	MoveMotor(motorA, 0.15, 70);
 	MoveMotor(motorD, 0.1, 70);
 
-
 	//gir
 	Recta(Fwd, 0.4, 30);
 	Recta(Bwd, 0.15, 30);
 	Turn(Lft, 90, 30);
 
 	//Ens col·loquem a la paret
-  Recta(Bwd, 0.5, -30);
+  Recta(Bwd, 0.5, -30, false, false);
 	setMotorSpeed(motorB, 30);
 	setMotorSpeed(motorC, 30);
 	delay(500);
