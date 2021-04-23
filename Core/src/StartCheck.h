@@ -40,6 +40,47 @@ void StartCheck()
 
 	setLEDColor(ledGreen);
 
+
+	displayCenteredBigTextLine(2, "Checking Motors");
+	setMotorSpeed(motorA, 30);
+	setMotorSpeed(motorB, 30);
+	setMotorSpeed(motorC, 30);
+	setMotorSpeed(motorD, 30);
+	delay(500);
+	setMotorSpeed(motorA, 0);
+	setMotorSpeed(motorB, 0);
+	setMotorSpeed(motorC, 0);
+	setMotorSpeed(motorD, 0);
+
+	eraseDisplay();
+	if (getMotorEncoder(motorA) == 0)
+	{
+		displayCenteredBigTextLine(2, "A Not connected");
+		failed = true;
+	}
+	if (getMotorEncoder(motorB) == 0)
+	{
+		displayCenteredBigTextLine(4, "B Not connected");
+		failed = true;
+	}
+	if (getMotorEncoder(motorC) == 0)
+	{
+		displayCenteredBigTextLine(6, "C Not connected");
+		failed = true;
+	}
+	if (getMotorEncoder(motorD) == 0)
+	{
+		displayCenteredBigTextLine(8, "D Not connected");
+		failed = true;
+	}
+
+	if (failed)
+	{
+		setLEDColor(ledRed);
+		delay(5000);
+		return;
+	}
+
 	eraseDisplay();
 	displayCenteredBigTextLine(2, "Press for recta");
 	waitForButtonPress();
