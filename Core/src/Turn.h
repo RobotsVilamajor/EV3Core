@@ -36,9 +36,11 @@ void AdjustAngle(float angle)
 void Turn(float dir, float angle, float speed)
 {
 	resetGyro(S2);
+	delay(300);
 
 	Accelerate acc;
-	InitAcc(acc, speed, angle, 1, 0.04, 2, 2, 7, 7, 5, false, true);
+	InitAcc(acc, speed, angle, 0.5, 0.02, 2, 2, 7, 7, 5, true, true);
+	//InitAcc(acc, speed, angle, 0.5, 0.02, 2, 2, 7, 7, 5, true, true);
 
 	while (fabs(getGyroDegrees(S2)) <= angle)
 	{

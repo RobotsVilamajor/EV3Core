@@ -39,4 +39,15 @@ void StartCheck()
 	}
 
 	setLEDColor(ledGreen);
+
+	eraseDisplay();
+	displayCenteredBigTextLine(2, "Press for recta");
+	waitForButtonPress();
+	flushButtonMessages();
+
+	delay(250);
+	Recta(Bwd, 0.08, 20);
+	delay(250);
+
+	Recta(Fwd, 8, 50);
 }
