@@ -16,12 +16,16 @@
 // MoveMotorAsync(Motor, Count, Power)
 
 // ROBOPRO || VEATRIZ
-#define ROBOPRO
+#define VEATRIZ
 
 #include "Core/Core.h";
 
 task main()
 {
+	MoveMotorTime(motorA, 3, 70)
+	MoveMotorTime(motorD, 4, 70)
+	MoveMotor(motorD, -6.2, 50);
+
 	resetGyro(S2);
 	waitForButtonPress();
 
@@ -32,41 +36,46 @@ task main()
 
 //Anem fins a la canasta
 	//Abancem fins catxarrito
-	MoveMotorAsync(motorA, -0.9, 50);
-	Recta(Fwd, 0.75, 75);
-	delay(10);
+	MoveMotor(motorA, -0.9, 50);
+	Recta(Fwd, 1.5, 50);
 
 	//Abancem fins humans
-	Turn(Rgt, 60, 50);
-	delay(10);
-	Recta(Fwd, 2.1, 75);
-	delay(10);
+	Turn(Rgt, 60, 30);
+	Recta(Fwd, 1.3, 50);
 
 	//Arribem a canasta
-	Turn(Lft, 60, 50);
-	delay(10);
-	Recta(Fwd, 1.95, 75);
-	delay(10);
-
+	Turn(Lft, 58, 30);
+	Recta(Fwd, 2.55, 50);
 
 //Fem canasta
 	//Deixem bloc
-	MoveMotor(motorA, 0.9, 100);
+	setMotorBrakeMode(motorB, motorBrake);
+	setMotorBrakeMode(motorC, motorBrake);
+	MoveMotorTime(motorA, 2, 75);
 
 	//Pujem primer pis
-	MoveMotor(motorD, 3, 70);
+	MoveMotor(motorD, 3.5, 75);
 
 	//Pujem segon pis
-	MoveMotor(motorA, -1, 100);
-	MoveMotor(motorD, -3, 100);
-	MoveMotor(motorA, 1, 100);
-	MoveMotor(motorD, 7, 100);
+	MoveMotorTime(motorA, 3, -75);
+	MoveMotor(motorD, -3.5, 75);
+	Recta(Bwd, 0.1, 10)
+	MoveMotorTime(motorA, 3.5, 75);
+	Turn(Lft, 10, 25);
+	Recta(Fwd, 0.2, 20);
+	MoveMotor(motorD, 3, 75);
+	Recta(Fwd, 0.1, 20);
+	MoveMotor(motorD, 2.5, 75);
 
 ////Tornem base
-//	//Sortim canasta
-//	Recta(Bwd, ?, 75);
+	//Sortim canasta
+	MoveMotorAsync(motorD, -5.5, 70);
+	Recta(Bwd, 0.5, 50);
+	MoveMotorAsync(motorA, 0.3, 70);
 
-//	//Agafem unitat de salut
-//	Turn(Lft, ?, 50);
-//	Recta(Fwd, ?, 75);
+	//Agafem unitat de salut
+	Turn(Lft, 55, 50);
+	Recta(Fwd, 2.5, 75);
+	Turn(Lft, 15, 50);
+	Recta(Fwd, 1.5, 75);
 }
