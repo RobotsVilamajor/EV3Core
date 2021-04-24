@@ -24,58 +24,57 @@ task main()
 {
 	MoveMotorTime(motorA, 3, 70)
 	MoveMotorTime(motorD, 4, 70)
-	MoveMotor(motorD, -6.2, 50);
+	MoveMotor(motorD, -6.2, 50);AlignWall();
 
-	resetGyro(S2);
+	//MoveMotorTime(motorA, 3, 70;
+	//MoveMotorTime(motorD, 4, 70);
+	//MoveMotor(motorD, -6.2, 50);
+
+
 	waitForButtonPress();
 
 	//Fer ajust inicial
 	delay(250);
-	Recta(Bwd, 0.08, 20);
-	delay(250);
+	Recta(Bwd, 0.1, 30);
 
-//Anem fins a la canasta
-	//Abancem fins catxarrito
-	MoveMotor(motorA, -0.9, 50);
+	//Anem fins a la canasta
+	//Avancem fins catxarrito
+	MoveMotor(motorA, -0.9, 70);
 	Recta(Fwd, 1.5, 50);
 
-	//Abancem fins humans
-	Turn(Rgt, 60, 30);
-	Recta(Fwd, 1.3, 50);
+
+	//Avancem fins humans
+	Turn(Rgt, 40, 20);
+	Recta(Fwd, 1.7, 50);
 
 	//Arribem a canasta
-	Turn(Lft, 58, 30);
-	Recta(Fwd, 2.55, 50);
+	Turn(Lft, 39, 20);
+	Recta(Fwd, 1.9, 50);
 
-//Fem canasta
+
+	//Fem canasta
 	//Deixem bloc
 	setMotorBrakeMode(motorB, motorBrake);
 	setMotorBrakeMode(motorC, motorBrake);
-	MoveMotorTime(motorA, 2, 75);
+	MoveMotorTime(motorA, 1.5, 75);
 
 	//Pujem primer pis
 	MoveMotor(motorD, 3.5, 75);
 
 	//Pujem segon pis
-	MoveMotorTime(motorA, 3, -75);
+	MoveMotorTime(motorA, 2, -80);
 	MoveMotor(motorD, -3.5, 75);
-	Recta(Bwd, 0.1, 10)
-	MoveMotorTime(motorA, 3.5, 75);
-	Turn(Lft, 10, 25);
-	Recta(Fwd, 0.2, 20);
-	MoveMotor(motorD, 3, 75);
-	Recta(Fwd, 0.1, 20);
-	MoveMotor(motorD, 2.5, 75);
+	MoveMotorTime(motorA, 2, 80);
+	Turn(Lft, 10, 30);
+	MoveMotor(motorD, 5.5, 80);
+	MoveMotor(motorA, 0.8, -40);
 
-////Tornem base
+	//Tornem base
 	//Sortim canasta
-	MoveMotorAsync(motorD, -5.5, 70);
-	Recta(Bwd, 0.5, 50);
-	MoveMotorAsync(motorA, 0.3, 70);
+	MoveMotorAsync(motorD, 5, -80);
+	Recta(Bwd, 0.5, 30);
 
 	//Agafem unitat de salut
-	Turn(Lft, 55, 50);
-	Recta(Fwd, 2.5, 75);
-	Turn(Lft, 15, 50);
-	Recta(Fwd, 1.5, 75);
+	Turn(Lft, 57, 30);
+	Recta(Fwd, 4.5, 60, false, false);
 }
