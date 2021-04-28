@@ -22,9 +22,8 @@
 
 task main()
 {
-	MoveMotorTime(motorA, 3, 70)
-	MoveMotorTime(motorD, 4, 70)
-	MoveMotor(motorD, -6.2, 50);AlignWall();
+
+	AlignWall();
 
 	//MoveMotorTime(motorA, 3, 70;
 	//MoveMotorTime(motorD, 4, 70);
