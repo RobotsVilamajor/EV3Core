@@ -71,8 +71,8 @@ task main()
 	// Fem M9
 
 	MoveMotorTime(motorA, 0.7, 70);
-	MoveMotor(motorD, 3, -70);
-	Recta(Fwd, 0.5, 70);
+	MoveMotor(motorD, 3, -70); // agafar la vida
+	Recta(Fwd, 0.5, 70); //comprovar que no falla 0.7
 	MoveMotorAsync(motorD, 4, 50);
 	Recta(Fwd, 1, 70);
 
