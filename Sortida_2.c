@@ -39,10 +39,10 @@ task main()
 	MoveMotorAsync(motorB, 0.2, -40);
 	MoveMotor(motorC, 0.2, -40);
 	delay (500);
-	setMotorSpeed(motorB, 30);
-	setMotorSpeed(motorC, 30);
-	delay(1000);
-	MoveMotorAsync(motorA, 1.25, 20);
+	setMotorSpeed(motorB, 20);
+	setMotorSpeed(motorC, 20);
+	delay(1300);
+	MoveMotorAsync(motorA, 1.1, 20);
 	setMotorSpeed(motorB, 65);
 	setMotorSpeed(motorC, 50);
 	delay(2500);
