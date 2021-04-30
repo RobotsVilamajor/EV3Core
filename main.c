@@ -45,16 +45,16 @@ task main()
 	//MoveMotorAsync(motorB, 0.2, -40);
 	//MoveMotor(motorC, 0.2, -40);
 	//delay(500);
-	//setMotorSpeed(motorB, 20);
-	//setMotorSpeed(motorC, 20);
+	//setMotorSpeed(motorB, 40);
+	//setMotorSpeed(motorC, 40);
 	//delay(1300);
 	//MoveMotorAsync(motorA, 1.1, 20);
-	//setMotorSpeed(motorB, 65);
-	//setMotorSpeed(motorC, 50);
+	//setMotorSpeed(motorB, 75);
+	//setMotorSpeed(motorC, 45);
 	//delay(2500);
 
 
-	// Tornar a sortir.
+	//Tornar a sortir.
 
 	//Fer ajust inicial
 	//MoveMotorTime(motorA, 3, -70);
@@ -62,44 +62,44 @@ task main()
 	//MoveMotor(motorD, -6, 50);
 	//MoveMotor(motorA, 1.1, 20);
 
-	waitForButtonPress();
-	delay(250);
-	Recta(Bwd, 0.08, 20);
+	//waitForButtonPress();
+	//delay(250);
+	//Recta(Bwd, 0.08, 20);
 
-	//Avançar i girar cap a M08, després girar l'estructura
-	MoveMotorAsync(motorD, 5.2, 70);  //abans 3,7 +1.5
-	Recta(Fwd, 5.8, 65);
-	MoveMotorAsync(motorD, 1.5, -70);
-	Turn(Rgt, 40, 20);
-	Recta(Fwd, 3.7, 60);
-							/////MoveMotor(motorD, 1.5, 70);
-							/////MoveMotor(motorA, 0.15, -20)
+	////Avançar i girar cap a M08, després girar l'estructura
+	//MoveMotorAsync(motorD, 5.2, 70);  //abans 3,7 +1.5
+	//Recta(Fwd, 5.8, 65);
+	//MoveMotorAsync(motorD, 1.5, -70);
+	//Turn(Rgt, 40, 20);
+	//Recta(Fwd, 3.7, 60);
+	//						/////MoveMotor(motorD, 1.5, 70);
+	//						/////MoveMotor(motorA, 0.15, -20)
 
-	////Moure estructura i agafar porció
-	MoveMotorAsync(motorD, 3.65, -70);
-	MoveMotor(motorA, 0.4, -70);
-	MoveMotorTime(motorA, 0.3, -70);
-	MoveMotor(motorA, 0.2, 70);
-	Recta(Fwd, 1.7, 50, true, false);
-	MoveMotorAsync(motorB, 0.3, -40);
-	MoveMotor(motorC, 0.3, -40);
-	Recta(Bwd, 0.1, 10);
+	//////Moure estructura i agafar porció
+	//MoveMotorAsync(motorD, 3.65, -70);
+	//MoveMotor(motorA, 0.4, -70);
+	//MoveMotorTime(motorA, 0.3, -70);
+	//MoveMotor(motorA, 0.2, 70);
+	//Recta(Fwd, 1.7, 50, true, false);
+	//MoveMotorAsync(motorB, 0.3, -40);
+	//MoveMotor(motorC, 0.3, -40);
+	//Recta(Bwd, 0.1, 10);
 
 
-	////Situar l'extremitat sota la M13
-	MoveMotorAsync(motorD, 0.5, 70);
-	MoveMotor(motorA, 0.6, 70);
-	Recta(Bwd, 0.18, 30);
-	MoveMotorAsync(motorD, 0.2, -70);
-	MoveMotor(motorA, 0.7, 70);
-	MoveMotorTime(motorA, 0.2, 70);
+	//////Situar l'extremitat sota la M13
+	////MoveMotorAsync(motorD, 0.5, 70);
+	//MoveMotor(motorA, 0.6, 70);
+	//Recta(Bwd, 0.18, 30);
+	//MoveMotorAsync(motorD, 0.2, -70);
+	//MoveMotor(motorA, 0.7, 70);
+	//MoveMotorTime(motorA, 0.2, 70);
 
-	////Aixecar M13 i col·locar-se de nou
-	MoveMotor(motorD, 4.9, 70);
-	MoveMotor(motorA, 1.2, -70);
-	MoveMotorAsync(motorA, 0.5, -70);
-	MoveMotor(motorD, 3.6, -70);
-	MoveMotorTime(motorA, 0.2, -70);
+	//////Aixecar M13 i col·locar-se de nou
+	//MoveMotor(motorD, 5.4, 70);
+	//MoveMotor(motorA, 1.2, -70);
+	//MoveMotorAsync(motorA, 0.5, -70);
+	//MoveMotor(motorD, 3.6, -70);
+	//MoveMotorTime(motorA, 0.2, -70);
 
 	////Col·locar-se cap a M08
 	//Recta(Bwd, 1.6, 40);
@@ -122,22 +122,26 @@ task main()
 	//Recta(Bwd, 1.05, 60);
 	//Recta(Fwd, 0.15, 40);
 
-	////Tornar
-	//MoveMotor(motorD, 1.9, -70); //Preparar pala per següent missió
+	//////Tornar
+	//MoveMotor(motorD, 0.4, -70); //Preparar pala per següent missió
 	//Turn(Lft, 55, 20);
 	//Recta(Fwd, 2.3, 60, true, false);
 	//MoveMotor(motorA, 0.4, 70); //Preparar pala per següent missió
 	//setMotorSpeed(motorB, -50);   //Turn left
 	//setMotorSpeed(motorC, -10);
-	//delay(500);  //Gir ens alininia amb la diagonal d'entrada
+	//delay(1100);  //Gir ens alininia amb la diagonal d'entrada
+
+	Recta(Fwd, 4, 60, false, false);
+	MoveMotorAsync(motorD, 3, -70);
+	setMotorSpeed(motorB, -15);   //Turn(Rgt, 38, 20);
+	setMotorSpeed(motorC, -50);
+	delay(500);  //Gir ens deixa paral·lel paret sud
+	setMotorSpeed(motorB, 0);   //Turn(Rgt, 38, 20);
+	setMotorSpeed(motorC, 0);
 
 
-	//Recta(Fwd, 5, 60, false, false);
-	//setMotorSpeed(motorB, -10);   //Turn(Rgt, 38, 20);
-	//setMotorSpeed(motorC, -50);
-	//delay(500);  //Gir ens deixa paral·lel paret sud
 
-	//Recta(Fwd, 2, 50, false, false);
+	Recta(Fwd, 2, 50, false, false);
 
 
 }
