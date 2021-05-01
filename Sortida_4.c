@@ -17,19 +17,14 @@
 
 task main()
 {
-	//Fem M??
+
 	//Align
-	MoveMotorTime(motorA, 3, -70)
-	MoveMotorTime(motorD, 4, 70)
-	MoveMotorTime(motorA, 0.7, 70)
-	MoveMotor(motorD, -6.2, 50);
+	MoveMotorTime(motorA, 3, -70);
+	MoveMotorTime(motorD, 5, 70);
+	MoveMotor(motorA, 0.95, 70);
+	MoveMotor(motorD, 6.25, -70);
 	waitForButtonPress();
 
-
-	//Fer ajust inicial
-	//delay(250);
-	//Recta(Bwd, 0.08, 20);
-	//delay(250);
 
 	//Fem M2
 	Recta(Fwd, 4.7, 70, true, false);
@@ -43,18 +38,24 @@ task main()
 	setMotorSpeed(motorC, 0);
 
 
-	//desenganchem
-	Recta(Bwd, 0.5, 30);
+		//desenganchem
+	MoveMotorAsync(motorB, 0.4, 20);
+	MoveMotor(motorC, 0.4, 20);
 	MoveMotorAsync(motorA, 0.15, 70);
 	MoveMotor(motorD, 0.1, 70);
 
 	//gir
-	Recta(Fwd, 0.4, 30);
-	Recta(Bwd, 0.15, 30);
+
+	MoveMotorAsync(motorB, 0.35,-20);
+	MoveMotor(motorC, 0.35, -20);
+
+	MoveMotorAsync(motorB, 0.1, 20);
+	MoveMotor(motorC, 0.1, 20);
+
 	Turn(Lft, 90, 30);
 
 	//Ens col·loquem a la paret
-  Recta(Bwd, 0.5, -30, false, false);
+  Recta(Bwd, 0.5, 30, false, false);
 	setMotorSpeed(motorB, 40);
 	setMotorSpeed(motorC, 40);
 	delay(500);
@@ -64,39 +65,37 @@ task main()
 
 
 	//Avançem fins a la M14
-	MoveMotor(motorA, 0.8, 70);
+	MoveMotor(motorA, 0.6, 70);
 	MoveMotorAsync(motorD, 3, 70);
-	Recta(Fwd, 1.5, 50);
+	Recta(Fwd, 1.45, 50);
+
 
 
 	//Fem la M14
-	MoveMotor(motorD, 1, -30);
+	MoveMotor(motorD, 0.95, -30);
 	Recta(Bwd, 0.4, 40);
 	MoveMotor(motorA, 0.9, -50);
-	MoveMotor(motorD, 2.25, -70);
+	MoveMotor(motorD, 2, -70);
 
 	//Avançem fins a M8
-	Recta(Fwd, 3, 50);
-	MoveMotor(motorD, 0.1, -70);
+	Recta(Fwd, 2.5, 50);
+	MoveMotor(motorD, 1, 70);
 	Recta(Fwd, 0.5, 30);
+	MoveMotor(motorD, 1.1, -70);
+	Recta(Fwd, 0.55, 30);
 
+	//Fem M8
 
-	////Fem M8
-	//Recta(Fwd, 1, 20);
-	//Recta(Bwd, 1, 20);
-
-	////Ens posicionem per M7
-	//Turn(Lft, 45, 50);
-	////Avançem fins M7
-
-	//Recta(Fwd, 0.5, 50);
-
-	////Fem bailecito
-	//int n = 0;
-	//while(n == 0) {
-	//	Recta(Fwd, 0.2, 70);
-	//	Recta(Bwd, 0.2, 70);
-	//	Turn(Lft, 360, 60);
-	//	Turn(Rgt, 360, 60);
-	//}
+	MoveMotorAsync(motorD, 1.5, 70);
+	Recta(Bwd, 0.3, 40);
+	Turn(Lft, 60, 40);
+	Recta(Fwd, 0.4, 30);
+	while(True){
+		setMotorSpeed(motorB, -20);
+		setMotorSpeed(motorC, -20);
+		delay(1000);
+		setMotorSpeed(motorB, 20);
+		setMotorSpeed(motorC, 20);
+		delay(1000);
+	}
 }

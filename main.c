@@ -28,120 +28,82 @@
 
 task main()
 {
-	////Align
-	//MoveMotorTime(motorA, 3, -70);
-	//MoveMotorTime(motorD, 4, 70);
-	//MoveMotor(motorD, -6, 50); //6.2 abans
+	//Aling
+	MoveMotorTime(motorA, 3, -70);
+	MoveMotorTime(motorD, 5, 70);
+	MoveMotor(motorA, 0.95, 70);
+	MoveMotor(motorD, 6.15, -70);
+	waitForButtonPress();
 
+	Recta(Fwd, 4.7, 70, true, false);
+	Recta(Fwd, 1.2, 50, false, false);
 
-	////Fer ajust inicial
-	//waitForButtonPress();
-	//delay(250);
-	//Recta(Bwd, 0.08, 20);
+	setMotorSpeed(motorB, -17);
+	setMotorSpeed(motorC, -15);
+	delay(500);
 
+	setMotorSpeed(motorB, 0);
+	setMotorSpeed(motorC, 0);
 
-	////Sortir de base direcció a M03 i recollir homenets
-	//Recta(Fwd, 3.1, 70, true, false);
-	//MoveMotorAsync(motorB, 0.2, -40);
-	//MoveMotor(motorC, 0.2, -40);
-	//delay(500);
-	//setMotorSpeed(motorB, 40);
-	//setMotorSpeed(motorC, 40);
-	//delay(1300);
-	//MoveMotorAsync(motorA, 1.1, 20);
-	//setMotorSpeed(motorB, 75);
-	//setMotorSpeed(motorC, 45);
-	//delay(2500);
+		//desenganchem
+	MoveMotorAsync(motorB, 0.4, 20);
+	MoveMotor(motorC, 0.4, 20);
+	MoveMotorAsync(motorA, 0.15, 70);
+	MoveMotor(motorD, 0.1, 70);
 
+	//gir
 
-	//Tornar a sortir.
+	MoveMotorAsync(motorB, 0.35,-20);
+	MoveMotor(motorC, 0.35, -20);
 
-	//Fer ajust inicial
-	//MoveMotorTime(motorA, 3, -70);
-	//MoveMotorTime(motorD, 4, 70);
-	//MoveMotor(motorD, -6, 50);
-	//MoveMotor(motorA, 1.1, 20);
+	MoveMotorAsync(motorB, 0.1, 20);
+	MoveMotor(motorC, 0.1, 20);
 
-	//waitForButtonPress();
-	//delay(250);
-	//Recta(Bwd, 0.08, 20);
+	Turn(Lft, 90, 30);
 
-	////Avançar i girar cap a M08, després girar l'estructura
-	//MoveMotorAsync(motorD, 5.2, 70);  //abans 3,7 +1.5
-	//Recta(Fwd, 5.8, 65);
-	//MoveMotorAsync(motorD, 1.5, -70);
-	//Turn(Rgt, 40, 20);
-	//Recta(Fwd, 3.7, 60);
-	//						/////MoveMotor(motorD, 1.5, 70);
-	//						/////MoveMotor(motorA, 0.15, -20)
-
-	//////Moure estructura i agafar porció
-	//MoveMotorAsync(motorD, 3.65, -70);
-	//MoveMotor(motorA, 0.4, -70);
-	//MoveMotorTime(motorA, 0.3, -70);
-	//MoveMotor(motorA, 0.2, 70);
-	//Recta(Fwd, 1.7, 50, true, false);
-	//MoveMotorAsync(motorB, 0.3, -40);
-	//MoveMotor(motorC, 0.3, -40);
-	//Recta(Bwd, 0.1, 10);
-
-
-	//////Situar l'extremitat sota la M13
-	////MoveMotorAsync(motorD, 0.5, 70);
-	//MoveMotor(motorA, 0.6, 70);
-	//Recta(Bwd, 0.18, 30);
-	//MoveMotorAsync(motorD, 0.2, -70);
-	//MoveMotor(motorA, 0.7, 70);
-	//MoveMotorTime(motorA, 0.2, 70);
-
-	//////Aixecar M13 i col·locar-se de nou
-	//MoveMotor(motorD, 5.4, 70);
-	//MoveMotor(motorA, 1.2, -70);
-	//MoveMotorAsync(motorA, 0.5, -70);
-	//MoveMotor(motorD, 3.6, -70);
-	//MoveMotorTime(motorA, 0.2, -70);
-
-	////Col·locar-se cap a M08
-	//Recta(Bwd, 1.6, 40);
-	//Turn(Lft, 90, 20);   // agafo mòbil
-	//MoveMotor(motorA, 0.6, 70);
-	//MoveMotorAsync(motorD, 0.5, -70);
-	//Recta(Fwd, 0.3, 40, false, false);
-	//MoveMotorAsync(motorB, 0.3, -30);
-	//MoveMotor(motorC, 0.3, -30);
-	//Recta(Bwd, 0.1, 40);
-
-	////Aixecar M08
-	//MoveMotor(motorD, 0.55, 70);
-	//Recta(Bwd, 0.55, 40);
-	//MoveMotor(motorA, 0.9, 70);   // tiro bloc
-	//MoveMotor(motorD, 0.7, 70);
-
-	////Moure les rodes enrere
-	//MoveMotorAsync(motorD, 0.2, -70);
-	//Recta(Bwd, 1.05, 60);
-	//Recta(Fwd, 0.15, 40);
-
-	//////Tornar
-	//MoveMotor(motorD, 0.4, -70); //Preparar pala per següent missió
-	//Turn(Lft, 55, 20);
-	//Recta(Fwd, 2.3, 60, true, false);
-	//MoveMotor(motorA, 0.4, 70); //Preparar pala per següent missió
-	//setMotorSpeed(motorB, -50);   //Turn left
-	//setMotorSpeed(motorC, -10);
-	//delay(1100);  //Gir ens alininia amb la diagonal d'entrada
-
-	Recta(Fwd, 4, 60, false, false);
-	MoveMotorAsync(motorD, 3, -70);
-	setMotorSpeed(motorB, -15);   //Turn(Rgt, 38, 20);
-	setMotorSpeed(motorC, -50);
-	delay(500);  //Gir ens deixa paral·lel paret sud
-	setMotorSpeed(motorB, 0);   //Turn(Rgt, 38, 20);
+	//Ens col·loquem a la paret
+  Recta(Bwd, 0.5, 30, false, false);
+	setMotorSpeed(motorB, 40);
+	setMotorSpeed(motorC, 40);
+	delay(500);
+	setMotorSpeed(motorB, 0);
 	setMotorSpeed(motorC, 0);
 
 
 
-	Recta(Fwd, 2, 50, false, false);
+	//Avançem fins a la M14
+	MoveMotor(motorA, 0.6, 70);
+	MoveMotorAsync(motorD, 3, 70);
+	Recta(Fwd, 1.45, 50);
+
+	//Fem la M14
+	MoveMotor(motorD, 0.95, -30);
+	Recta(Bwd, 0.5, 40);
+	MoveMotor(motorA, 0.9, -50);
+	MoveMotor(motorD, 2, -70);
+
+	//Avançem fins a M8
+	Recta(Fwd, 2.5, 50);
+	MoveMotor(motorD, 1, 70);
+	Recta(Fwd, 0.5, 30);
+	MoveMotor(motorD, 1.1, -70);
+	Recta(Fwd, 0.55, 30);
+
+
+	//Fem M8
+
+	MoveMotorAsync(motorD, 1.5, 70);
+	Recta(Bwd, 0.3, 40);
+	Turn(Lft, 60, 40);
+	Recta(Fwd, 0.4, 30);
+	while(True){
+		setMotorSpeed(motorB, -20);
+		setMotorSpeed(motorC, -20);
+		delay(1000);
+		setMotorSpeed(motorB, 20);
+		setMotorSpeed(motorC, 20);
+		delay(1000);
+	}
 
 
 }
