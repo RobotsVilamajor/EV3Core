@@ -35,6 +35,6 @@ void Sortida_1a(bool align = false)
 	//Tornem a base i coloquem pala
 	Recta(Bwd, 2.4, 100);
 	delay(500);
-	MoveMotorAsync(motorA, -1.2, 100;
+	MoveMotorAsync(motorA, -1.2, 100);
 
 }

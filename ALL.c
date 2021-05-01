@@ -19,5 +19,26 @@
 
 task main()
 {
+	waitForButtonPress();
 
+	if (getButtonPress(buttonEnter))
+	{
+		// Tot sense alinear
+	}
+	if (getButtonPress(buttonLeft))
+	{
+		// Tot alineant-se
+	}
+	if (getButtonPress(buttonUp))
+	{
+		// des de la sortida 2 alineant-se
+	}
+	if (getButtonPress(buttonRight))
+	{
+		// des de la sortida 3 alineant-se
+	}
+	if (getButtonPress(buttonDown))
+	{
+		// des de la sortida 4 alineant-se
+	}
 }
