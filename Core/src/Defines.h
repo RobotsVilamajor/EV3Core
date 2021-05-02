@@ -10,7 +10,7 @@
 
 // 0 1 2 3 4 5 6 7 8 9
 // #define REGRESSION_ARRAY { -9, -9, -9, -8, -6.5, -5.8, -5.7, -5.55, -5.5, -5.45 }
-#define REGRESSION_ARRAY { -7, -7, -7, -7., -6.9, -6.3, -6.3, -6, -5.5, -5.4 }
+#define REGRESSION_ARRAY { -7, -7, -7, -7., -6.9, -6.6, -6.6, -6.6, -6.6, -6.6 }
 //#define RECTA_REGRESSION -7.07 // estava a zero
 #define ALIGN_MIN_WHITE 70
 #define ALIGN_MIN_BLACK 30

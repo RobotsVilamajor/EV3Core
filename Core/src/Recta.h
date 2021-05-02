@@ -45,7 +45,7 @@ void Recta(float dir, float distance, float speed, bool bAcc = true, bool bDec =
 		float c_speed = GetAcc(acc, x);
 
 		//float error = (getMotorEncoder(motorC) - getMotorEncoder(motorB) + GetCorrection(x) * x) / (360.0 * dir);
-		float error = (getMotorEncoder(motorC) - getMotorEncoder(motorB) + reg_value * x) / (360.0 * dir);
+		float error = (getMotorEncoder(motorC) - getMotorEncoder(motorB) - dir * reg_value * x) / (360.0 * dir);
 
 	  float turnRate = UpdatePID(pid, error);
 
