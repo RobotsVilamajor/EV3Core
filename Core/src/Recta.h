@@ -37,7 +37,7 @@ void Recta(float dir, float distance, float speed, bool bAcc = true, bool bDec =
 	InitPID(pid, 300, 200, 1, 0.005);
 
 	Accelerate acc;
-	InitAcc(acc, speed, distance, 150, 125, 2, 2, 7, 5, 0.2, bAcc, bDec);
+	InitAcc(acc, speed, distance, 1000, 800, 2, 2, 7, 7, 0.1, bAcc, bDec);
 
 	while (fabs(getMotorEncoder(motorC) / 360.0) <= distance || fabs(getMotorEncoder(motorB) / 360.0) <= distance)
 	{
