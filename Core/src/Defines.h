@@ -21,8 +21,8 @@
 #elif defined(VEATRIZ)
 
 // 0 1 2 3 4 5 6 7 8 9
-#define REGRESSION_ARRAY {5.4, 5.4, 5.1, 5.1, 5.4, 5.6, 3.6, 4, 4.75, 5.8 }
-//#define RECTA_REGRESSION 2.4
+#define REGRESSION_ARRAY {4, 5.4, 5.1, 5.1, 4.8, 5.8, 2.3, 2.8, 3.3, 3.4 }
+//#define RECTA_REGRESSION 2.4 {5.4, 5.4, 5.1, 5.1, 5.4, 5.6, 3.6, 4, 4.75, 5.8 }
 #define ALIGN_MIN_WHITE 70
 #define ALIGN_MIN_BLACK 30
 #define ALIGN_TARGET_LEFT 50
