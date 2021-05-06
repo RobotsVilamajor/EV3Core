@@ -15,13 +15,8 @@
 
 void Sortida_1b(bool align = false)
 {
-	MoveMotorTime(motorA, 3, 70)
-	MoveMotorTime(motorD, 4, 70)
-
-	//MoveMotorTime(motorA, 3, 70;
-	//MoveMotorTime(motorD, 4, 70);
-	//MoveMotor(motorD, -6.2, 50);
-
+	MoveMotorTime(motorA, 3, 70);
+	MoveMotorTime(motorD, 4, 70);
 
 	waitForButtonPress();
 

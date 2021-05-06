@@ -25,26 +25,15 @@
 #define ROBOPRO
 
 #include "Core/Core.h"
-#include "Sortida_1b.h"
-#include "Sortida_2a.h"
-#include "Sortida_2b.h"
-#include "Sortida_3.h"
-#include "Sortida_4.h"
+#include "Aliniat_S1.h"
+
+
 
 
 task main()
 {
 
-	Aliniat_Sortida_1(); //només fer-ho abans de començar ...
-	Sortida_1b();
-
-	Sortida_2a();
-
-	Sortida_2b();
-	Sortida_3();
-
-
-
-
+	StartCheck();
+	Aliniat_S1();
 
 }

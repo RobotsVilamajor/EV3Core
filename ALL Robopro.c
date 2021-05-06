@@ -15,7 +15,8 @@
 #include "Sortida_3v2.h"
 #include "Sortida_4_Robopro.h"
 #include "Sortida_4_Veatriz.h"
-
+#include "Aliniat_S2.h"
+#include "Aliniat_S3.h"
 
 task main()
 {
@@ -24,21 +25,37 @@ task main()
 	if (getButtonPress(buttonEnter))
 	{
 		// Tot sense alinear
+		Sortida_1b();
+		Sortida_2a();
+		Sortida_2b();
+		Sortida_3();
+		Sortida_4_Robopro();
 	}
 	if (getButtonPress(buttonLeft))
 	{
-		// Tot alineant-se
+		// Començar en la 2 aliniant-se
+		Aliniat_S2();
+		Sortida_2a();
+		Sortida_2b();
+		Sortida_3();
+		Sortida_4_Robopro();
+
 	}
 	if (getButtonPress(buttonUp))
 	{
-		// des de la sortida 2 alineant-se
+		// Començar en la 3 aliniant-se
+		Aliniat_S3();
+		Sortida_3();
+		Sortida_4_Robopro();
 	}
 	if (getButtonPress(buttonRight))
 	{
-		// des de la sortida 3 alineant-se
+		// des de la sortida 4 alineant-se
+		Aliniat_S4();
+		Sortida_4_Robopro();
 	}
 	if (getButtonPress(buttonDown))
 	{
-		// des de la sortida 4 alineant-se
+		// lliure
 	}
 }
