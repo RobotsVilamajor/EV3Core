@@ -27,13 +27,8 @@
 #include "Core/Core.h"
 #include "Aliniat_S1.h"
 
-
-
-
 task main()
 {
-
 	StartCheck();
 	Aliniat_S1();
-
 }

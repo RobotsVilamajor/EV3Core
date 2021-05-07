@@ -22,12 +22,14 @@
 
 void Sortida_2a(bool align = false)
 {
-	//Align
-	MoveMotorTime(motorA, 3, -70);
-	MoveMotorTime(motorD, 4, 70);
-	delay(200);
-	MoveMotor(motorD, 5.8, -50); //6.2 abans
 
+	if (align = true){
+		//Align
+		MoveMotorTime(motorA, 3, -70);
+		MoveMotorTime(motorD, 4, 70);
+		delay(200);
+		MoveMotor(motorD, 5.8, -50);
+	}
 
 	//Fer ajust inicial
 

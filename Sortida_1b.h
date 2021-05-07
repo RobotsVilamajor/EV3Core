@@ -59,7 +59,7 @@ void Sortida_1b(bool align = false)
 
 	//Tornem base
 	//Sortim canasta
-	MoveMotorAsync(motorD, 5, -80);
+	MoveMotorAsync(motorD, 5.1, -80);
 	Recta(Bwd, 0.5, 30);
 
 	//Agafem unitat de salut

@@ -6,17 +6,11 @@
 // ROBOPRO || VEATRIZ
 #define ROBOPRO
 
-
-#include "Sortida_1a.h"
 #include "Sortida_1b.h"
-#include "Sortida_2.h"
+#include "Sortida_2a.h"
 #include "Sortida_2b.h"
 #include "Sortida_3.h"
-#include "Sortida_3v2.h"
 #include "Sortida_4_Robopro.h"
-#include "Sortida_4_Veatriz.h"
-#include "Aliniat_S2.h"
-#include "Aliniat_S3.h"
 
 task main()
 {
@@ -25,6 +19,7 @@ task main()
 	if (getButtonPress(buttonEnter))
 	{
 		// Tot sense alinear
+		flushButtonMessages();
 		Sortida_1b();
 		Sortida_2a();
 		Sortida_2b();
@@ -34,8 +29,8 @@ task main()
 	if (getButtonPress(buttonLeft))
 	{
 		// Començar en la 2 aliniant-se
-		Aliniat_S2();
-		Sortida_2a();
+		flushButtonMessages();
+		Sortida_2a(true);
 		Sortida_2b();
 		Sortida_3();
 		Sortida_4_Robopro();
@@ -44,15 +39,15 @@ task main()
 	if (getButtonPress(buttonUp))
 	{
 		// Començar en la 3 aliniant-se
-		Aliniat_S3();
-		Sortida_3();
+		flushButtonMessages();
+		Sortida_3(true);
 		Sortida_4_Robopro();
 	}
 	if (getButtonPress(buttonRight))
 	{
 		// des de la sortida 4 alineant-se
-		Aliniat_S4();
-		Sortida_4_Robopro();
+		flushButtonMessages();
+		Sortida_4_Robopro(true);
 	}
 	if (getButtonPress(buttonDown))
 	{

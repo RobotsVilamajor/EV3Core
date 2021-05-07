@@ -20,20 +20,22 @@
 
 void Sortida_4_Robopro(bool align = false)
 {
+	if (align = true){
 	//Aling
 	MoveMotorTime(motorA, 3, -70);
-	MoveMotorTime(motorD, 5, 70);
+	MoveMotorTime(motorD, 4, 70);
 	MoveMotor(motorA, 0.95, 70);
 	MoveMotor(motorD, 6.15, -70);
+	}
 	waitForButtonPress();
+	flushButtonMessages();
 
+	// Fer comptapassos
 	Recta(Fwd, 4.7, 70, true, false);
 	Recta(Fwd, 1.2, 50, false, false);
-
 	setMotorSpeed(motorB, -17);
 	setMotorSpeed(motorC, -15);
 	delay(500);
-
 	setMotorSpeed(motorB, 0);
 	setMotorSpeed(motorC, 0);
 
