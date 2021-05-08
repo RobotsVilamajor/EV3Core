@@ -27,6 +27,7 @@ void Sortida_4_Robopro(bool align = false)
 	MoveMotor(motorA, 0.95, 70);
 	MoveMotor(motorD, 6.15, -70);
 	}
+	flushButtonMessages();
 	waitForButtonPress();
 	flushButtonMessages();
 

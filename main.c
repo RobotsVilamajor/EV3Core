@@ -23,7 +23,7 @@
 
 // ROBOPRO || VEATRIZ
 #define ROBOPRO
-
+#include "Aliniat_S1.h"
 #include "Sortida_1b.h"
 #include "Sortida_2a.h"
 #include "Sortida_2b.h"
@@ -34,13 +34,11 @@
 
 task main()
 {
-	//Aliniat_S2();
-	//MoveMotor(motorD, 0.1, -50);
-	//MoveMotor(motorA, 0.1, 20);
-	////Aliniat_S3();
-	//MoveMotor(motorD, 1.1, -70);
-	//MoveMotorAsync(motorA, 0.7, 70);
-
-	//Sortida_2b();
-	Sortida_3(true);
+	//delay(250);
+	//Recta(Bwd, 0.1, 30);
+	//Recta(Fwd, 5, 60);
+	//Aliniat_S1();
+	//Sortida_1b();
+	//Sortida_2a(true);
+	Sortida_2b();
 }

@@ -15,11 +15,15 @@
 
 void Sortida_1b(bool align = false)
 {
-	MoveMotorTime(motorA, 3, 70);
-	MoveMotorTime(motorD, 4, 70);
+	flushButtonMessages();
+	//if (align = true)
+	//{
+	//	MoveMotorTime(motorA, 3, 70);
+	//	MoveMotorTime(motorD, 4, 70);
+	//}
 
 	waitForButtonPress();
-
+	flushButtonMessages();
 	//Fer ajust inicial
 	delay(250);
 	Recta(Bwd, 0.1, 30);
@@ -64,5 +68,5 @@ void Sortida_1b(bool align = false)
 
 	//Agafem unitat de salut
 	Turn(Lft, 55, 30);
-	Recta(Fwd, 4.5, 60, false, false);
+	Recta(Fwd, 4.5, 60, false, true);
 }

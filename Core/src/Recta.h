@@ -33,6 +33,8 @@ void Recta(float dir, float distance, float speed, bool bAcc = true, bool bDec =
 	resetMotorEncoder(motorB);
 	resetMotorEncoder(motorC);
 
+	delay(100);
+
 	PID pid;
 	InitPID(pid, 300, 200, 1, 0.005);
 

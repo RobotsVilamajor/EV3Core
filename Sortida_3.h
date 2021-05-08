@@ -23,7 +23,7 @@ void Sortida_3(bool align = false)
 	MoveMotor(motorA, 0.8, 70); //1.1
 	MoveMotor(motorD, 2.5, -70);
 	}
-
+	flushButtonMessages();
 	waitForButtonPress();
 	flushButtonMessages();
 

@@ -27,10 +27,10 @@ void Sortida_2b(bool align = false)
 	MoveMotorTime(motorD, 4, 70);
 	delay(200);
 	MoveMotor(motorD, 0.6, -50);
-	MoveMotorAsync(motorA, 1.3, 20);
+	MoveMotor(motorA, 1.3, 20);
 
 	//Fer ajust inicial
-
+	flushButtonMessages();
 	waitForButtonPress();
 	flushButtonMessages();
 	delay(250);
@@ -39,7 +39,7 @@ void Sortida_2b(bool align = false)
  // Anem a boccia
 
 	Recta(Fwd, 5.69, 60);
-	Turn(Rgt, 42, 20);
+	Turn(Rgt, 41, 20);
 	MoveMotorAsync(motorD, 2.2, -70);
 	Recta(Fwd, 2.2, 50);
 

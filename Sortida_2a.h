@@ -33,6 +33,7 @@ void Sortida_2a(bool align = false)
 
 	//Fer ajust inicial
 
+	flushButtonMessages();
 	waitForButtonPress();
 	flushButtonMessages();
 	delay(250);
@@ -47,8 +48,8 @@ void Sortida_2a(bool align = false)
 
 	setMotorSpeed	(motorB, 70);
 	setMotorSpeed	(motorC, 5);
-	delay(1200);
-
+	delay(650);
+	MoveMotorAsync(motorA, 1.3, 70);
 	setMotorSpeed	(motorB, 60);
 	setMotorSpeed	(motorC, 60);
 	delay(1200);
@@ -57,7 +58,7 @@ void Sortida_2a(bool align = false)
 	setMotorSpeed	(motorC, 0);
 
 	MoveMotor(motorD, 5.2, 70);
-	MoveMotorAsync(motorA, 1.3, 20);
+
 
 
 }
