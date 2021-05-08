@@ -20,7 +20,7 @@
 
 void Sortida_4_Robopro(bool align = false)
 {
-	if (align = true){
+	if (align == true){
 	//Aling
 	MoveMotorTime(motorA, 3, -70);
 	MoveMotorTime(motorD, 4, 70);

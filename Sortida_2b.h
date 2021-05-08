@@ -23,11 +23,11 @@
 void Sortida_2b(bool align = false)
 {
 	//Align
-	MoveMotorTime(motorA, 3, -70);
-	MoveMotorTime(motorD, 4, 70);
-	delay(200);
-	MoveMotor(motorD, 0.6, -50);
-	MoveMotor(motorA, 1.3, 20);
+	//MoveMotorTime(motorA, 3, -70);
+	//MoveMotorTime(motorD, 4, 70);
+	//delay(200);
+	//MoveMotor(motorD, 0.6, -50);
+	//MoveMotor(motorA, 1.3, 20);
 
 	//Fer ajust inicial
 	flushButtonMessages();

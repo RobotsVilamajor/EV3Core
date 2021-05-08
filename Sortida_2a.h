@@ -23,7 +23,7 @@
 void Sortida_2a(bool align = false)
 {
 
-	if (align = true){
+	if (align == true){
 		//Align
 		MoveMotorTime(motorA, 3, -70);
 		MoveMotorTime(motorD, 4, 70);
