@@ -86,14 +86,7 @@ void StartCheck()
 	waitForButtonPress();
 	flushButtonMessages();
 
-	delay(250);
-	Recta(Bwd, 0.08, 20);
-
-	//Recta(Fwd, 3, 60);
-	//waitForButtonPress();
-	//flushButtonMessages();
-	//delay(250);
-	//Recta(Bwd, 0.08, 20);
-	//Recta(Fwd, 5, 60);
+	Recta(Bwd, 0.02, 10, false, false);
+	Recta(Fwd, 5, 60);
 
 }

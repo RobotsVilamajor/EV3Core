@@ -37,7 +37,7 @@ void Sortida_2a(bool align = false)
 	waitForButtonPress();
 	flushButtonMessages();
 	delay(250);
-	Recta(Bwd, 0.08, 20);
+	Recta(Bwd, 0.02, 10, false, false);
 
 
 	// Sortir de base direcció a M03 i recollir homenets

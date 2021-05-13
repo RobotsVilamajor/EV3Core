@@ -22,7 +22,8 @@
 // MoveMotorAsync(Motor, Count, Power)
 
 // ROBOPRO || VEATRIZ
-#define ROBOPRO
+//#define VEATRIZ
+	#define ROBOPRO
 #include "Aliniat_S1.h"
 #include "Sortida_1b.h"
 #include "Sortida_2a.h"
@@ -34,33 +35,27 @@
 
 task main()
 {
-	//delay(250);
-	//Recta(Bwd, 0.1, 30);
+	//Recta(Bwd, 0.02, 10, false, false);
 	//Recta(Fwd, 5, 60);
+	//Recta(Bwd, 0.5, 50);
 	//Aliniat_S1();
 	//Sortida_1b();
 	//Sortida_2a(true);
-	//Sortida_2b();
+	//Sortida_2b(true);
+	//Sortida_3(true);
+	Sortida_4_Robopro();
 
 
-	setMotorBrakeMode(motorB, motorBrake);
-	setMotorBrakeMode(motorC, motorBrake);
-	//MoveMotorTime(motorA, 1.5, 70);
-
-	//Pujem primer pis
-	MoveMotor(motorD, 3.7, 70);
-
-	////Pujem segon pis
-	//MoveMotorAsync(motorD, -3.7, 50);
-	//MoveMotorTime(motorA, 1.8, -70); 	//1.8?
-	//MoveMotorTime(motorA, 1.8, 70);
-	//setMotorSpeed (motorB, -15);
-	//setMotorSpeed (motorC, 15);
-	//delay(500);
+	//Equival a un gir de .... a esquerra
+	//setMotorSpeed (motorB, -35);
+	//setMotorSpeed (motorC, 35);
+	//delay(400);
 	//setMotorSpeed (motorB, 0);
 	//setMotorSpeed (motorC, 0);
-	//setMotorBrakeMode(motorB, motorBrake);
-	//setMotorBrakeMode(motorC, motorBrake);
-	//MoveMotor(motorD, 5.5, 70);
-	//MoveMotor(motorD, 3.5, -70);
+	//delay(500);
+	//Turn(Rgt, 35, 10);
+
+
+
+
 }
