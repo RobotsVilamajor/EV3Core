@@ -8,19 +8,14 @@
 
 void AdjustAngle(float angle)
 {
-	float error = getGyroDegrees(S2) - angle;
+	float error = angle - getGyroDegrees(S2);
 
 	//writeDebugStreamLine("error: %f", error);
 
 	//if (!InBetween(error, -0.005, 0.005))
 	if (error != 0)
 	{
-		float dir = 0;
-
-		if (error < 0)
-			dir = -1;
-		else
-			dir = 1;
+		float dir = error < 0 ? 1 : -1;
 
 		setMotorSync(motorB, motorC, 100 * dir, 7);
 
@@ -33,26 +28,32 @@ void AdjustAngle(float angle)
 	}
 }
 
-void Turn(float dir, float angle, float speed)
+void Turn(float angle, float speed)
 {
-	resetGyro(S2);
-	delay(300);
+	//resetGyro(S2);
+	//delay(300);
+
+	float iniVal = getGyroDegrees(S2);
+	float delta = angle - iniVal;
+
+	float dir = delta < 0 ? 1 : -1;
 
 	Accelerate acc;
-	InitAcc(acc, speed, angle, 0.5, 0.02, 2, 2, 7, 7, 5, true, true);
+	InitAcc(acc, speed, fabs(delta), 0.5, 0.02, 2, 2, 7, 7, 5, true, true);
 	//InitAcc(acc, speed, angle, 0.5, 0.02, 2, 2, 7, 7, 5, true, true);
 
-	while (fabs(getGyroDegrees(S2)) <= angle)
+	while ((getGyroDegrees(S2) - iniVal) * -dir < fabs(delta))
 	{
-		float c_speed = GetAcc(acc, fabs(getGyroDegrees(S2)));
-		writeDebugStreamLine("%f: %f", fabs(getGyroDegrees(S2)), c_speed);
+		float c_speed = GetAcc(acc, fabs(getGyroDegrees(S2) - iniVal));
+
+		writeDebugStreamLine("x = %.1f, x - i = %.1f, delta = %.1f", getGyroDegrees(S2), (getGyroDegrees(S2) - iniVal) * -dir, delta);
 
 		setMotorSync(motorB, motorC, 100 * dir, c_speed);
 	}
 
 	for (int i = 0; i < 100; i++)
 	{
-		AdjustAngle(-angle * dir);
+		AdjustAngle(angle);
 	}
 
 	setMotorSpeed(motorB, 0);
