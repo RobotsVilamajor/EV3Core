@@ -38,19 +38,24 @@ void Sortida_1R(bool align = false)
 
 	//Avancem fins humans
 	Turn(Rgt, 40, 15);
-	Recta(Fwd, 1.83, 60);	//1.85
+	Recta(Fwd, 1.83, 60);	//1.83....1.85
 
 	//Arribem a canasta
-	Turn(Lft, 39, 15);
+	//Turn(Lft, 40, 15);
+	Turn(Lft, 40, 15);
 	MoveMotorAsync(motorA, 0.2, 20);
-	Recta(Fwd, 1.69, 60); // Abans 1.69
+	//if (getColorReflected(S3)> 40)	{
+
+	//	Turn(Lft, 2, 10);
+	//}
+	Recta(Fwd, 1.7, 60); // Abans 1.69
 
 
 	//Fem canasta
 	//Deixem bloc
 	setMotorBrakeMode(motorB, motorBrake);
 	setMotorBrakeMode(motorC, motorBrake);
-	MoveMotorTime(motorA, 0.7, 70);
+	MoveMotorTime(motorA, 0.5, 70);
 
 	//Pujem primer pis
 	MoveMotor(motorD, 3.7, 70);
@@ -82,10 +87,10 @@ void Sortida_1R(bool align = false)
 
 	setMotorSpeed (motorB, -40);
 	setMotorSpeed (motorC, 40);
-	delay(600);	//620
+	delay(500);	//620, 600			595 (550)
 	setMotorSpeed (motorB, 0);
 	setMotorSpeed (motorC, 0);
-	MoveMotorAsync(motorA, 0.8, -40);
+	MoveMotorAsync(motorA, 0.8, -20);
 	Recta(Fwd, 4.5, 60, false, true);
 	MoveMotor(motorD, 1.7, -70);			//1.6
 	MoveMotorTime(motorA, 1.2, -70);

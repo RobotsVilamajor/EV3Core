@@ -43,46 +43,49 @@ void Sortida_3R(bool align = false)
 	//// anem rodes
 	Turn(Rgt, 17, 10);
 	Recta(Bwd, 1.6, 60);
-	MoveMotorAsync(motorA, 0.6, 70);
-	Turn(Lft, 16, 10);
-	MoveMotorTime(motorA, 0.2, 70);
-	Recta(Bwd, 0.5, 30);
+	//MoveMotorAsync(motorA, 0.6, 70);
+	//Turn(Lft, 16, 10);
+	//MoveMotorTime(motorA, 0.2, 70);
+	//Recta(Bwd, 0.5, 30);
 
-	//// Preparem rodes
-	//MoveMotorTime(motorA, 0.3, 70);
-	MoveMotor(motorD, 3.5, -70);
-	Recta(Fwd, 0.5, 50, true, false);
-	setMotorSpeed (motorB, 10);
-	setMotorSpeed (motorC, -10);
-	delay(450);
-	setMotorSpeed (motorB, 10);
-	setMotorSpeed (motorC, 10);
-	delay(200);
-	setMotorSpeed (motorB, 0);
-	setMotorSpeed (motorC, 0);
+	////// Preparem rodes
+	////MoveMotorTime(motorA, 0.3, 70);
+	//MoveMotor(motorD, 3.5, -70);
+	////Recta(Fwd, 0.5, 50, true, false);
+	//Recta(Fwd, 0.5, 50, true, true);
+	//setMotorSpeed (motorB, 10);
+	//setMotorSpeed (motorC, -10);
+	//delay(450);
+	//setMotorSpeed (motorB, 10);
+	//setMotorSpeed (motorC, 10);
+	//delay(200);
+	//setMotorSpeed (motorB, 0);
+	//setMotorSpeed (motorC, 0);
 
-	// Girem rodes
-	MoveMotorAsync(motorD, 3.4, 70);
-	Recta(Fwd, 1.8, 20);			//abans 2
+	//// Girem rodes
+	//MoveMotorAsync(motorD, 3.4, 70);
+	////Recta(Fwd, 1.8, 20); //abans 2
+	//Recta(Fwd, 1.8, 20, true, false);
+	//Recta(Fwd, 0.3, 20, false, false);
 
-	// Tornem
-	// arrosseguem rodes
+	//// Tornem
+	//// arrosseguem rodes
 
-	setMotorSpeed (motorB, -20);
-	setMotorSpeed (motorC, 20);
-	delay(300);
-	setMotorSpeed (motorB, 0);
-	setMotorSpeed (motorC, 0);
-	MoveMotorAsync(motorD, 3, -70);
-	Recta(Bwd, 1, 40);
-	MoveMotorAsync(motorD, 3.5, 70);
-	MoveMotor(motorA, 1.6, -70);
-	MoveMotorTime(motorA, 0.2, -70);
-	Recta(Bwd, 8, 70);
+	//setMotorSpeed (motorB, -20);
+	//setMotorSpeed (motorC, 20);
+	//delay(300);
+	//setMotorSpeed (motorB, 0);
+	//setMotorSpeed (motorC, 0);
+	//MoveMotorAsync(motorD, 3, -70);
+	//Recta(Bwd, 1.3, 40);
+	//MoveMotorAsync(motorD, 3.5, 70);
+	//MoveMotor(motorA, 1.6, -70);
+	//MoveMotorTime(motorA, 0.2, -70);
+	//Recta(Bwd, 8, 70);
 
-	// posicionem pala. Preparar pala sortida 4
-	MoveMotorAsync(motorA, 0.85, 70);
-	MoveMotor(motorD, 4, -70);			//3.95
+	//// posicionem pala. Preparar pala sortida 4
+	//MoveMotorAsync(motorA, 0.85, 70);
+	//MoveMotor(motorD, 4, -70);			//3.95
 
 
 
