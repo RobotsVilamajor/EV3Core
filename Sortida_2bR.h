@@ -42,18 +42,26 @@ void Sortida_2bR(bool align = false)
 	// Anem a boccia
 	Recta(Fwd, 4.7, 60);
 	MoveMotorAsync(motorA, 0.5, 70);
-	MoveMotor(motorD, 5.2, -70); // abans 5
-	Recta(Fwd, 0.6, 60, true, true);			// Robopro 0.7
-	MoveMotorAsync(motorD, 3.4, 70);			//abans 3
-	Recta(Fwd, 0.27, 50, true, true);		//Robopro 0.27
+	MoveMotor(motorD, 5, -70); // abans 5.4
+	Recta(Fwd, 0.85, 60, true, true);			// Robopro 0.7  (0.6 + 0.27)
+	MoveMotorAsync(motorD, 3.8, 70);			//abans 3.3 (+0.7 amunt)
+	//Recta(Fwd, 0.27, 50, true, true);		//Robopro 0.27
 	MoveMotor(motorA, 0.5, -70);
-	Turn(Rgt, 41, 10);
-	Recta(Fwd, 2.25, 40);
+	Turn(Rgt, 40, 10);		//tota l'estona 41
+
+	//Per comprovar
+	//Recta(Fwd, 0.5, 60); // per comprovar
+	//if (getColorReflected(S3)< 40)	{
+
+	//	Turn(Lft, 3, 10);
+	//}
+	//Turn(Rgt, 39, 10);
+	Recta(Fwd, 2.35, 30);		//2.35
 
 	// Moure rodes
 	MoveMotor(motorA, 0.4, 70);			//0.6 per l'aliniat
 	MoveMotorTime(motorA, 0.2, 70);
-	MoveMotor(motorD, 2.7, -70);			//2.2
+	MoveMotor(motorD, 3.1, -70);			//2.2
 	MoveMotor(motorA, 1.5, -70);
 	MoveMotorTime(motorA, 0.3, -70);
 	MoveMotorAsync(motorD, 1, 70);

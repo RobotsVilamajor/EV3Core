@@ -24,26 +24,26 @@
 // ROBOPRO || VEATRIZ
 //#define VEATRIZ
 	#define ROBOPRO
-#include "Aliniat_S1.h"
-#include "Sortida_1b.h"
+#include "Sortida_1R.h"
 #include "Sortida_2a.h"
-#include "Sortida_2b.h"
-#include "Sortida_3.h"
+#include "Sortida_2bR.h"
+#include "Sortida_2bR_Short.h"
+#include "Sortida_3R.h"
 #include "Sortida_4_Robopro.h"
 
 
 
 task main()
 {
-	//Recta(Bwd, 0.02, 10, false, false);
-	//Recta(Fwd, 5, 60);
-	//Recta(Bwd, 0.5, 50);
-	//Aliniat_S1();
-	//Sortida_1b();
-	//Sortida_2a(true);
-	//Sortida_2b(true);
-	//Sortida_3(true);
-	Sortida_4_Robopro();
+	Recta(Bwd, 0.02, 10, false, false);
+	Recta(Fwd, 8, 60);
+	//Recta(Fwd, 0.05, 50);
+	//Sortida_1R(true);
+	//Sortida_2a();
+	//Sortida_2bR(true);
+	//Sortida_2bR_Short(true);
+	//Sortida_3R(true);
+	//Sortida_4_Robopro();
 
 
 	//Equival a un gir de .... a esquerra
@@ -55,7 +55,10 @@ task main()
 	//delay(500);
 	//Turn(Rgt, 35, 10);
 
+	//if (getColorReflected(S3)< 50)	{
 
+	//	Turn(Lft, 1, 10);
+	//}
 
 
 }

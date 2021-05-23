@@ -67,11 +67,11 @@ void Sortida_4_Robopro(bool align = false)
 
 	//Avançem fins a la M14
 
-	MoveMotorAsync(motorD, 3, 70);
-	Recta(Fwd, 1.43, 55);
+	MoveMotorAsync(motorD, 3.3, 70);
+	Recta(Fwd, 1.43, 40); //abans 55
 
 	//Fem la M14
-	MoveMotor(motorD, 0.75, -50);
+	MoveMotor(motorD, 1.05, -50);
 	Recta(Bwd, 0.5, 30);
 	MoveMotorAsync(motorA, 1, -70);
 	MoveMotor(motorD, 1.95, -70);
