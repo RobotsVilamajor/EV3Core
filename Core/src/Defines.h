@@ -20,6 +20,7 @@
 #define ALIGN_TARGET_LEFT 50
 #define ALIGN_TARGET_RIGHT 50
 //#define TURN_CONVERSION 165.0
+#define LINE_WHITE_MIN 70
 
 #elif defined(VEATRIZ)
 
@@ -32,6 +33,7 @@
 #define ALIGN_TARGET_LEFT 50
 #define ALIGN_TARGET_RIGHT 50
 //#define TURN_CONVERSION 152.0
+#define LINE_MIN_WHITE 50
 
 #else
 

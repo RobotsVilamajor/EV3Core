@@ -11,5 +11,6 @@
 #include "src/FollowLine.h"
 #include "src/Defines.h"
 #include "src/StartCheck.h"
+#include "src/WaitForLine.h"
 
 #endif
