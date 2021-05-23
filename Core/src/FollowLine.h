@@ -35,7 +35,4 @@ void FollowLine(int dir, float distance, float speed, bool bAcc = true, bool bDe
 		setMotorSpeed(motorB, 0);
 		setMotorSpeed(motorC, 0);
 	}
-
-	resetMotorEncoder(motorB);
-	resetMotorEncoder(motorC);
 }

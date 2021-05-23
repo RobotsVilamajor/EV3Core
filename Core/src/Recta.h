@@ -63,9 +63,6 @@ void Recta(float dir, float distance, float speed, bool bAcc = true, bool bDec =
 		setMotorSpeed(motorB, 0);
 		setMotorSpeed(motorC, 0);
 	}
-
-	resetMotorEncoder(motorB);
-	resetMotorEncoder(motorC);
 }
 
 #endif
