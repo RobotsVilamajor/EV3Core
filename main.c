@@ -14,7 +14,8 @@
 // Fwd - Forward; Bwd - Backward. Recta direction definitions
 // Lft - Left; Rgt - Right. Turns direction definitions
 
-// From max side to middle: 1.1
+// From max side to middle: 1.2
+// From max up to down: 2.65
 // Recta(Direction, Count, Power)
 // Turn(Direction, Angle, Power)
 // Align(Direction, Time)
@@ -23,42 +24,59 @@
 
 // ROBOPRO || VEATRIZ
 //#define VEATRIZ
-	#define ROBOPRO
-#include "Sortida_1R.h"
-#include "Sortida_2a.h"
-#include "Sortida_2bR.h"
-#include "Sortida_2bR_Short.h"
-#include "Sortida_3R.h"
-#include "Sortida_4_Robopro.h"
+#define VEATRIZ
 
+#include "Core/Core.h"
+//#include "Sortida_1R.h"
+//#include "Sortida_2a.h"
+//#include "Sortida_2bR.h"
+//#include "Sortida_2bR_Short.h"
+//#include "Sortida_3R.h"
+//#include "Sortida_4_Robopro.h"
 
 
 task main()
 {
+	resetGyro(S2);
+	delay(300);
+	setMotorBrakeMode(motorA, motorBrake);
+  setMotorBrakeMode(motorD, motorBrake);
+  waitForButtonPress();
+	flushButtonMessages();
+	//Fer ajust inicial
+	setMotorBrakeMode(motorA, motorBrake);
+  setMotorBrakeMode(motorD, motorBrake);
 	Recta(Bwd, 0.02, 10, false, false);
-	Recta(Fwd, 8, 60);
-	//Recta(Fwd, 0.05, 50);
-	//Sortida_1R(true);
-	//Sortida_2a();
-	//Sortida_2bR(true);
-	//Sortida_2bR_Short(true);
-	//Sortida_3R(true);
-	//Sortida_4_Robopro();
 
+//	//Anem fins a la canasta
+//	//Avancem fins humans
+	MoveMotorAsync(motorA, 1.2, 40);
+	MoveMotor(motorD, 2.65, 40);
+	setMotorBrakeMode(motorA, motorBrake);
+  setMotorBrakeMode(motorD, motorBrake);
+	Recta(Fwd, 2.4, 60);
+	Turn(32, 15);
+	Align(Fwd, 2);
+	Recta(Fwd, 2.5, 60);
+	//WaitForLine(Fwd, 5, 10, Rgt);
+	Recta(Bwd, 0.05, 60);
 
-	//Equival a un gir de .... a esquerra
-	//setMotorSpeed (motorB, -35);
-	//setMotorSpeed (motorC, 35);
-	//delay(400);
-	//setMotorSpeed (motorB, 0);
-	//setMotorSpeed (motorC, 0);
-	//delay(500);
-	//Turn(Rgt, 35, 10);
+//Pujem primer pis
+	setMotorBrakeMode(motorC, motorBrake);
+	setMotorBrakeMode(motorB, motorBrake);
+	MoveMotor(motorA, -0.75, 60);
+	MoveMotor(motorD, -1.4, 60);
+	setMotorBrakeMode(motorD, motorBrake);
 
-	//if (getColorReflected(S3)< 50)	{
-
-	//	Turn(Lft, 1, 10);
-	//}
-
-
+	//Pujem segon pis
+	MoveMotor(motorA, 1.9, 60);
+	MoveMotor(motorD, 1.4, 60);
+	setMotorBrakeMode(motorD, motorBrake);
+	MoveMotor(motorA, -1.9, 60);
+	MoveMotor(motorD, -2.65, 70);
+	MoveMotorAsync(motorD, 0.5, 70);
+	Recta(Bwd, 0.5, 60);
+	setMotorBrakeMode(motorD, motorBrake);
+	Turn(97, 30);
+	Recta(Fwd, 4, 70, false, false);
 }
