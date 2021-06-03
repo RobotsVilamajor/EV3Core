@@ -38,7 +38,14 @@
 
 task main()
 {
-	T_Sort_1V();
+	Align(Fwd, 10);
+
+	while (true)
+	{
+		displayCenteredBigTextLine(4, "%d - %d", getColorReflected(S4), getColorReflected(S3));
+	}
+
+	//T_Sort_1V();
 //	resetGyro(S2);
 //	delay(300);
 //	setMotorBrakeMode(motorA, motorBrake);
