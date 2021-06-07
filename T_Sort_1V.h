@@ -33,8 +33,9 @@ void T_Sort_1V(bool align = false)
 
 //	//Anem fins a la canasta
 //	//Avancem fins humans
-	MoveMotor(motorA, 1.2, 60);
-	MoveMotorAsync(motorD, 2.65, 40);
+	MoveMotorAsync(motorA, 1.2, 60);
+	MoveMotor(motorD, -0.5, 40);
+	MoveMotorAsync(motorD, -2.65, 40);
 	Recta(Fwd, 2.4, 60);
 	setMotorBrakeMode(motorD, motorBrake);
 	Turn(32, 15);
@@ -45,18 +46,18 @@ void T_Sort_1V(bool align = false)
 	setMotorBrakeMode(motorC, motorBrake);
 	setMotorBrakeMode(motorB, motorBrake);
 	MoveMotor(motorA, -0.95, 60);
-	MoveMotor(motorD, -1.5, 60);
+	MoveMotor(motorD, 1.7, 60);
 	setMotorBrakeMode(motorD, motorBrake);
 
 //	//Pujem segon pis
 	MoveMotor(motorA, 2.1, 60);
-	MoveMotor(motorD, 1.5, 60);
+	MoveMotor(motorD, -1.7, 60);
 	setMotorBrakeMode(motorD, motorBrake);
 	MoveMotor(motorA, -2.1, 60);
-	MoveMotor(motorD, -2.65, 70);
+	MoveMotor(motorD, 2.65, 70);
 	setMotorBrakeMode(motorD, motorBrake);
 	MoveMotor(motorA, 0.9, 60);
-	MoveMotorAsync(motorD, 2.65, 70);
+	MoveMotorAsync(motorD, -2.65, 70);
 	Recta(Bwd, 0.7, 60);
 	setMotorBrakeMode(motorD, motorBrake);
 	Turn(90, 30);
