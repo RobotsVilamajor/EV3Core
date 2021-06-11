@@ -13,7 +13,8 @@ void FollowLine(float distance, float speed, float sensor, float side, bool bAcc
 	}
 
 	PID pid;
-	InitPID(pid, 0.5, 0.0, 0.02, 0.005);
+	//InitPID(pid, 0.9, 0.0, 0.02, 0.005);
+	InitPID(pid, 1, 0.0, 0.1, 0.005);
 
 	Accelerate acc;
 	InitAcc(acc, speed, distance, 1000, 800, 2, 2, 7, 7, 0.1, bAcc, bDec);
