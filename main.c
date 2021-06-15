@@ -23,21 +23,24 @@
 // MoveMotorAsync(Motor, Count, Power)
 
 // ROBOPRO || VEATRIZ
-#define VEATRIZ
+#define ROBOPRO
+//#define VEATRIZ
 
 #include "Core/Core.h"
 #include "T_Sort_1V.h"
 #include "T_Sort_3R.h"
 #include "Sortida_1R.h"
+#include "T_Sort_2R.h"
 //#include "Sortida_2a.h"
 //#include "Sortida_2bR.h"
 //#include "Sortida_2bR_Short.h"
 //#include "Sortida_3R.h"
 //#include "Sortida_4_Robopro.h"
 
-//#define VEATRIZ
-
 task main()
 {
+	T_Sort_2R(true);
+//el turn dona problemes.
+
 
 }
