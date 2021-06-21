@@ -40,7 +40,49 @@
 task main()
 {
 	T_Sort_2R(true);
-//el turn dona problemes.
+	//T_Sort_3R(true);
+
+	//resetGyro(S2);
+	//delay(300);
+	//MoveMotor(motorD, 1.2, 50);
+	//setMotorBrakeMode(motorD, motorBrake);
+
+
+
+	// Començar per ninu
+	//MoveMotorAsync(motorA, 1.1, 40);
+	//MoveMotor(motorD, 2.6, 40);
+	//setMotorBrakeMode(motorD, motorBrake);
+
+	//Align(Fwd, 4);
+	//resetGyro(S2);
+	//delay(300);
+
+
+
+
+	//waitForButtonPress();
+
+ //	//	Tirar el cub groc
+	//Turn(20,10);
+	//MoveMotor(motorD, 0.45, 70);
+	//setMotorBrakeMode(motorD, motorBrake);
+ // Turn(45,10);
+	//setMotorBrakeMode(motorC, motorBrake);
+	//setMotorBrakeMode(motorB, motorBrake);
+	//MoveMotorTime(motorA, 0.2, 60);
+	//MoveMotor(motorA, 1.4, -60);
+	//Recta(Fwd, 0.85, 40);							//0.85
+	//MoveMotor(motorD, 0.3, 70);
+	//setMotorBrakeMode(motorD, motorBrake);
+
+	////	Agafar mòvil
+	//MoveMotorAsync(motorA, 0.8, 40);   	//1
+	//Recta(Bwd, 0.20, 40);						//teoricament toca 0.25
+	//MoveMotor(motorD, 0.9, -70);		//1
+	//setMotorBrakeMode(motorD, motorBrake);
+
+
 
 
 }

@@ -23,7 +23,7 @@ void T_Sort_3R(bool align = false)
 	flushButtonMessages();
 	if (align == true)
 	{
-		MoveMotorTime(motorA, 4, -30);
+		MoveMotorTime(motorA, 7, -10);
 		MoveMotorTime(motorD, 4, 30);
 		MoveMotorAsync(motorA, 1.2, 60);
 		MoveMotor(motorD, -0.5, 40);
@@ -64,53 +64,51 @@ void T_Sort_3R(bool align = false)
 	Recta(Bwd, 0.5, 40, false, false);
 	Recta(Bwd, 0.3, 30, false, true);
 
+	resetGyro(S2);
+	delay(300);
+
 	//Fem millores
 	MoveMotor(motorA, 0.4, -70);
 	MoveMotorAsync(motorA, 2, -70);
 	setMotorBrakeMode(motorD, motorBrake);
-	Recta(Fwd, 0.75, 40, true, true);
+	Recta(Fwd, 0.8, 40, true, true);
 	MoveMotorAsync(motorD, -0.3, 70);
-	Recta(Bwd, 0.35, 10, true, true);
+	Recta(Bwd, 0.4, 10, true, true);
 	setMotorBrakeMode(motorD, motorBrake);
 
 	//Passem per sota
 	MoveMotorAsync(motorA, 1.2, 70);
-	MoveMotor(motorD, -1.2, 50);
+	MoveMotor(motorD, 1.2, -50);
 	setMotorBrakeMode(motorD, motorBrake);
 	FollowLine(1.6, 40, Rgt, Rgt, true, false);
 	Recta(Fwd, 0.2, 40, false, false);
 
+	MoveMotorAsync(motorA, 0.9, -40);		// això és nou 0.9
 	Recta(Fwd, 1.2, 50, false, false);
 	setMotorSpeed(motorD, 0);
-	Recta(Fwd, 0.25, 50, false, true);
+	Recta(Fwd, 0.25, 30, false, true);
+
+
 	//Fem bloc groc
-	//MoveMotor(motorA, 1.2, 70);
-	//setMotorBrakeMode(motorD, motorBrake);
-	//Recta(Fwd, 1, 30, true, true);
-	//setMotorBrakeMode(motorC, motorBrake);
-	//setMotorBrakeMode(motorB, motorBrake);
-	//MoveMotor(motorD, 0.5, 70);
-
-	////Fem blocs
-	//MoveMotorAsync(motorD, -0.5, 70);
-	//MoveMotor(motorA, -1.2, 50);
-	//setMotorBrakeMode(motorD, motorBrake);
-	//Recta(Fwd, 0.1, 30, false, true);
-	//delay(2500);
-
+	Recta(Bwd, 0.45, 40);
+	MoveMotor(motorA, 2, 70);		//1.1
+	MoveMotorTime(motorA, 0.2, 70);
+	Turn(-14,15);
+	Turn(-5,10);
+	MoveMotor(motorD, 1, 50);
+	setMotorBrakeMode(motorD, motorBrake);
 
 	//Anem a ballar
-	//Recta(Bwd, 0.7, 50);
-	//Turn(130, 60);
-	//MoveMotorAsync(motorA, -1.2, 70);
-	//Recta(Fwd, 1.5, 60, false, false);
+	Turn(50,15);
+	MoveMotorAsync (motorA, 1.2, -50);
+	Recta(Fwd, 1.6, 60, false, false);
 
-	////Ballem
-	//while(true)
-	//{
-	//Recta(Bwd, 0.2, 50, false, false);
-	//Recta(Fwd, 0.2, 50, false, false);
-	//}
+	//Ballem
+	while(true)
+	{
+	Recta(Fwd, 0.3, 50, false, false);
+	Recta(Bwd, 0.3, 50, false, false);
+	}
 
 
 
