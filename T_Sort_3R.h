@@ -28,6 +28,7 @@ void T_Sort_3R(bool align = false)
 		MoveMotorAsync(motorA, 1.2, 60);
 		MoveMotor(motorD, -3.05, 70);
 	}
+	flushButtonMessages();
 	setMotorBrakeMode(motorD, motorBrake);
 	setMotorBrakeMode(motorA, motorBrake);
 	waitForButtonPress();
@@ -38,12 +39,12 @@ void T_Sort_3R(bool align = false)
 
 	//Arribem fins a zona de gir
 	Recta(Fwd, 1, 50, false, false);
-	FollowLine(3.5, 40, Rgt, Lft, false, false);
+	FollowLine(3.3, 40, Rgt, Lft, false, false);  //3.5
 	Recta(Fwd, 0.1, 30, false, false);
 	WaitForLine(Fwd, 3, 20, Lft);
 	MoveMotor(motorD, 1.55, 70);		//1.5
 	setMotorBrakeMode(motorD, motorBrake);
-	Recta(Fwd, 0.45, 30);   //acabar d'ajustar el retorn enrere
+	Recta(Fwd, 0.57, 30);   //acabar d'ajustar el retorn enrere	0.45
 
 	//Girem
 	MoveMotorAsync(motorA, 1.2, 70);
@@ -71,17 +72,17 @@ void T_Sort_3R(bool align = false)
 	delay(300);
 
 	//Fem millores
-	//MoveMotor(motorA, 0.4, -70);
-	MoveMotorAsync(motorA, 1.2, -70);			//2.4 en total. Fem tope esquerra
+	MoveMotor(motorA, 0.4, -70);
+	MoveMotorAsync(motorA, 1.6, -70);			//2.4 en total. Fem tope esquerra ^^ ara no 1.9 ... no fem tope ... 1.5
 	Recta(Fwd, 0.82, 40, true, true);  //0.8
-	MoveMotor(motorA, 1.2, -70);			//2.4 en total. Fem tope esquerra
 	//MoveMotorTime (motorA,0.1,-70); ///Fem tope esquerra
-	MoveMotorAsync(motorD, -0.35, 70);		//0.3
-	Recta(Bwd, 0.42, 10, true, true);			//0.4
+	MoveMotorAsync(motorD, -0.35, 60);		//0.3
+	delay(250);
+	Recta(Bwd, 0.42, 15, true, true);			//0.4
 	setMotorBrakeMode(motorD, motorBrake);
 
 	//Passem per sota
-	MoveMotorAsync(motorA, 1.2, 70);
+	MoveMotorAsync(motorA, 0.8, 60);			//1.2
 	MoveMotor(motorD, 1.2, -70);			// Intento arribar abaix de tot. tope abaix
 	setMotorBrakeMode(motorD, motorBrake);
 	FollowLine(1.6, 40, Rgt, Rgt, true, false);
@@ -91,24 +92,24 @@ void T_Sort_3R(bool align = false)
 	Recta(Fwd, 1.2, 40, false, false);
 	//setMotorSpeed(motorD, 0);
 	MoveMotor(motorD, 0.05, -10);		//1.5
-	setMotorBrakeMode(motorD, motorBrake);
-	Recta(Fwd, 0.3, 20, false, true);   // 0.25
+	Recta(Fwd, 0.27, 20, false, true);   // 0.25
 
 
 	//Fem bloc groc
 
-	MoveMotorAsync(motorA, 1, 70);		//1.1
-	Recta(Bwd, 0.3, 40);
+	//MoveMotorAsync(motorA, 1, 70);		//1.1
+	//Recta(Bwd, 0.3, 40);
 	//Turn(-14,15);
 	//MoveMotorTime(motorA, 0.2, 70);   // Fem tope
 	//Turn(-5,10);
 	MoveMotorAsync(motorD, 1, 70);
-	delay(100);
+	Recta(Bwd, 0.3, 20, false, true);
+	//delay(100);
 
 	//Anem a ballar
 	Turn(50,15);
 	setMotorBrakeMode(motorD, motorBrake);
-	MoveMotorAsync (motorA, 1.5, -50);		//1
+	MoveMotorAsync (motorA, 0.8, -50);		//1
 	Recta(Fwd, 1.6, 60, false, false);
 
 	//Ballem

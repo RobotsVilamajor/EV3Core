@@ -8,16 +8,16 @@ void StartCheck()
 		displayCenteredBigTextLine(2, "S2 (GYRO) Not connected properly");
 		failed = true;
 	}
-	//if (SensorType[S3] != 93)
-	//{
-	//	displayCenteredBigTextLine(4, "S3 Not connected properly");
-	//	failed = true;
-	//}
-	//if (SensorType[S4] != 93)
-	//{
-	//	displayCenteredBigTextLine(6, "S4 Not connected properly");
-	//	failed = true;
-	//}
+	if (SensorType[S3] != 93)
+	{
+		displayCenteredBigTextLine(4, "S3 Not connected properly");
+		failed = true;
+	}
+	if (SensorType[S4] != 93)
+	{
+		displayCenteredBigTextLine(6, "S4 Not connected properly");
+		failed = true;
+	}
 
 	if (failed)
 	{

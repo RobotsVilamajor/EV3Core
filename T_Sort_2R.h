@@ -38,23 +38,23 @@ void T_Sort_2R(bool align = false)
 	// Fer comptapassos
 	Recta(Fwd, 4.7, 70, true, false);
 	Recta(Fwd, 1.3, 45, false, false);   //speed = 35
-	setMotorSpeed(motorB, -15);
-	setMotorSpeed(motorC, -8);
+	setMotorSpeed(motorB, -12);
+	setMotorSpeed(motorC, -7);
 	delay(500);
 	//setMotorSpeed(motorB, 0);
 	//setMotorSpeed(motorC, 0);
 
 		//enganxar-se a la paret
-	setMotorSpeed(motorB, -25);
-	setMotorSpeed(motorC, 25);
+	setMotorSpeed(motorB, -30);
+	setMotorSpeed(motorC, 30);
 	delay(500);
 	setMotorSpeed(motorB, 0);
 	setMotorSpeed(motorC, 0);
 
 		//tornem a fer tope
-	setMotorSpeed(motorB, -7);
-	setMotorSpeed(motorC, -7);
-	delay(200);
+	setMotorSpeed(motorB, -8);
+	setMotorSpeed(motorC, -8);
+	delay(300);
 	//setMotorSpeed(motorB, 0);
 	//setMotorSpeed(motorC, 0);
 
@@ -76,18 +76,28 @@ void T_Sort_2R(bool align = false)
 	//girar roda blava
 	MoveMotorAsync(motorD, 1.2, 50);
 	Recta(Fwd, 0.5, 30, true, false);
-	MoveMotorAsync(motorD, 0.5, -40);		//
-	Recta(Fwd, 0.4, 40, false, true);		//0.3
+	MoveMotorAsync(motorD, 0.5, -40);
+	Recta(Fwd, 0.4, 40, false, true);
 	MoveMotor(motorD, 0.5, 50);
 	setMotorBrakeMode(motorD, motorBrake);
 
 	//// Fer "rem"
-	while(getColorReflected(S3)<65 )
+	if (getColorReflected(S3)<65 && getColorReflected(S3)> 10)
 	{
-	setMotorSpeed(motorB, -15);
-	setMotorSpeed(motorC, 15);
+		while(getColorReflected(S3)<65 )
+		{
+			setMotorSpeed(motorB, -15);
+			setMotorSpeed(motorC, 15);
+		}
 	}
-
+	if (getColorReflected(S3)>65 )
+	{
+		while(getColorReflected(S3)>40 )
+		{
+			setMotorSpeed(motorB, -15);
+			setMotorSpeed(motorC, 15);
+		}
+	}
 	MoveMotorAsync(motorA, 1.45, 20);			//abans 1.4
 	FollowLine(1, 40, Rgt, Lft, false, false);
 	Recta(Fwd, 0.1, 30, false, false);
@@ -124,7 +134,7 @@ void T_Sort_2R(bool align = false)
 	Recta(Bwd, 0.07, 20, false, true);
 
 	Turn (90, 30);
-	Align(Bwd, 3);
+	Align(Bwd, 4);
 	resetGyro(S2);
 	delay(300);
 	Recta(Fwd, 2.5, 60);
@@ -150,7 +160,7 @@ void T_Sort_2R(bool align = false)
 	// Fer palanca
 	setMotorBrakeMode(motorC, motorBrake);
 	setMotorBrakeMode(motorB, motorBrake);
-	MoveMotorTime(motorA, 0.5, 40);   //1;35
+	MoveMotorTime(motorA, 0.7, 40);   //1;35
 	MoveMotor(motorD, 2.1, -70);
 	MoveMotor(motorD, 1.3, 70);
 	setMotorBrakeMode(motorD, motorBrake);

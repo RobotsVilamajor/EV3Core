@@ -44,15 +44,31 @@ task main()
 	//T_Sort_3R(true);
 
 
+	if (getColorReflected(S3)<65 && getColorReflected(S3)> 10)
+	{
 
-	//setMotorBrakeMode(motorD, motorBrake);
-	//resetGyro(S2);
-	//delay(2000);
+		while(getColorReflected(S3)<65 )
+		{
+			setMotorSpeed(motorB, -15);
+			setMotorSpeed(motorC, 15);
+		}
+	}
 
-	//WaitForLine(Fwd, 1, 15, Lft);
+	if (getColorReflected(S3)>65 )
+	{
 
-	MoveMotorAsync(motorC, 1.5, -40);
-	MoveMotor(motorB, 2, -60);
+		while(getColorReflected(S3)>40 )
+		{
+			setMotorSpeed(motorB, -15);
+			setMotorSpeed(motorC, 15);
+		}
+	}
+
+	FollowLine(1, 40, Rgt, Lft, false, false);
+
+
+
+
 	//delay(5000);
 
 	//// Recuperem mòbil i a base
