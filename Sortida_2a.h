@@ -57,7 +57,7 @@ void Sortida_2a(bool align = false)
 	setMotorSpeed	(motorB, 0);
 	setMotorSpeed	(motorC, 0);
 
-	MoveMotor(motorD, 5.2, 70);
+//	MoveMotor(motorD, 5.2, 70);
 
 
 

@@ -27,11 +27,12 @@
 //#define VEATRIZ
 
 #include "Core/Core.h"
-#include "T_Sort_1V.h"
+#include "T_Sort_1R.h"
 #include "T_Sort_3R.h"
 #include "Sortida_1R.h"
 #include "T_Sort_2R.h"
-//#include "Sortida_2a.h"
+
+#include "Sortida_2a.h"
 //#include "Sortida_2bR.h"
 //#include "Sortida_2bR_Short.h"
 //#include "Sortida_3R.h"
@@ -39,49 +40,36 @@
 
 task main()
 {
-	T_Sort_2R(true);
+//	T_Sort_2R(true);
 	//T_Sort_3R(true);
 
+
+
+	//setMotorBrakeMode(motorD, motorBrake);
 	//resetGyro(S2);
-	//delay(300);
-	//MoveMotor(motorD, 1.2, 50);
+	//delay(2000);
+
+	//WaitForLine(Fwd, 1, 15, Lft);
+
+	MoveMotorAsync(motorC, 1.5, -40);
+	MoveMotor(motorB, 2, -60);
+	//delay(5000);
+
+	//// Recuperem mòbil i a base
+	//Recta(Bwd, 0.3, 30, false, false);  //0.4 true, true
+	//MoveMotor(motorD, 2.5, -70);
 	//setMotorBrakeMode(motorD, motorBrake);
+	//Turn(135,20);
 
-
-
-	// Començar per ninu
-	//MoveMotorAsync(motorA, 1.1, 40);
-	//MoveMotor(motorD, 2.6, 40);
-	//setMotorBrakeMode(motorD, motorBrake);
-
-	//Align(Fwd, 4);
-	//resetGyro(S2);
-	//delay(300);
+	//// aliniem pala
+	//Recta(Fwd, 4.5, 60, false, true);
 
 
 
 
-	//waitForButtonPress();
 
- //	//	Tirar el cub groc
-	//Turn(20,10);
-	//MoveMotor(motorD, 0.45, 70);
-	//setMotorBrakeMode(motorD, motorBrake);
- // Turn(45,10);
-	//setMotorBrakeMode(motorC, motorBrake);
-	//setMotorBrakeMode(motorB, motorBrake);
-	//MoveMotorTime(motorA, 0.2, 60);
-	//MoveMotor(motorA, 1.4, -60);
-	//Recta(Fwd, 0.85, 40);							//0.85
-	//MoveMotor(motorD, 0.3, 70);
-	//setMotorBrakeMode(motorD, motorBrake);
 
-	////	Agafar mòvil
-	//MoveMotorAsync(motorA, 0.8, 40);   	//1
-	//Recta(Bwd, 0.20, 40);						//teoricament toca 0.25
-	//MoveMotor(motorD, 0.9, -70);		//1
-	//setMotorBrakeMode(motorD, motorBrake);
-
+	//flushButtonMessages();
 
 
 

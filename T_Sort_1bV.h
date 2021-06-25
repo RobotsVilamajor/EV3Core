@@ -27,17 +27,16 @@ flushButtonMessages();
 	if (align == true)
 	{
 		MoveMotorTime(motorA, 4, -30);
-		MoveMotorTime(motorD, 4, -40);
+		MoveMotorTime(motorD, 4, 40);
 		delay(100);
 		MoveMotorAsync(motorA, 1.2, 40);
-		MoveMotor(motorD, 2.65, 40);
+		MoveMotor(motorD, 3.1, -40);
 	}
-  waitForButtonPress();
-	flushButtonMessages();
-	setMotorBrakeMode(motorA, motorBrake);
   setMotorBrakeMode(motorD, motorBrake);
-	resetGyro(S2);
-	delay(300);
+  setMotorBrakeMode(motorA, motorBrake);
+	waitForButtonPress();
+	flushButtonMessages();
+	setMotorBrakeMode(motorD, motorBrake);
 
 	// Sortir de base direcció a M03 i recollir homenets
 	Recta(Fwd, 3.5, 60, true, false);
@@ -61,8 +60,6 @@ flushButtonMessages();
 	setMotorSpeed	(motorB, 0);
 	setMotorSpeed	(motorC, 0);
 
-	//MoveMotor(motorD, 5.2, 70);
-
-
-
+	MoveMotor(motorD, 1.5, 50);
+	MoveMotor(motorA, 0.65, 50);
 }
