@@ -6,9 +6,11 @@ bool InBetween(float x, float rangeMin, float rangeMax)
 
 void AdjustWheel(tMotor m, float target)
 {
-	float error = getMotorEncoder(m) / 360.0 - target;
+	float error = (getMotorEncoder(m) / 360.0) - target;
+	//datalogAddValue(0, (int)(error * 1000));
+	writeDebugStreamLine("error %s: %.3f", m == motorB ? "b" : "c", error);
 
-	if (!InBetween(error, -0.005, 0.005))
+	if (!InBetween(error, -0.02, 0.02))
 	{
 		float dir = 0;
 
@@ -19,11 +21,11 @@ void AdjustWheel(tMotor m, float target)
 
 		setMotorSpeed(m, -6 * dir);
 
-		waitUntil((getMotorEncoder(m) / 360.0 - target) * dir <= 0);
+		waitUntil(((getMotorEncoder(m) / 360.0) - target) * dir <= 0);
 
 		setMotorSpeed(m, 0);
 
-		delay(100);
+		delay(50);
 	}
 }
 
