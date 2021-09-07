@@ -5,17 +5,16 @@
 #include "Defines.h"
 #include "Accelerate.h"
 
+
 void Turn(float dir, float angle, float speed)
 {
-	setLEDColor(ledGreen);
-
 	resetMotorEncoder(motorB);
 	resetMotorEncoder(motorC);
 
 	float target = angle / TURN_CONVERSION;
 
 	Accelerate acc;
-	InitAcc(acc, speed, target, 2000, 2000, 2, 2, 7, 7, 0);
+	InitAcc (acc, speed, target, 2000, 2000, 2, 2, 7, 7, 0.1);
 
 	while (fabs(getMotorEncoder(motorB)) / 360.0 < target || fabs(getMotorEncoder(motorC)) / 360.0 < target)
 	{
@@ -29,25 +28,14 @@ void Turn(float dir, float angle, float speed)
 		delay(10);
 	}
 
-	setMotorSpeed(motorB, 0);
-	setMotorSpeed(motorC, 0);
-
-	setLEDColor(ledOrange);
-
-	for (int i = 0; i < 100; i++)
-	{
-		AdjustWheel(motorB, target * dir);
-		AdjustWheel(motorC, -target * dir);
-	}
-
-	/*float time = 1;
+	float time = 1;
 
 	clearTimer(T1);
 	while (time1[T1] < time * 1000)
 	{
-		AdjustWheel(motorB, target * dir);
-		AdjustWheel(motorC, -target * dir);
-	}*/
+		AdjustWheel (motorB, target * dir);
+		AdjustWheel (motorC, -target * dir);
+	}
 
 	displayCenteredBigTextLine(2, "%.3f - %.3f", getMotorEncoder(motorB), (TURN_CONVERSION * getMotorEncoder(motorB)) / 360.0);
 	displayCenteredBigTextLine(5, "%.3f - %.3f", getMotorEncoder(motorC), (TURN_CONVERSION * getMotorEncoder(motorC)) / 360.0);
