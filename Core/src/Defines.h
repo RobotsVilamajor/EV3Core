@@ -23,6 +23,13 @@
 #define LINE_WHITE_MIN 65
 #define LINE_BLACK_MIN 25
 
+//FollowLine
+#define COLOR_BALANCE_LEFT 77
+#define COLOR_BALANCE_RIGHT 55
+#define PROPORTIONAL_ARRAY { 1, 0.5, 1, 1 } //	Speed 40, 50, 60, 70
+#define INTEGRAL { 40, 55, 40, 40 }
+#define DERIVATE { 0.3, 0.025, 0.03, 0.03 }
+
 #elif defined(VEATRIZ)
 
 // 0 1 2 3 4 5 6 7 8 9
@@ -31,11 +38,18 @@
 //#define RECTA_REGRESSION 2.4 {5.4, 5.4, 5.1, 5.1, 5.4, 5.6, 3.6, 4, 4.75, 5.8 }
 #define ALIGN_MIN_WHITE 70
 #define ALIGN_MIN_BLACK 30
-#define ALIGN_TARGET_LEFT 40
+#define ALIGN_TARGET_LEFT 41
 #define ALIGN_TARGET_RIGHT 55
 //#define TURN_CONVERSION 152.0
 #define LINE_WHITE_MIN 95
 #define LINE_BLACK_MIN 12
+
+//FollowLine
+#define COLOR_BALANCE_LEFT 77
+#define COLOR_BALANCE_RIGHT 55
+#define PROPORTIONAL_ARRAY { 1, 0.5, 1, 1 } //	Speed 40, 50, 60, 70
+#define INTEGRAL { 40, 55, 40, 40 }
+#define DERIVATE { 0.3, 0.025, 0.03, 0.03 }
 
 #else
 
