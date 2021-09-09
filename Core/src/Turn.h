@@ -24,8 +24,9 @@ void AdjustAngle(float angle)
 		setMotorSpeed(motorB, 0);
 		setMotorSpeed(motorC, 0);
 
-		delay(100);
+		delay(90);
 	}
+	delay(3);
 }
 
 void Turn(float angle, float speed)
