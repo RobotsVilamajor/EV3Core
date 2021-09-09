@@ -1,15 +1,30 @@
 #include "PID.h"
 #include "Defines.h"
 
-void FollowLine(float distance, float speed, float sensor, float side, bool bAcc = true, bool bDec = true)
+void FollowLine(float distance, float speed, float sensor, float side, bool bAcc = true, bool bDec = true, float Colorbalance = 0)
 {
 	resetMotorEncoder(motorB);
 	resetMotorEncoder(motorC);
 
 	float ColorBalance = 0;
 
-	if(sensor == Lft){ColorBalance = COLOR_BALANCE_LEFT
-	}else{ColorBalance = COLOR_BALANCE_RIGHT}
+	if(sensor == Lft)
+	{
+		if (side = Lft)
+			ColorBalance = COLOR_BALANCE_LEFT_LEFT;
+		else
+			ColorBalance = COLOR_BALANCE_LEFT_RIGHT;
+	}
+	else
+	{
+		if (side = Rgt)
+			ColorBalance = COLOR_BALANCE_RIGHT_RIGHT;
+		else
+			ColorBalance = COLOR_BALANCE_RIGHT_LEFT;
+	}
+
+	if (Colorbalance != 0)
+		ColorBalance = Colorbalance;
 
 	if (bAcc)
 	{
@@ -17,14 +32,16 @@ void FollowLine(float distance, float speed, float sensor, float side, bool bAcc
 		setMotorSpeed(motorB, 0);
 	}
 	int position;
-	if ((InBetween(speed, 0, 45))
+	if ((InBetween(speed, 0, 35))
 		position = 0;
-	else if (InBetween(speed, 46, 55))
+	else if (InBetween(speed, 36, 45))
 		position = 1;
-	else if (InBetween(speed, 56, 65))
+	else if (InBetween(speed, 46, 55))
 		position = 2;
-	else
+	else if (InBetween(speed, 56, 65))
 		position = 3;
+	else
+		position = 4;
 
 	//Proportional
 	float prop_array[] = PROPORTIONAL_ARRAY;
@@ -46,7 +63,7 @@ void FollowLine(float distance, float speed, float sensor, float side, bool bAcc
 	//InitPID(pid, 0.5, 40, 0.35, 0.005);
 	//InitPID(pid, 0.35, 15, 0.035, 0.005);
 		//InitPID(pid, 0.35, 6, 0, 0.005);
-		InitPID(pid, prop_value, int_value, dev_value, 0.005);
+	InitPID(pid, prop_value, int_value, dev_value, 0.005);
 
 	Accelerate acc;
 	InitAcc(acc, speed, distance, 1000, 800, 2, 2, 7, 7, 0.1, bAcc, bDec);
@@ -55,7 +72,7 @@ void FollowLine(float distance, float speed, float sensor, float side, bool bAcc
 	{
 	float error = ColorBalance - getColorReflected(sensor == Lft ? S4 : S3);
 
-		float turnRate = UpdatePID(pid, error) * side;
+		float turnRate = UpdatePID(pid, error) * -side;
 
 		float x = fabs(getMotorEncoder(motorC) / 360.0);
 		float c_speed = -GetAcc(acc, x);

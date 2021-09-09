@@ -24,11 +24,13 @@
 #define LINE_BLACK_MIN 25
 
 //FollowLine
-#define COLOR_BALANCE_LEFT 77
-#define COLOR_BALANCE_RIGHT 55
-#define PROPORTIONAL_ARRAY { 1, 0.5, 1, 1 } //	Speed 40, 50, 60, 70
-#define INTEGRAL { 40, 55, 40, 40 }
-#define DERIVATE { 0.3, 0.025, 0.03, 0.03 }
+#define COLOR_BALANCE_LEFT_LEFT 68
+#define COLOR_BALANCE_LEFT_RIGHT 37
+#define COLOR_BALANCE_RIGHT_RIGHT 31
+#define COLOR_BALANCE_RIGHT_LEFT 45
+#define PROPORTIONAL_ARRAY { 1.25, 0.7, 0.5, 0.5, 0.5 } //	Speed 30, 40, 50, 60, 70
+#define INTEGRAL { 50, 55, 55, 55, 50 }
+#define DERIVATE { 0.6, 0.45, 0.045, 0.045, 0.035 }
 
 #elif defined(VEATRIZ)
 
@@ -45,11 +47,13 @@
 #define LINE_BLACK_MIN 12
 
 //FollowLine
-#define COLOR_BALANCE_LEFT 77
-#define COLOR_BALANCE_RIGHT 55
-#define PROPORTIONAL_ARRAY { 1, 0.5, 1, 1 } //	Speed 40, 50, 60, 70
-#define INTEGRAL { 40, 55, 40, 40 }
-#define DERIVATE { 0.3, 0.025, 0.03, 0.03 }
+#define COLOR_BALANCE_LEFT_LEFT 77
+#define COLOR_BALANCE_LEFT_RIGHT 77
+#define COLOR_BALANCE_RIGHT_RIGHT 55
+#define COLOR_BALANCE_RIGHT_LEFT 55
+#define PROPORTIONAL_ARRAY { 1, 1, 0.5, 1, 1 } //	Speed 40, 50, 60, 70
+#define INTEGRAL { 40, 40, 55, 40, 40 }
+#define DERIVATE { 0.3, 0.3, 0.025, 0.03, 0.03 }
 
 #else
 
