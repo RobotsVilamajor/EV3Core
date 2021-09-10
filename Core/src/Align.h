@@ -17,8 +17,8 @@ void Align(float dir, float time)
 	setMotorSync(motorC, motorB, 0, 0);
 
 	PID pidL, pidR;
-	InitPID (pidL, 0.2, 10, 0, 0.01);
-	InitPID (pidR, 0.2, 10, 0, 0.01);
+	InitPID (pidL, PROPORTIONAL_ALIGN, INTEGRAL_ALIGN, DERIVATE_ALIGN, 0.01);
+	InitPID (pidR, PROPORTIONAL_ALIGN, INTEGRAL_ALIGN, DERIVATE_ALIGN, 0.01);
 
 	clearTimer(T1);
 
