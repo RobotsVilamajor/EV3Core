@@ -35,6 +35,7 @@
 
 task main()
 {
+	//Align wall(no acabat)
 	MoveMotorTime(motorA, 3, 30);
 	MoveMotorTime(motorD, 2, 70);
 	MoveMotor(motorA, 1, -30);
@@ -43,7 +44,5 @@ task main()
 	FollowLine(1.7, 30, Rgt, Rgt, true, true);
 	//Fer missió avió
 	MoveMotor(motorD, 3.3, -50);
-	MoveMotor(motorD, 1, 50);
-	FollowLine(3, 30, Rgt, Rgt, true, true, 70);
 
 }
