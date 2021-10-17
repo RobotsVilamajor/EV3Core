@@ -12,14 +12,14 @@ void FollowLine(float distance, float speed, float sensor, float side, bool bAcc
 	{
 		if (side = Lft)
 			ColorBalance = COLOR_BALANCE_LEFT_LEFT;
-		else
+		else if (side = Rgt)
 			ColorBalance = COLOR_BALANCE_LEFT_RIGHT;
 	}
 	else
 	{
 		if (side = Rgt)
 			ColorBalance = COLOR_BALANCE_RIGHT_RIGHT;
-		else
+		else if (side = Lft)
 			ColorBalance = COLOR_BALANCE_RIGHT_LEFT;
 	}
 

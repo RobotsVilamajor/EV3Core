@@ -39,10 +39,18 @@ task main()
 	MoveMotorTime(motorA, 3, 30);
 	MoveMotorTime(motorD, 2, 70);
 	MoveMotor(motorA, 1, -30);
+	MoveMotor(motorD, 1.5, -50);
 	//avançar fins línia(no fet)
 	//avançar fins prova
-	FollowLine(1.7, 30, Rgt, Rgt, true, true);
+	waitForButtonPress();
+	FollowLine(1.9, 40, Rgt, Rgt);
 	//Fer missió avió
-	MoveMotor(motorD, 3.3, -50);
+	MoveMotor(motorA, 1, -30);
+	MoveMotor(motorD, 1.8, -50);
+	MoveMotor(motorD, 2, 50);
+	//marxar
+	MoveMotor(motorA, 1, 30);
+	Recta(Fwd, 0.5, 30);
+	//Turn(320, 30);
 
 }
