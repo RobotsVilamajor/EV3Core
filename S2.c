@@ -35,6 +35,7 @@
 
 task main()
 {
+	//Align wall(no acabat)
 	MoveMotorTime(motorA, 3, 30);
 	MoveMotorTime(motorD, 2, 70);
 	MoveMotor(motorA, 1, -30);
@@ -42,14 +43,14 @@ task main()
 	//avançar fins línia(no fet)
 	//avançar fins prova
 	waitForButtonPress();
-	FollowLine(1.8, 40, Rgt, Rgt, true, true, 20);
+	FollowLine(1.9, 40, Rgt, Rgt);
 	//Fer missió avió
-	MoveMotor(motorA, 0.6, -30);
-	MoveMotor(motorD, 1.7, -50);
+	MoveMotor(motorA, 1, -30);
+	MoveMotor(motorD, 1.8, -50);
 	MoveMotor(motorD, 2, 50);
-	MoveMotor(motorA, 2, 30);
-	MoveMotor(motorD, 2, -50);
-	////MoveMotor(motorD, 2, 50);
-	////MoveMotor(motorA, 1, 50);
-	FollowLine(3, 40, Rgt, Rgt, true, true, 10);
+	//marxar
+	MoveMotor(motorA, 1, 30);
+	Recta(Fwd, 0.5, 30);
+	//Turn(320, 30);
+
 }

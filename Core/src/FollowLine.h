@@ -72,7 +72,7 @@ void FollowLine(float distance, float speed, float sensor, float side, bool bAcc
 	{
 	float error = ColorBalance - getColorReflected(sensor == Lft ? S4 : S3);
 
-		float turnRate = UpdatePID(pid, error) * -side;
+		float turnRate = UpdatePID(pid, error) * side;
 
 		float x = fabs(getMotorEncoder(motorC) / 360.0);
 		float c_speed = -GetAcc(acc, x);

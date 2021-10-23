@@ -24,7 +24,7 @@
 #define LINE_BLACK_MIN 25
 
 //Align
-#define PROPORTIONAL_ALIGN 0.2
+#define PROPORTIONAL_ALIGN 0.3//0.2
 #define INTEGRAL_ALIGN 3
 #define DERIVATE_ALIGN 0
 
