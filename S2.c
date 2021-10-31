@@ -35,22 +35,32 @@
 
 task main()
 {
-	//Align wall(no acabat)
-	MoveMotorTime(motorA, 3, 30);
+	////Align wall(no acabat)
 	MoveMotorTime(motorD, 2, 70);
-	MoveMotor(motorA, 1, -30);
-	MoveMotor(motorD, 1.5, -50);
-	//avançar fins línia(no fet)
-	//avançar fins prova
+	MoveMotorTime(motorA, 4, -30);
+	MoveMotor(motorD, 3, -50);
+	MoveMotor(motorA, 1.45, 30);
 	waitForButtonPress();
-	FollowLine(1.9, 40, Rgt, Rgt);
-	//Fer missió avió
-	MoveMotor(motorA, 1, -30);
-	MoveMotor(motorD, 1.8, -50);
-	MoveMotor(motorD, 2, 50);
-	//marxar
-	MoveMotor(motorA, 1, 30);
-	Recta(Fwd, 0.5, 30);
-	//Turn(320, 30);
+
+	//Fer tractors
+	MoveMotorAsync(motorA, 1.5, -30);
+	Recta(Fwd, 1.9, 50);
+	FollowLine(1.5, 40, Rgt, Lft);
+	Recta(Fwd, 0.4, 50);
+
+	//Agafar Gallina
+	//MoveMotor(motorD, 0.8, 50);
+	//MoveMotor(motorA, 0.2, 50);
+	//delay(5000);
+	//Recta(Fwd, 1, 50);
+	//delay(5000);
+	//FollowLine(1, 40, Rgt, Lft);
+	//MoveMotor(motorD, 0.8, -50);
+	////Recolocació
+	//if(getColorReflected <= 20)
+	//	While(getColorReflected
+	//MoveMotor(motorA, 1, 30);
+	//Recta(Fwd, 0.5, 30);
+	////Turn(320, 30);
 
 }

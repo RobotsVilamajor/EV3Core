@@ -42,14 +42,15 @@ task main()
 	//avançar fins línia(no fet)
 	//avançar fins prova
 	waitForButtonPress();
-	FollowLine(1.8, 40, Rgt, Rgt, true, true, 20);
+	FollowLine(1.8, 40, Rgt, Rgt, true, true, 30);
+	//FollowLine(1.9, 40, Rgt, Rgt);
 	//Fer missió avió
-	MoveMotor(motorA, 0.6, -30);
-	MoveMotor(motorD, 1.7, -50);
-	MoveMotor(motorD, 2, 50);
-	MoveMotor(motorA, 2, 30);
-	MoveMotor(motorD, 2, -50);
-	////MoveMotor(motorD, 2, 50);
-	////MoveMotor(motorA, 1, 50);
-	FollowLine(3, 40, Rgt, Rgt, true, true, 10);
+	//MoveMotor(motorA, 0.6, -30);
+	//MoveMotor(motorD, 1.7, -50);
+	//MoveMotor(motorD, 2, 50);
+	//MoveMotor(motorA, 2, 30);
+	//MoveMotor(motorD, 2, -50);
+	//////MoveMotor(motorD, 2, 50);
+	//////MoveMotor(motorA, 1, 50);
+	//FollowLine(3, 40, Rgt, Rgt, true, true, 10);
 }

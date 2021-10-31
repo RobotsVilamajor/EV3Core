@@ -1,7 +1,7 @@
 #include "PID.h"
 #include "Defines.h"
 
-void FollowLine(float distance, float speed, float sensor, float side, bool bAcc = true, bool bDec = true, float Colorbalance = 0)
+void FollowLine(float distance, float speed, float sensor, float side, bool bAcc = true, bool bDec = true, float Colorbalance = 0, float prop = 0, float integ = 0, float dev = 0)
 {
 	resetMotorEncoder(motorB);
 	resetMotorEncoder(motorC);
@@ -55,6 +55,14 @@ void FollowLine(float distance, float speed, float sensor, float side, bool bAcc
 	float dev_array[] = DERIVATE;
 	float dev_value;
 	dev_value = dev_array[position];
+
+	if (prop != 0)
+		prop_value = prop;
+	if (integ != 0)
+		int_value = integ;
+	if (dev != 0)
+		dev_value = dev;
+
 
 	PID pid;
 	//InitPID(pid, 0.5, 0.0, 0.02, 0.005);
