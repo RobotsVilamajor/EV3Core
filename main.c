@@ -11,9 +11,8 @@
 // MoveMotor(Motor, Count, Power)
 // MoveMotorAsync(Motor, Count, Power)
 
-
 #include "Core/Core.h"
-
+//
 task main()
 {
 	////setMotorSync(motorB, motorC, 0, 0);
