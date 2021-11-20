@@ -32,7 +32,7 @@
 //#include "Sortida_2bR_Short.h"
 //#include "Sortida_3R.h"
 //#include "Sortida_4_Robopro.h"
-
+//
 task main()
 {
 	MoveMotorTime(motorA, 3, 30);
