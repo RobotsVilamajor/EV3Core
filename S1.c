@@ -36,27 +36,32 @@
 task main()
 {
 	//Align wall(no acabat)
-	MoveMotorTime(motorA, 3, 30);
-	MoveMotorTime(motorD, 2, 70);
-	MoveMotor(motorA, 1, -30);
-	MoveMotor(motorD, 1.5, -50);
-	//avançar fins línia(no fet)
-	//avançar fins prova
-	waitForButtonPress();
-	FollowLine(1.9, 40, Rgt, Lft);
-	//Fer missió avió
-	MoveMotor(motorA, 0.7, -30);
-	MoveMotor(motorD, 1.6, -50);
-	MoveMotor(motorD, 2, 50);
-	//marxar
-	MoveMotor(motorA, 1, 30);
-	Recta(Fwd, 0.5, 30);
-	//Turn(320, 30);
-	while(getColorReflected(S3)>= 20){
-		setMotorSpeed(MotorB, 30);
+	//MoveMotorTime(motorA, 3, 30);
+	//MoveMotorTime(motorD, 2, 70);
+	//MoveMotor(motorA, 1, -30);
+	//MoveMotor(motorD, 1.5, -50);
+	////avançar fins línia(no fet)
+	////avançar fins prova
+	//waitForButtonPress();
+	//FollowLine(2, 40, Rgt, Lft, true, false);
+	//FollowLine(2, 30, Rgt, Lft, false, false, 20);
+		FollowLine(1, 40, Rgt, Lft, false, false);
+	while(getColorReflected(S4)<= 80){
+		FollowLine(0.1, 40, Rgt, Lft, false, false);
 	}
-		setMotorSpeed(MotorB, 0);
-	MoveMotor(motorA, 1, -30);
-	MoveMotor(motorD, 1.8, -50);
-	FollowLine(3, 40, Rgt, Lft);
+	//Fer missió avió
+	//MoveMotor(motorA, 0.7, -30);
+	//MoveMotor(motorD, 1.6, -50);
+	//MoveMotor(motorD, 2, 50);
+	////marxar
+	//MoveMotor(motorA, 1, 30);
+	//Recta(Fwd, 0.5, 30);
+	////Turn(320, 30);
+	//while(getColorReflected(S3)>= 20){
+	//	setMotorSpeed(MotorB, 30);
+	//}
+	//	setMotorSpeed(MotorB, 0);
+	//MoveMotor(motorA, 1, -30);
+	//MoveMotor(motorD, 1.8, -50);
+	//FollowLine(3, 40, Rgt, Lft);
 }
