@@ -10,17 +10,25 @@ void FollowLine(float distance, float speed, float sensor, float side, bool bAcc
 
 	if(sensor == Lft)
 	{
-		if (side = Lft)
-			ColorBalance = COLOR_BALANCE_LEFT_LEFT;
-		else if (side = Rgt)
+		if (side == Lft)
+		{
+			ColorBalance = COLOR_BALANCE_LEFT_LEFT
+		}
+		else if (side == Rgt)
+		{
 			ColorBalance = COLOR_BALANCE_LEFT_RIGHT;
+		}
 	}
-	else
+	else if (sensor == Rgt)
 	{
-		if (side = Rgt)
+		if (side == Rgt)
+		{
 			ColorBalance = COLOR_BALANCE_RIGHT_RIGHT;
-		else if (side = Lft)
+		}
+		else if (side == Lft)
+		{
 			ColorBalance = COLOR_BALANCE_RIGHT_LEFT;
+		}
 	}
 
 	if (Colorbalance != 0)
@@ -80,7 +88,7 @@ void FollowLine(float distance, float speed, float sensor, float side, bool bAcc
 	{
 	float error = ColorBalance - getColorReflected(sensor == Lft ? S4 : S3);
 
-		float turnRate = UpdatePID(pid, error) * side;
+		float turnRate = UpdatePID(pid, error) * -side;
 
 		float x = fabs(getMotorEncoder(motorC) / 360.0);
 		float c_speed = -GetAcc(acc, x);
@@ -90,6 +98,7 @@ void FollowLine(float distance, float speed, float sensor, float side, bool bAcc
 		datalogAddValue(2, pid.ki * pid.integ * pid.dt);
 
 		setMotorSync(motorB, motorC, turnRate, c_speed);
+
 	}
 
 	if (bDec)

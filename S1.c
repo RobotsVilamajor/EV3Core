@@ -43,14 +43,20 @@ task main()
 	//avançar fins línia(no fet)
 	//avançar fins prova
 	waitForButtonPress();
-	FollowLine(1.9, 40, Rgt, Rgt);
+	FollowLine(1.9, 40, Rgt, Lft);
 	//Fer missió avió
-	MoveMotor(motorA, 1, -30);
-	MoveMotor(motorD, 1.8, -50);
+	MoveMotor(motorA, 0.7, -30);
+	MoveMotor(motorD, 1.6, -50);
 	MoveMotor(motorD, 2, 50);
 	//marxar
 	MoveMotor(motorA, 1, 30);
 	Recta(Fwd, 0.5, 30);
 	//Turn(320, 30);
-
+	while(getColorReflected(S3)>= 20){
+		setMotorSpeed(MotorB, 30);
+	}
+		setMotorSpeed(MotorB, 0);
+	MoveMotor(motorA, 1, -30);
+	MoveMotor(motorD, 1.8, -50);
+	FollowLine(3, 40, Rgt, Lft);
 }
