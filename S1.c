@@ -36,19 +36,30 @@
 task main()
 {
 	//Align wall(no acabat)
-	//MoveMotorTime(motorA, 3, 30);
-	//MoveMotorTime(motorD, 2, 70);
-	//MoveMotor(motorA, 1, -30);
-	//MoveMotor(motorD, 1.5, -50);
-	////avançar fins línia(no fet)
-	////avançar fins prova
-	//waitForButtonPress();
-	//FollowLine(2, 40, Rgt, Lft, true, false);
-	//FollowLine(2, 30, Rgt, Lft, false, false, 20);
-		FollowLine(1, 40, Rgt, Lft, false, false);
-	while(getColorReflected(S4)<= 80){
-		FollowLine(0.1, 40, Rgt, Lft, false, false);
-	}
+	MoveMotorTime(motorA, 4, -20);
+	MoveMotorTime(motorD, 5, 30);
+	MoveMotor(motorD, 1, -50);
+	MoveMotor(motorA, 0.8, 50);  //abans 0.8
+	//avançar fins línia(no fet)
+	//avançar fins prova
+	waitForButtonPress();
+	FollowLine(2, 40, Rgt, Lft, true, false);  // primer tram
+	FollowLine(0.5, 30, Rgt, Lft, false, false, 20); // corba
+	FollowLine(2.2, 40, Rgt, Lft, false, true);  // segon tram
+	WaitForLine(Fwd, 10, 20, Lft);   // Detectem banc
+	Recta(Fwd, 0.6, 10); //???
+	MoveMotor(motorD, 1, -60);
+	MoveMotor(motorA, 0.4, -50);
+	Recta(Fwd, 0.5, 40);  // posiciones cercle empenyent grua
+	MoveMotor(motorD, 1.1, -50);
+	MoveMotor(motorA, 0.4, -50);  // deixem millora i contenidor
+	MoveMotor(motorD, 0.5, 50);
+	Recta(Fwd, 0.4, 30);
+	//MoveMotor(motorA, 0.6, 50);
+	//MoveMotor(motorD, 1.8, -50);
+	//MoveMotor(motorA, 1, -50);
+
+
 	//Fer missió avió
 	//MoveMotor(motorA, 0.7, -30);
 	//MoveMotor(motorD, 1.6, -50);
