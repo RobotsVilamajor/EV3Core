@@ -23,7 +23,7 @@
 // MoveMotorAsync(Motor, Count, Power)
 
 // ROBOPRO || VEATRIZ
-#define ROBOPRO
+#define VEATRIZ
 //#define VEATRIZ
 
 #include "Core/Core.h"
@@ -43,8 +43,8 @@ task main()
 	//avançar fins línia(no fet)
 	//avançar fins prova
 	waitForButtonPress();
-	FollowLine(2, 40, Rgt, Lft, true, false);  // primer tram
-	FollowLine(0.5, 30, Rgt, Lft, false, false, 20); // corba
+	FollowLine(2, 40, Rgt, Lft, true, false, 60, 0.7, 60, 1);  // primer tram
+	FollowLine(0.5, 30, Rgt, Lft, false, false, 50); // corba BDP 20
 	FollowLine(2.2, 40, Rgt, Lft, false, true);  // segon tram
 	WaitForLine(Fwd, 10, 20, Lft);   // Detectem banc
 	Recta(Fwd, 0.6, 10); //???
