@@ -15,7 +15,7 @@
 	return RECTA_REGRESSION * (min - ((1.0 - min) / 2.0) * (tanh((x-a)/b) - 1));
 }*/
 
-void Recta(float dir, float distance, float speed, bool bAcc = true, bool bDec = true)
+void Recta(float dir, float distance, float speed, bool bAcc = true, bool bDec = true, float lfturn = 1, float rgturn = 1)
 {
 	float reg_array[] = REGRESSION_ARRAY;
 	float reg_value;
@@ -47,7 +47,7 @@ void Recta(float dir, float distance, float speed, bool bAcc = true, bool bDec =
 		float c_speed = GetAcc(acc, x);
 
 		//float error = (getMotorEncoder(motorC) - getMotorEncoder(motorB) + GetCorrection(x) * x) / (360.0 * dir);
-		float error = (getMotorEncoder(motorC) - getMotorEncoder(motorB) - dir * reg_value * x) / (360.0 * dir);
+		float error = ((getMotorEncoder(motorC) * lfturn) - (getMotorEncoder(motorB)*rgturn) - dir * reg_value * x) / (360.0 * dir);
 
 	  float turnRate = UpdatePID(pid, error);
 
