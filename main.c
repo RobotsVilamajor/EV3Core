@@ -23,8 +23,8 @@
 // MoveMotorAsync(Motor, Count, Power)
 
 // ROBOPRO || VEATRIZ
-#define ROBOPRO
-//#define VEATRIZ
+//#define ROBOPRO
+#define VEATRIZ
 
 #include "Core/Core.h"
 
@@ -35,22 +35,257 @@
 //
 task main()
 {
-	MoveMotorTime(motorA, 3, 30);
-	MoveMotorTime(motorD, 2, 70);
-	MoveMotor(motorA, 1, -30);
-	MoveMotor(motorD, 1.5, -50);
-	//avançar fins línia(no fet)
-	//avançar fins prova
+
+	//Align wall(no acabat)
+	MoveMotorTime(motorA, 4, -20);
+	MoveMotorTime(motorD, 5, 30);
+	MoveMotor(motorA, 1.5, 50);  //abans 0.8
+	MoveMotor(motorD, 1.3, -50);
+
+	////avançar fins línia(no fet)
+	////avançar fins prova
 	waitForButtonPress();
-	FollowLine(1.8, 40, Rgt, Rgt, true, true, 30);
-	//FollowLine(1.9, 40, Rgt, Rgt);
-	//Fer missió avió
-	//MoveMotor(motorA, 0.6, -30);
-	//MoveMotor(motorD, 1.7, -50);
-	//MoveMotor(motorD, 2, 50);
-	//MoveMotor(motorA, 2, 30);
-	//MoveMotor(motorD, 2, -50);
-	//////MoveMotor(motorD, 2, 50);
-	//////MoveMotor(motorA, 1, 50);
-	//FollowLine(3, 40, Rgt, Rgt, true, true, 10);
+	FollowLine(2, 40, Rgt, Lft, true, false, 60, 0.9, 60, 0.1);  // primer tram
+	FollowLine(0.5, 30, Rgt, Lft, false, false, 60, 0.9, 60, 0.1);  //corba BDP 20
+	FollowLine(2.3, 50, Rgt, Lft, false, false, 60, 0.9, 60, 0.1);  // segon tram
+
+	MoveMotorAsync(motorD, 0.3, 50);
+	WaitForLine(Fwd, 10, 20, Lft);   // Detectem banc
+	resetGyro(S2);
+	Recta(Fwd, 0.6, 30, false, true); //Avançar per tirar pont
+
+	//tirar pont deixar peça i moure grua
+	MoveMotor(motorA, 0.3, -50);
+	MoveMotor(motorD, 1.5, -60);//1
+
+	//acabem cursa grua
+	Recta(Fwd, 0.6, 40, true, false); //0.4
+	Turn(0, 50, Rgt);
+	MoveMotor(motorA, 1.1, -50);
+
+	MoveMotorAsync(motorA, 1.4, 70);
+	MoveMotor(motorD, 2.4, 60);
+
+	Recta(Fwd, 0.55, 30);
+	while(getColorReflected(S4)>=20){
+	setMotorSpeed(motorB, -20);
+	setMotorSpeed(motorC, 15);
+	}
+
+	FollowLine(1.7, 40, Lft, Rgt, false, false, 35, 0.9, 60, 0.1);
+	WaitForLine(Fwd, 10, 20, Rgt);
+	Turn(-88, 30, Rgt);
+
+	Recta(Bwd, 2.5, 70, false, false);//1
+	resetGyro(S2);
+
+	MoveMotor(motorD, 2.9, -60);
+	MoveMotor(motorA, 1.4, -60);//1.5
+	MoveMotor(motorA, 1.1, 60);
+	//MoveMotor(motorD, 2, 60);
+
+	//resetMotorEncoder(motorC);
+	//WaitForLine(Fwd, 10, 30, Rgt);
+	//float count;
+	//float count1;
+	//float motormov;
+	//count = getMotorEncoder(motorC);
+	//count1 = count  + 360;
+	//count1 = count1/-10;
+	//motormov = count1 * 0.13;
+	//MoveMotorAsync(motorA, -motormov, 60);//MoveMotor(30)
+	//count = getMotorEncoder(motorC)/360;
+	//float mov;
+	//mov = 1.62+count;
+	//Recta(Fwd, mov, 40, false, true);
+	//MoveMotorTime(motorD, 1.5, -70);
+	//Recta(Fwd, 1.2, 30);
+	////MoveMotor(motorD, 0.3, -50);
+	//Recta(Fwd, 1, 30);
+	//MoveMotor(motorD, 1, 50);
+	//Recta(Bwd, 1, 30);
+	//MoveMotor(motorD, 1, -30);
+	Recta(Fwd, 0.7, 30);
+	//MoveMotor(motorD, 1, 30);//2
+
+//	//MoveMotorTime(motorA, 3, -50);
+//	//MoveMotorTime(motorD, 3, 50);
+//	//MoveMotor(motorA, 1.5, 50);
+//	//MoveMotor(motorD, 2.5, -60);
+
+//	//waitForButtonPress();
+//	//MoveMotor(motorA, 1.5, -60);
+//	//MoveMotor(motorA, 1.1, 60);
+//	//MoveMotor(motorD, 2, 60);
+//	//Recta(Bwd, 0.5, 30);
+//	//resetMotorEncoder(motorC);
+//	//WaitForLine(Fwd, 10, 30, Rgt);
+//	//float count;
+//	//float count1;
+//	//float motormov;
+//	//count = getMotorEncoder(motorC);
+//	//count1 = count  + 360;
+//	//count1 = count1/-10;
+//	//motormov = count1 * 0.13;
+//	//MoveMotor(motorA, -motormov, 30);
+//	//count = getMotorEncoder(motorC)/360;
+//	//float mov;
+//	//mov = 1.65+count;
+//	//Recta(Fwd, mov, 40);
+//	//MoveMotorTime(motorD, 1.5, -70);
+//	//Recta(Fwd, 1, 30);
+//	////MoveMotor(motorD, 0.3, -50);
+//	//Recta(Fwd, 1, 30);
+//	//MoveMotor(motorD, 1, 50);
+//	//Recta(Bwd, 1, 30);
+//	//MoveMotor(motorD, 1, -30);
+//	//Recta(Fwd, 0.8, 30);
+
+////Tornem
+//	//MoveMotor(motorD, 2, 30);//2
+//	//Recta(Bwd, 1, 50, true, false);
+//	//WaitForLine(Bwd, 10, 20, Rgt);   // Detectem banc
+//	//Recta(Fwd, 0.5, 20);
+//	//Turn(-92,40,Rgt);
+//	//Recta(Fwd, 0.5, 50, true, false);
+//	//WaitForLine(Fwd, 10, 20, Rgt);   // Detectem banc
+//	//Recta(Fwd, 2, 20);
+//	//while(getColorReflected(S3)<=70){
+//	//	setMotorSpeed(motorC, -40);
+//	//	setMotorSpeed(motorB, 40);
+//	//}
+
+//	//while(getColorReflected(S3)>=25){
+//	//	setMotorSpeed(motorC, -40);
+//	//	setMotorSpeed(motorB, 30);
+//	//}
+//	//setMotorSpeed(motorC, 0);
+//	//setMotorSpeed(motorB, 0);
+//	////delay(5000);
+//	////while(getColorReflected(S3)<=50){
+//	////	setMotorSpeed(motorC, 20);
+//	////	setMotorSpeed(motorB, -20);
+//	////}
+//	//setMotorSpeed(motorC, 0);
+//	////setMotorSpeed(motorB, 0);
+//	//delay(5000);
+
+//	//FollowLine(0.7, 45, Rgt, Lft, false, false);  // primer tram
+//	//setMotorSpeed(motorC, 0);
+//	//setMotorSpeed(motorB, 0);
+
+//	//MoveMotor(motorA, 1, 50);
+//	//resetGyro(S2);
+//	//delay(300);
+//	//Turn(-40, 30, Rgt);
+//	//Recta(Fwd, 0.1, 20, false, false);
+//	//WaitForBlack(Fwd, 10, 20, Lft);
+
+//	//Recta(Fwd, 0.3, 20, false, false);
+
+//	//while(getColorReflected(S4)>=50){
+//	//	setMotorSpeed(motorC, 40);
+//	//	setMotorSpeed(motorB, -40);
+//	//}
+
+//	////setMotorSpeed(motorC, 0);
+//	////setMotorSpeed(motorB, 0);
+//	//////WaitForLine(Fwd, 10, 20, Lft);   // Detectem banc
+//	////FollowLine(0, 30, Lft, Rgt, false, false, 60, 1.6, 65, 0.75);  // primer tram
+//	////WaitForBlack(Fwd, 10, 20, Rgt);   // Detectem negre
+//	//Turn(-40, 40, Rgt);
+//	//Recta(Fwd, 0.2, 30, true, true);
+//	//while(getColorReflected(S4)<=30){
+//	//	setMotorSpeed(motorC, -40);
+//	//	setMotorSpeed(motorB, 40);
+//	//}
+//	//	FollowLine(0, 50, Lft, Rgt, false, false);  // primer tram
+// //Recta(Fwd, 0.2, 30, false, false);
+//	//////	WaitForLine(Fwd, 10, 20, Lft);   // Detectem banc
+
+//	//FollowLine(2, 50, Lft, Rgt, false, false);  // primer tram
+
+//	////WaitForBlack(Fwd, 10, 20, Lft);   // Detectem negre
+//	//////	WaitForLine(Fwd, 10, 20, Lft);   // Detectem banc
+//	////while(getColorReflected(S4)>=15){
+//	////	setMotorSpeed(motorC, -40);
+//	////}
+//	////setMotorSpeed(motorC, 0);
+//	////MoveMotor(motorA, 1, 30);//2
+//	////FollowLine(3.5, 40, Lft, Rgt, true, true, 50, 1, 50, 0.6);  // primer tram
+//	////MoveMotor(motorD, 2, 30);//2
+//	//MoveMotor(motorA, 2, -30);//2
+//	//////MoveMotor(motorD, 2.7, 30);
+//	//Recta(Fwd, 4, 30, true, true, 0.9);
+//	////MoveMotor(motorD, 2.7, -70);
+
+////Arnau i Fede
+	//resetGyro(S2);
+	//MoveMotorAsync(motorD, 1.9, 70);//2
+	//Recta(Bwd, 1.5, 50);
+	////WaitForLine(Bwd, 10, 20, Rgt);   // Detectem blanc
+	////Recta(Fwd, 0.5, 50);
+	//Turn(-92,40,Rgt);
+	////Recta(Fwd, 0.50, 50, false, false);
+	//WaitForBlack(Fwd, 10, 40, Lft);   // Detectem negre
+	//Recta(Fwd, 0.3, 20, false, false);
+
+	//	while(getColorReflected(S4)<=85){
+	//	setMotorSpeed(motorC, 30);
+	//	setMotorSpeed(motorB, -30);
+	//	}
+
+	//	while(getColorReflected(S4)>=45){
+	//	setMotorSpeed(motorC, 30);
+	//	setMotorSpeed(motorB, -40);
+	//	}
+
+	//	while(getColorReflected(S4)<=25){
+	//	setMotorSpeed(motorC, -20);
+	//	setMotorSpeed(motorB, 20);
+	//	}
+
+	//MoveMotorAsync(motorD, 0.3, 70);//2
+	//FollowLine(0.3, 45, Lft, Rgt, false, false, 0, 0.9, 60, 0.1);  // primer tram
+
+	//	while(getColorReflected(S4)>=55){
+	//	setMotorSpeed(motorC, 20);
+	//	setMotorSpeed(motorB, -20);
+	//	}
+
+	//FollowLine(0.3, 60, Lft, Rgt, false, false, 0, 0.9, 60, 0.1);  // primer tram
+
+	//WaitForBlack2(Fwd, 10, 30, Rgt, 0.7);   // Detectem negre
+	//WaitForLine2(Fwd, 10, 20, Lft, 0.7);   // Detectem blanc
+	//Recta(Fwd, 0.1, 20, false, false, 0.75);
+
+	//setMotorSpeed(motorC, 0);
+	//setMotorSpeed(motorB, 0);
+
+	//	//delay(5000);
+
+	//	while(getColorReflected(S4)>=20){
+	//	setMotorSpeed(motorC, -30);
+	//	setMotorSpeed(motorB, 30);
+	//	}
+	//	delay(40);
+	//	setMotorSpeed(motorC, 0);
+	//	setMotorSpeed(motorB, 0);
+	//	//delay(5000);
+
+	//	//while(getColorReflected(S4)<=21){
+	//	//setMotorSpeed(motorC, -20);
+	//	//setMotorSpeed(motorB, 20);
+	//	//}
+	//	//setMotorSpeed(motorC, 0);
+	//	//setMotorSpeed(motorB, 0);
+
+	////Turn(-90, 40, Rgt);
+	////Recta(Fwd, 0.3, 50, false, false, 0.8);
+	//////FollowLine(0.3, 40, Lft, Rgt, false, false, 0, 0.9, 60, 0.1);
+	//////WaitForLine(Fwd, 10, 20, Rgt);   // Detectem blanc
+	//////Recta(Fwd, 0.2, 40, false, false);
+	//FollowLine(1.8, 60, Lft, Rgt, false, false, 35, 0.9, 60, 0.1);
+	//Recta(Fwd, 2, 75, false, false, 1, 0.85);
+	//Recta(Fwd, 4, 75, false, false);
 }

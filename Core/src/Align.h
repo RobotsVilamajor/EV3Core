@@ -6,9 +6,11 @@ bool HasEnded(float errorL, float errorR, float dErrorL, float dErrorR)
 	return InBetween(errorL, -4, 4) && InBetween(errorR, -4, 4) && InBetween(dErrorL, -1, 1) && InBetween(dErrorR, -1, 1);
 }
 
-void Align(float dir, float time)
+void Align(float dir1, float time, float colorbalanceright = ALIGN_TARGET_RIGHT, float colorbalanceleft = ALIGN_TARGET_LEFT, float dir2 = dir1)
 {
-	setMotorSync(motorC, motorB, 0, 12 * dir);
+	//setMotorSync(motorC, motorB, 0, 12 * dir);
+	setMotorspeed(motorB, dir2);
+	setMotorspeed(motorC, dir2);
 
 	while (getColorReflected(S3) < ALIGN_MIN_WHITE || getColorReflected(S4) < ALIGN_MIN_WHITE) {}
 
@@ -30,14 +32,14 @@ void Align(float dir, float time)
 	while (time1[T1] < time * 1000)
 	{
 		// pidL
-		float errorL = getColorReflected(S4) - ALIGN_TARGET_LEFT;
+		float errorL = getColorReflected(S4) - colorbalanceleft;
 		float speedL = UpdatePID(pidL, errorL);
-		setMotorSpeed(motorC, speedL * dir);
+		setMotorSpeed(motorC, speedL * dir2);
 
 		// pidR
-		float errorR = getColorReflected(S3) - ALIGN_TARGET_RIGHT;
+		float errorR = getColorReflected(S3) - colorbalanceright;
 		float speedR = UpdatePID(pidR, errorR);
-		setMotorSpeed(motorB, speedR * dir);
+		setMotorSpeed(motorB, speedR * dir1);
 
 		float dErrorL = errorL - prev_errL;
 		float dErrorR = errorR - prev_errR;
@@ -63,11 +65,11 @@ void Align(float dir, float time)
 			delay(50);
 
 			// pidL
-			errorL = getColorReflected(S4) - ALIGN_TARGET_LEFT;
+			errorL = getColorReflected(S4) - colorbalanceleft;
 			dErrorL = errorL - prev_errL;
 
 			// pidR
-			errorR = getColorReflected(S3) - ALIGN_TARGET_RIGHT;
+			errorR = getColorReflected(S3) - colorbalanceright;
 			dErrorR = errorR - prev_errR;
 
 			if (HasEnded(errorL, errorR, dErrorL, dErrorR))

@@ -23,8 +23,8 @@
 // MoveMotorAsync(Motor, Count, Power)
 
 // ROBOPRO || VEATRIZ
-#define ROBOPRO
-//#define VEATRIZ
+//#define ROBOPRO
+#define VEATRIZ
 
 #include "Core/Core.h"
 
@@ -39,14 +39,32 @@ task main()
 	MoveMotorTime(motorD, 2, 70);
 	MoveMotorTime(motorA, 4, -30);
 	MoveMotor(motorD, 3, -50);
-	MoveMotor(motorA, 1.45, 30);
+	MoveMotor(motorA, 1.7, 30);
 	waitForButtonPress();
 
 	//Fer tractors
-	MoveMotorAsync(motorA, 1.5, -30);
-	Recta(Fwd, 1.9, 50);
-	FollowLine(1.5, 40, Rgt, Lft);
-	Recta(Fwd, 0.4, 50);
+	//MoveMotorAsync(motorA, 1.5, -50);
+	//Recta(Fwd, 3.7, 40);
+	MoveMotorAsync(motorA, 1.5, -50);
+	Recta(Fwd, 3.7, 50, true, true, 0.9825);
+
+	MoveMotor(motorD, 1, 50);
+	setMotorBrakeMode(motorD, motorBrake);
+	Recta(Fwd, 0.3, 50, true, false, 1, 0.99);
+	Recta(Fwd, 2.35, 50, false, true);
+	MoveMotor(motorD, -0.9, 50);
+	setMotorBrakeMode(motorD, motorBrake);
+	Recta(Bwd, 0.5, 50, false, false);
+	//Recta(Bwd, 0.8, 50, false, false);
+	MoveMotorAsync(motorA, 1.5, 50);
+	Recta(Bwd, 2.2, 50, false, true);//1.3
+	MoveMotor(motorD, 2.1, 50);
+	setMotorBrakeMode(motorD, motorBrake);
+	Recta(Bwd, 3.5, 70, false, false);
+	setMotorSpeed(motorB, 0);
+	setMotorSpeed(motorC, 0);
+
+
 
 	//Agafar Gallina
 	//MoveMotor(motorD, 0.8, 50);

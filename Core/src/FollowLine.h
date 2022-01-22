@@ -7,6 +7,7 @@ void FollowLine(float distance, float speed, float sensor, float side, bool bAcc
 	resetMotorEncoder(motorC);
 
 	float ColorBalance = 0;
+	//float sensorstop;
 
 	if(sensor == Lft)
 	{
@@ -18,6 +19,7 @@ void FollowLine(float distance, float speed, float sensor, float side, bool bAcc
 		{
 			ColorBalance = COLOR_BALANCE_LEFT_RIGHT;
 		}
+		//float sensorstop = S3;
 	}
 	else if (sensor == Rgt)
 	{
@@ -29,6 +31,7 @@ void FollowLine(float distance, float speed, float sensor, float side, bool bAcc
 		{
 			ColorBalance = COLOR_BALANCE_RIGHT_LEFT;
 		}
+		//float sensorstop = S4;
 	}
 
 	if (Colorbalance != 0)
@@ -81,12 +84,13 @@ void FollowLine(float distance, float speed, float sensor, float side, bool bAcc
 		//InitPID(pid, 0.35, 6, 0, 0.005);
 	InitPID(pid, prop_value, int_value, dev_value, 0.005);
 
-	Accelerate acc;
-	InitAcc(acc, speed, distance, 1000, 800, 2, 2, 7, 7, 0.1, bAcc, bDec);
-
-	while (fabs(getMotorEncoder(motorC) / 360.0) <= distance || fabs(getMotorEncoder(motorB) / 360.0) <= distance)
+	if (distance == 0)
 	{
-	float error = ColorBalance - getColorReflected(sensor == Lft ? S4 : S3);
+	Accelerate acc;
+	InitAcc(acc, speed, 2, 1000, 800, 2, 2, 7, 7, 0.1, bAcc, bDec);
+		do
+		{
+		float error = ColorBalance - getColorReflected(sensor == Lft ? S4 : S3);
 
 		float turnRate = UpdatePID(pid, error) * -side;
 
@@ -98,6 +102,28 @@ void FollowLine(float distance, float speed, float sensor, float side, bool bAcc
 		datalogAddValue(2, pid.ki * pid.integ * pid.dt);
 
 		setMotorSync(motorB, motorC, turnRate, c_speed);
+		}
+	 while ((getColorReflected(side == Lft ? S4 : S3) < 70)
+	}
+	else
+	{
+	Accelerate acc;
+	InitAcc(acc, speed, distance, 1000, 800, 2, 2, 7, 7, 0.1, bAcc, bDec);
+		while (fabs(getMotorEncoder(motorC) / 360.0) <= distance || fabs(getMotorEncoder(motorB) / 360.0) <= distance)
+		{
+		float error = ColorBalance - getColorReflected(sensor == Lft ? S4 : S3);
+
+			float turnRate = UpdatePID(pid, error) * -side;
+
+			float x = fabs(getMotorEncoder(motorC) / 360.0);
+			float c_speed = -GetAcc(acc, x);
+
+			datalogAddValue(0, error);
+			datalogAddValue(1, turnRate);
+			datalogAddValue(2, pid.ki * pid.integ * pid.dt);
+
+			setMotorSync(motorB, motorC, turnRate, c_speed);
+		}
 
 	}
 
@@ -106,4 +132,5 @@ void FollowLine(float distance, float speed, float sensor, float side, bool bAcc
 		setMotorSpeed(motorB, 0);
 		setMotorSpeed(motorC, 0);
 	}
+
 }
