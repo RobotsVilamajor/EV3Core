@@ -32,38 +32,34 @@
 //#include "Sortida_2bR_Short.h"
 //#include "Sortida_3R.h"
 //#include "Sortida_4_Robopro.h"
-//
+
 task main()
 {
-	//Recta(Fwd, 0.3, 40, false, true);
-	//Recta(Fwd, 0.2, 20, false, false);
+	//MoveMotorAsync(motorD, 0.7, 30);
+	////MoveMotor(motorA, -1, 50);
+	////waitForButtonPress();
+	////FollowLine(2.5, 40, Rgt, Lft, true, false, 45, 0.9, 60, 0.1);  // primer tram
+	////FollowLine(2.5, 50, Rgt, Lft, false, false, 60, 0.9, 60, 0.1);  // segon tram
+	//WaitForLine(Fwd, 10, 20, Lft);   // Detectem banc
+	//Recta(Fwd, 0.4, 20, false, true); // ens posicionem per deixar helicopter
+	////deixem peça
+	//MoveMotor(motorA, 1, 40);
+	//MoveMotor(motorD, 0.7, -40);
+	//MoveMotor(motorD, 0.02, 40);
 
-	MoveMotor(motorD, 1, 60);
-	MoveMotorAsync(motorD, 1, -40);
-	WaitForLine(Fwd, 10, 30, Rgt);
-	float count;
-	float count1;
-	float motormov;
-	count = getMotorEncoder(motorC);
-	count1 = count  + 360;
-	count1 = count1/-10;
-	motormov = count1 * 0.13;
-	MoveMotor(motorA, -motormov, 30);//MoveMotor(30)
-	count = getMotorEncoder(motorC)/360;
-	float mov;
-	//delay(5000);
-	mov = 1.5 + count;
-	Recta(Fwd, mov, 30, false, false, 0.98);
-	Recta(Fwd, 2.1, 20, false, false, 0.98, 1);
-	setMotorSpeed(motorB, -50);
-	setMotorSpeed(motorC, -50);
-	delay(400);
-	setMotorSpeed(motorB, 0);
-	setMotorSpeed(motorC, 0);
-	MoveMotor(motorD, 1, 50);
-	setMotorSpeed(motorB, -50);
-	setMotorSpeed(motorC, -50);
-	delay(400);
-	setMotorSpeed(motorB, 0);
-	setMotorSpeed(motorC, 0);
+
+	//MoveMotor(motorA, 0.8, 40);
+	////Cercle blau
+	//MoveMotor(motorD, 0.7, 40);
+	////MoveMotor(motorA, 0.3, 40);
+	////Turn(15, 20, Lft);
+	//FollowLine(2.3, 40, Rgt, Lft, true, true, 60,  0.8, 60, 0.1);  // segon tram//2.5
+	//MoveMotor(motorA, 1.5, -40);
+	MoveMotor(motorD, 3, 40);
+	//MoveMotor(motorA, 1.5, 40);
+	Recta(Bwd, 0.9, 50);
+	Turn(-32, 20, Rgt);
+	Recta(Bwd, 2.3, 50);
+
+
 }

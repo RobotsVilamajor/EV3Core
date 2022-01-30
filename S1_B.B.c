@@ -35,35 +35,36 @@
 
 task main()
 {
+	//fase 1: anada
 	//Align wall(no acabat)
 	MoveMotorTime(motorA, 4, -20);
 	MoveMotorTime(motorD, 5, 30);
-	MoveMotor(motorA, 1.5, 50);  //abans 0.8
-	MoveMotor(motorD, 1.3, -50);
+	MoveMotor(motorA, 1.4, 50);  //abans 0.8
+	MoveMotor(motorD, 1.4, -50);
 
 	////avançar fins línia(no fet)
 	////avançar fins prova
 	waitForButtonPress();
-	FollowLine(2, 40, Rgt, Lft, true, false, 60, 0.9, 60, 0.1);  // primer tram
-	FollowLine(0.3, 30, Rgt, Lft, false, false, 60, 1.3, 60, 0.5);  //corba BDP 20
-	FollowLine(2.3, 50, Rgt, Lft, false, false, 60, 0.9, 60, 0.1);  // segon tram
+	FollowLine(2.5, 40, Rgt, Lft, true, false, 45, 0.9, 60, 0.1);  // primer tram
+	FollowLine(2.5, 50, Rgt, Lft, false, false, 60, 0.9, 60, 0.1);  // segon tram//2.5
 
-	MoveMotorAsync(motorD, 0.3, 50);
+	MoveMotorAsync(motorD, 0.4, 50);
 	WaitForLine(Fwd, 10, 20, Lft);   // Detectem banc
 	resetGyro(S2);
-	Recta(Fwd, 0.5, 30, false, true); //Avançar per tirar pont
+	Recta(Fwd, 0.4, 30, false, true); //Avançar per tirar pont //0.5
 
-	//tirar pont deixar peça i moure grua
-	MoveMotor(motorD, 1.5, -60);//1
-	MoveMotor(motorA, 0.3, -50);
+	//tirar pont
+	//MoveMotor(motorD, 1.5, -60);//1
+	//MoveMotor(motorA, 0.3, -50);
 
-	//acabem cursa grua
-	Recta(Fwd, 0.6, 40, true, false); //0.4
-	Turn(0, 50, Rgt);
-	MoveMotor(motorA, 1.1, -50);
-
-	MoveMotorAsync(motorA, 1.4, 70);
-	MoveMotor(motorD, 2.9, 60);
+// deixar peça i moure grua
+	MoveMotorAsync(motorD, 2.7, -70);//1
+	Recta(Fwd, 0.7, 40, false, false); //0.7
+	Turn(0, 60, Rgt);
+	MoveMotor(motorA, 1, -50);
+//fase 2
+	MoveMotorAsync(motorA, 1.1, 70);//1.4
+	MoveMotor(motorD, 2.8, 60);
 
 	Recta(Fwd, 0.55, 30);
 	while(getColorReflected(S4)>=20){
@@ -73,45 +74,54 @@ task main()
 
 	FollowLine(1.7, 40, Lft, Rgt, false, false, 35, 0.9, 60, 0.1);
 	WaitForLine(Fwd, 10, 20, Rgt);
-	Turn(-88, 30, Rgt);
+	Recta(Bwd, 0.1, 50, false, false);//1
+	Turn(-90, 30, Rgt);
 
 	Recta(Bwd, 2.5, 70, false, false);//1
 	resetGyro(S2);
 
-	MoveMotor(motorD, 2.5, -60);
-	MoveMotor(motorA, 1.4, -60);//1.5
-	MoveMotorAsync(motorA, 1.1, 60);
-	MoveMotor(motorD, 2, 60);
+	MoveMotor(motorD, 1.8, -60);
+	MoveMotorTime(motorA, 1.5, -60);
+	//MoveMotor(motorD, 1, 60);
+
+	//fase 3
+	MoveMotor(motorA, 1.1, 60);
 
 
+	MoveMotorAsync(motorD, 1, -40);
 	resetMotorEncoder(motorC);
-	Recta(Fwd, 0.7, 40, false, true);
-	delay(10000);
+	resetMotorEncoder(motorB);
 	WaitForLine(Fwd, 10, 30, Rgt);
 	float count;
 	float count1;
 	float motormov;
 	count = getMotorEncoder(motorC);
-	count1 = count  + 360;
+	count1 = count  + 400;
 	count1 = count1/-10;
 	motormov = count1 * 0.13;
 	MoveMotor(motorA, -motormov, 30);//MoveMotor(30)
 	count = getMotorEncoder(motorC)/360;
 	float mov;
-	delay(5000);
-	mov = 1.72+count;
-	Recta(Fwd, mov, 40, false, true);
-	MoveMotor(motorD, 2.5, -60);
-	Recta(Fwd, 1.2, 50,true, false);
-	Recta(Fwd, 1, 30, false, true);
+	mov = 1.5 + count;
+	Recta(Fwd, mov, 40, false, false, 0.98);
+	Recta(Fwd, 0.4, 10, false, false, 0.98, 1);
+	MoveMotor(motorA, -1.6 -motormov, 30);//MoveMotor(30)
+	Recta(Fwd, 1.7, 30, false, false, 0.98, 1);
+	setMotorSpeed(motorB, -40);
+	setMotorSpeed(motorC, -70);
+	delay(400);
+	setMotorSpeed(motorB, 0);
+	setMotorSpeed(motorC, 0);
 	MoveMotor(motorD, 1, 50);
-	Recta(Bwd, 1, 30);
-	MoveMotor(motorD, 1, -30);
-	Recta(Fwd, 0.7, 30);
+	setMotorSpeed(motorB, -50);
+	setMotorSpeed(motorC, -50);
+	delay(400);
+	setMotorSpeed(motorB, 0);
+	setMotorSpeed(motorC, 0);
 
 //Tornem
-	MoveMotorAsync(motorD, 1.5, 70);//2
-	Recta(Bwd, 1.5, 50);
+	//MoveMotorAsync(motorD, 1.5, 70);//2
+	Recta(Bwd, 1.95, 50);//1.5 //2
 	Turn(-90,40,Rgt);
 	WaitForBlack(Fwd, 10, 40, Lft);   // Detectem negre
 	MoveMotorAsync(motorD, 0.2, 70);
@@ -133,14 +143,14 @@ task main()
 		}
 
 	MoveMotorAsync(motorD, 0.3, 70);//2
-	FollowLine(0.3, 45, Lft, Rgt, false, false, 0, 0.9, 60, 0.1);  // primer tram
+	FollowLine(0.4, 45, Lft, Rgt, false, false, 0, 0.9, 60, 0.1);  // primer tram
 
 		while(getColorReflected(S4)>=55){
 		setMotorSpeed(motorC, 20);
 		setMotorSpeed(motorB, -20);
 		}
 
-	FollowLine(0.3, 60, Lft, Rgt, false, false, 0, 0.9, 60, 0.1);  // primer tram
+	FollowLine(0.5, 60, Lft, Rgt, false, false, 0, 0.9, 60, 0.1);  // primer tram
 
 	WaitForBlack2(Fwd, 10, 30, Rgt, 0.7);   // Detectem negre
 	WaitForLine2(Fwd, 10, 20, Lft, 0.7);   // Detectem blanc
@@ -157,7 +167,9 @@ task main()
 		setMotorSpeed(motorC, 0);
 		setMotorSpeed(motorB, 0);
 
+	MoveMotorAsync(motorA, 1.7, 40);
 	FollowLine(1.8, 60, Lft, Rgt, false, false, 35, 0.9, 60, 0.1);
 	Recta(Fwd, 2, 75, false, false, 1, 0.85);
+	MoveMotorAsync(motorD, 1, -50);
 	Recta(Fwd, 4, 75, false, false);
 }
