@@ -24,7 +24,6 @@
 
 // ROBOPRO || VEATRIZ
 //#define ROBOPRO
-#define VEATRIZ
 
 #include "Core/Core.h"
 
@@ -32,34 +31,22 @@
 //#include "Sortida_2bR_Short.h"
 //#include "Sortida_3R.h"
 //#include "Sortida_4_Robopro.h"
-
-task main()
+void Align_S3()
 {
-	//MoveMotorAsync(motorD, 0.7, 30);
-	////MoveMotor(motorA, -1, 50);
-	////waitForButtonPress();
-	////FollowLine(2.5, 40, Rgt, Lft, true, false, 45, 0.9, 60, 0.1);  // primer tram
-	////FollowLine(2.5, 50, Rgt, Lft, false, false, 60, 0.9, 60, 0.1);  // segon tram
-	//WaitForLine(Fwd, 10, 20, Lft);   // Detectem banc
-	//Recta(Fwd, 0.4, 20, false, true); // ens posicionem per deixar helicopter
-	////deixem peça
-	//MoveMotor(motorA, 1, 40);
-	//MoveMotor(motorD, 0.7, -40);
-	//MoveMotor(motorD, 0.02, 40);
+	flushButtonMessages();
+	MoveMotorTime(motorD, 2, 70);
+	MoveMotorTime(motorA, 4, -30);
+	MoveMotor(motorD, 2.65, -30);
+}
 
+void Sortida_3()
+{
+	flushButtonMessages();
+	waitForButtonPress();
+ 	Recta(Fwd, 2.9, 40);
+ 	Recta(Bwd, 2.9, 70);
 
-	//MoveMotor(motorA, 0.8, 40);
-	////Cercle blau
-	//MoveMotor(motorD, 0.7, 40);
-	////MoveMotor(motorA, 0.3, 40);
-	////Turn(15, 20, Lft);
-	//FollowLine(2.3, 40, Rgt, Lft, true, true, 60,  0.8, 60, 0.1);  // segon tram//2.5
-	//MoveMotor(motorA, 1.5, -40);
-	MoveMotor(motorD, 3, 40);
-	//MoveMotor(motorA, 1.5, 40);
-	Recta(Bwd, 0.9, 50);
-	Turn(-32, 20, Rgt);
-	Recta(Bwd, 2.3, 50);
-
-
+	//aliniat S3B NO BORRAR
+	MoveMotor(motorD, 0.2, 30);
+	MoveMotor(motorA, 1.1, -30);
 }
