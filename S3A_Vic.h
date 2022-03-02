@@ -43,10 +43,11 @@ void Sortida_3()
 {
 	flushButtonMessages();
 	waitForButtonPress();
- 	Recta(Fwd, 2.9, 40);
- 	Recta(Bwd, 2.9, 70);
+ 	Recta(Fwd, 2.9, 70);
+ 	Recta(Bwd, 0.5, 70);
 
 	//aliniat S3B NO BORRAR
-	MoveMotor(motorD, 0.2, 30);
-	MoveMotor(motorA, 1.1, -30);
+	MoveMotorAsync(motorD, 0.15, 30);
+	MoveMotorAsync(motorA, 1.1, -70);
+	Recta(Bwd, 2.4, 70);
 }

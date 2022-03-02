@@ -35,35 +35,8 @@
 //
 task main()
 {
-	//Recta(Fwd, 0.3, 40, false, true);
-	//Recta(Fwd, 0.2, 20, false, false);
-
-	MoveMotor(motorD, 1, 60);
-	MoveMotorAsync(motorD, 1, -40);
-	WaitForLine(Fwd, 10, 30, Rgt);
-	float count;
-	float count1;
-	float motormov;
-	count = getMotorEncoder(motorC);
-	count1 = count  + 360;
-	count1 = count1/-10;
-	motormov = count1 * 0.13;
-	MoveMotor(motorA, -motormov, 30);//MoveMotor(30)
-	count = getMotorEncoder(motorC)/360;
-	float mov;
-	//delay(5000);
-	mov = 1.5 + count;
-	Recta(Fwd, mov, 30, false, false, 0.98);
-	Recta(Fwd, 2.1, 20, false, false, 0.98, 1);
-	setMotorSpeed(motorB, -50);
-	setMotorSpeed(motorC, -50);
-	delay(400);
-	setMotorSpeed(motorB, 0);
-	setMotorSpeed(motorC, 0);
-	MoveMotor(motorD, 1, 50);
-	setMotorSpeed(motorB, -50);
-	setMotorSpeed(motorC, -50);
-	delay(400);
-	setMotorSpeed(motorB, 0);
-	setMotorSpeed(motorC, 0);
+MoveMotor(motorD, 2.5, 30);
+//MoveMotor(motorA, 1.2, 30);
+//MoveMotor(motorA, 0.2, 30);
+//Recta(Bwd, 0.85, 50, true, true, 0.9);
 }
