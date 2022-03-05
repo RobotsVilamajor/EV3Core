@@ -35,7 +35,8 @@
 //
 task main()
 {
-MoveMotor(motorD, 2.5, 30);
+Align(Fwd, 5);
+//MoveMotor(motorD, 2.5, 30);
 //MoveMotor(motorA, 1.2, 30);
 //MoveMotor(motorA, 0.2, 30);
 //Recta(Bwd, 0.85, 50, true, true, 0.9);

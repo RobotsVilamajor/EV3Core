@@ -37,6 +37,7 @@ void Align_S3()
 	MoveMotorTime(motorD, 2, 70);
 	MoveMotorTime(motorA, 4, -30);
 	MoveMotor(motorD, 2.65, -30);
+	MoveMotor(motorA, 1, 30);
 }
 
 void Sortida_3()
@@ -44,10 +45,10 @@ void Sortida_3()
 	flushButtonMessages();
 	waitForButtonPress();
  	Recta(Fwd, 2.9, 70);
- 	Recta(Bwd, 0.5, 70);
+ 	Recta(Bwd, 0.5, 70, true, false);
 
 	//aliniat S3B NO BORRAR
 	MoveMotorAsync(motorD, 0.15, 30);
 	MoveMotorAsync(motorA, 1.1, -70);
-	Recta(Bwd, 2.4, 70);
+	Recta(Bwd, 2.4, 70, false, true);
 }

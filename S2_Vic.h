@@ -49,10 +49,7 @@ void Sortida_2()
 	waitForButtonPress();
 	flushButtonMessages();
 	//Fer tractors
-	//MoveMotorAsync(motorA, 1.5, -50);
-	//Recta(Fwd, 3.7, 40);
-	MoveMotor(motorA, 1.6, -70);
-	//Recta(Fwd, 3.8, 50, true, true, 0.9825);
+	MoveMotorTime(motorA, 1, -70);
 	Recta(Fwd, 2.9, 50, false, false); //3.3
 	Recta(Fwd, 0.5, 30, false, false);
 	Recta(Fwd, 0.5, 20, false, true);
@@ -60,48 +57,27 @@ void Sortida_2()
 	MoveMotor(motorD, 1, 50);
 
 	Recta(Fwd, 0.4, 30, true, false); //0.4
-	//MoveMotorAsync(motorD, -0.1, 50);
 	Recta(Fwd, 0.4, 30, false, false); //0.35
-	//delay(5000);
-	//MoveMotor(motorA, 0.2, 30);
-	//delay(5000);
 	Recta(Fwd, 0.2, 50, false, false);
 	MoveMotorAsync(motorD, -1, 50); //-0.9
-	Recta(Fwd, 1.45, 50, false, true);	//1.5
+	Recta(Fwd, 1.45, 50, false, false);	//1.5
 	setMotorSpeed(motorB, 30);
 	setMotorSpeed(motorC, 30);
-	delay(300);
+	delay(500);
 	setMotorSpeed(motorB, 0);
 	setMotorSpeed(motorC, 0);
 
 
 	Recta(Bwd, 0.2, 50, false, false, 1, 0.985); //0.3
-	MoveMotorAsync(motorA, 1.5, 30); //1.6
-	Recta(Bwd, 2.2, 50, false, true);//2.35
+	MoveMotorAsync(motorA, 1.4, 30); //1.6
+	Recta(Bwd, 1.9, 50, false, true);//2.2
+	delay(100);
 	MoveMotor(motorD, 2.2, 50);
 
-	Recta(Bwd, 1.7, 70, false, false);
+	Recta(Bwd, 2, 70, false, false);
 	MoveMotorAsync(motorD, 1.85, -50); // 1.7
-	MoveMotorAsync(motorA, 0.3, -50); //0.4
+	MoveMotorAsync(motorA, 0.4, -50); //0.4
 	Recta(Bwd, 2.8, 70, false, false);
 	setMotorSpeed(motorB, 0);
 	setMotorSpeed(motorC, 0);
-
-
-
-	//Agafar Gallina
-	//MoveMotor(motorD, 0.8, 50);
-	//MoveMotor(motorA, 0.2, 50);
-	//delay(5000);
-	//Recta(Fwd, 1, 50);
-	//delay(5000);
-	//FollowLine(1, 40, Rgt, Lft);
-	//MoveMotor(motorD, 0.8, -50);
-	////Recolocació
-	//if(getColorReflected <= 20)
-	//	While(getColorReflected
-	//MoveMotor(motorA, 1, 30);
-	//Recta(Fwd, 0.5, 30);
-	////Turn(320, 30);
-
 }

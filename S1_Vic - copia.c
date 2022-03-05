@@ -84,9 +84,9 @@ void Sortida_1()
 	setMotorSpeed(motorB, 0);
 	setMotorSpeed(motorC, 0);
 	delay(100);
-	if (getGyroDegrees(S2) > -46)
+	if (getGyroDegrees(S2) > -47)
 		Turn(-50, 60, Rgt);
-	else if (getGyroDegrees(S2) < -54)
+	else if (getGyroDegrees(S2) < -53)
 		Turn(-50, 60, Lft);
 
 	MoveMotor(motorA, 0.9, -50);
@@ -121,113 +121,104 @@ void Sortida_1()
 	resetMotorEncoder(motorC);
 	resetMotorEncoder(motorB);
 	WaitForLine(Fwd, 10, 30, Rgt, false);
-	setMotorSpeed(motorA, 20);
-	//float count;
-	//float count1;
-	//float motormov;
-	//count = getMotorEncoder(motorC);
-	//count1 = count  + 395;
-	//count1 = count1/-10;
-	//motormov = count1 * 0.13;
-	//MoveMotor(motorA, -motormov, 30);//MoveMotor(30)
-	//count = getMotorEncoder(motorC)/360;
-	//float mov;
-	//mov = 1.5 + count;
+	float count;
+	float count1;
+	float motormov;
+	count = getMotorEncoder(motorC);
+	count1 = count  + 395;
+	count1 = count1/-10;
+	motormov = count1 * 0.13;
+	MoveMotor(motorA, -motormov, 30);//MoveMotor(30)
+	count = getMotorEncoder(motorC)/360;
+	float mov;
+	mov = 1.5 + count;
 	//Recta(Fwd, mov-0.8, 20, false, true, 0.98);//0.4
-	Recta(Fwd, 0.5, 30, false, false, 0.98, 1);
-	setMotorSpeed(motorA, 0);
-	Recta(Fwd, 0.6, 10, false, true);
-	MoveMotor(motorA, 0.2, -70);//0.8
-	Recta(Fwd, 0.75, 40, false, false);
+	Recta(Fwd, 0.6, 10, true, true, 0.98, 1);//0.8
 	MoveMotor(motorD, 0.2, -70);
-	Recta(Fwd, 0.75, 40, false, false);//0.8
+	Recta(Fwd, 2, 10, true, true, 0.98, 1);//0.8
 	//MoveMotor(motorA, -1.25 -motormov, 30);//MoveMotor(30) //-1.2
 
-
-	setMotorSpeed(motorB, -40);
-	setMotorSpeed(motorC, -40);
-	delay(300);
 	setMotorSpeed(motorB, 0);
 	setMotorSpeed(motorC, 0);
 
-	setMotorSpeed(motorB, -40);
-	setMotorSpeed(motorC, -40);
-	delay(300);
-	setMotorSpeed(motorB, 0);
-	setMotorSpeed(motorC, 0);
-	MoveMotor(motorD, 0.9, 50);
-	setMotorSpeed(motorB, -20);
-	setMotorSpeed(motorC, -20);
-	delay(300);
-	setMotorSpeed(motorB, 0);
-	setMotorSpeed(motorC, 0);
+//	setMotorSpeed(motorB, -40);
+//	setMotorSpeed(motorC, -40);
+//	delay(300);
+//	setMotorSpeed(motorB, 0);
+//	setMotorSpeed(motorC, 0);
+//	MoveMotor(motorD, 0.9, 50);
+//	setMotorSpeed(motorB, -20);
+//	setMotorSpeed(motorC, -20);
+//	delay(300);
+//	setMotorSpeed(motorB, 0);
+//	setMotorSpeed(motorC, 0);
 
-//Tornem
-	setMotorSpeed(motorD, 50);
-	delay(300);
-	setMotorSpeed(motorA, -35);
+////Tornem
+//	setMotorSpeed(motorD, 50);
+//	delay(300);
+//	setMotorSpeed(motorA, -35);
 
-	//MoveMotorTime(motorD, 2, 70);//2
-	//MoveMotorTime(motorA, 2, -35);//2
-	Recta(Bwd, 1.95, 50, false);//1.5 //2
-	setMotorSpeed(motorD, 0);
-	setMotorSpeed(motorA, 0);
-	Turn(-90,40,Rgt);
-	WaitForBlack(Fwd, 10, 40, Lft, false);   // Detectem negre
-	Recta(Fwd, 0.3, 20, false, false);
+//	//MoveMotorTime(motorD, 2, 70);//2
+//	//MoveMotorTime(motorA, 2, -35);//2
+//	Recta(Bwd, 1.95, 50, false);//1.5 //2
+//	setMotorSpeed(motorD, 0);
+//	setMotorSpeed(motorA, 0);
+//	Turn(-90,40,Rgt);
+//	WaitForBlack(Fwd, 10, 40, Lft, false);   // Detectem negre
+//	Recta(Fwd, 0.3, 20, false, false);
 
-		while(getColorReflected(S4)<=75){//85
-		setMotorSpeed(motorC, 30);
-		setMotorSpeed(motorB, -30);
-		}
-		setMotorSpeed(motorB, 0);
-		setMotorSpeed(motorC, 0);
-		delay(10);
+//		while(getColorReflected(S4)<=75){//85
+//		setMotorSpeed(motorC, 30);
+//		setMotorSpeed(motorB, -30);
+//		}
+//		setMotorSpeed(motorB, 0);
+//		setMotorSpeed(motorC, 0);
+//		delay(10);
 
-		while(getColorReflected(S4)>=45){
-		setMotorSpeed(motorC, 30);
-		setMotorSpeed(motorB, -40);
-		}
-		setMotorSpeed(motorB, 0);
-		setMotorSpeed(motorC, 0);
-		delay(10);
+//		while(getColorReflected(S4)>=45){
+//		setMotorSpeed(motorC, 30);
+//		setMotorSpeed(motorB, -40);
+//		}
+//		setMotorSpeed(motorB, 0);
+//		setMotorSpeed(motorC, 0);
+//		delay(10);
 
-		while(getColorReflected(S4)<=20){
-		setMotorSpeed(motorC, -20);
-		setMotorSpeed(motorB, 20);
-		}
-		setMotorSpeed(motorB, 0);
-		setMotorSpeed(motorC, 0);
-		delay(10);
+//		while(getColorReflected(S4)<=20){
+//		setMotorSpeed(motorC, -20);
+//		setMotorSpeed(motorB, 20);
+//		}
+//		setMotorSpeed(motorB, 0);
+//		setMotorSpeed(motorC, 0);
+//		delay(10);
 
-	//MoveMotorAsync(motorD, 0.3, 70);//2
-	FollowLine(0.4, 45, Lft, Rgt, false, false, 0, 0.9, 60, 0.1);  // primer tram
+//	MoveMotorAsync(motorD, 0.3, 70);//2
+//	FollowLine(0.4, 45, Lft, Rgt, false, false, 0, 0.9, 60, 0.1);  // primer tram
 
-		while(getColorReflected(S4)>=55){
-		setMotorSpeed(motorC, 20);
-		setMotorSpeed(motorB, -20);
-		}
+//		while(getColorReflected(S4)>=55){
+//		setMotorSpeed(motorC, 20);
+//		setMotorSpeed(motorB, -20);
+//		}
 
-	FollowLine(0.5, 60, Lft, Rgt, false, false, 50, 0.9, 60, 0.1);  // primer tram
+//	FollowLine(0.5, 60, Lft, Rgt, false, false, 50, 0.9, 60, 0.1);  // primer tram
 
-	WaitForBlack2(Fwd, 10, 30, Rgt, 1, 0.6, false);//0.7   // Detectem negre
-	WaitForLine2(Fwd, 10, 20, Lft, 1, 0.6, false);   // Detectem blanc
-	Recta(Fwd, 0.1, 20, false, false, 0.75);
+//	WaitForBlack2(Fwd, 10, 30, Rgt, 1, 0.6, false);//0.7   // Detectem negre
+//	WaitForLine2(Fwd, 10, 20, Lft, 1, 0.6, false);   // Detectem blanc
+//	Recta(Fwd, 0.1, 20, false, false, 0.75);
 
-		while(getColorReflected(S4)>=20){
-		setMotorSpeed(motorC, -30);
-		setMotorSpeed(motorB, 30);
-		}
-		delay(40);
-		setMotorSpeed(motorC, 0);
-		setMotorSpeed(motorB, 0);
+//		while(getColorReflected(S4)>=20){
+//		setMotorSpeed(motorC, -30);
+//		setMotorSpeed(motorB, 30);
+//		}
+//		delay(40);
+//		setMotorSpeed(motorC, 0);
+//		setMotorSpeed(motorB, 0);
 
-	MoveMotorAsync(motorA, 1.7, 40);
-	FollowLine(1.8, 60, Lft, Rgt, false, false, 35, 0.9, 60, 0.1);
-	MoveMotorAsync(motorD, 1, -70);
-	Recta(Fwd, 1.5, 75, false, false, 1, 0.9);
-	MoveMotorAsync(motorD, 2, -70);
-	Recta(Fwd, 4.5, 75, false, false);
-	setMotorSpeed(motorB, 0);
-	setMotorSpeed(motorC, 0);
+//	MoveMotorAsync(motorA, 1.7, 40);
+//	FollowLine(1.8, 60, Lft, Rgt, false, false, 35, 0.9, 60, 0.1);
+//	MoveMotorAsync(motorD, 1, -70);
+//	Recta(Fwd, 1.5, 75, false, false, 1, 0.9);
+//	MoveMotorAsync(motorD, 2, -70);
+//	Recta(Fwd, 4.5, 75, false, false);
+//	setMotorSpeed(motorB, 0);
+//	setMotorSpeed(motorC, 0);
 }

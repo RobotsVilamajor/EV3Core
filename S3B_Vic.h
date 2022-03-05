@@ -70,7 +70,7 @@ void Sortida_4()
 	MoveMotorAsync(motorD, 0.7, 70);
 	//MoveMotor(motorA, 0.3, 40);
 	//Turn(15, 20, Lft);
-	FollowLine(0.5, 40, Rgt, Lft, false, false, 65,  0.6, 50, 0.2); //0.5, 50 //0.7, 50, 0.12
+	FollowLine(0.5, 40, Rgt, Lft, false, false, 65,  0.7, 50, 0.2); //0.5, 50 //0.7, 50, 0.12
 	FollowLine(0.8, 40, Rgt, Lft, false, false, 65,  0.35, 35, 0.1); //0.5, 50 //0.4, 40
 	MoveMotorAsync(motorD, 0.4, 40);
 	MoveMotorAsync(motorA, 1.5, -70);
@@ -84,7 +84,7 @@ void Sortida_4()
 	Recta(Bwd, 0.9, 50,false, false);
 	Turn(-52, 30, Rgt); //32 //-50
 	MoveMotorAsync(motorA, 1.6, 60);
-	MoveMotorAsync(motorD, -1.6, 40); //-1.2
+	MoveMotorAsync(motorD, -1, 40); //-1.2
 	Recta(Bwd, 2.3, 70, false, false);
 	WaitForLine(Bwd, 10, 30, Lft);   // Detectem banc
 	//Align(Bwd, 2);
@@ -93,7 +93,7 @@ void Sortida_4()
 	Turn(40, 30, Lft); //30
 	//MoveMotorTime(motorA, 1.5, 40);
 	WaitForBlack3(Fwd, 10, 20, Lft, false);   // Detectem banc
-	MoveMotorAsync(motorD, -2, 40); //-3
+	MoveMotorAsync(motorD, -2.6, 50); //-3
 	Recta(Fwd, 0.55, 40, false, true); //0.52
 
 	MoveMotor(motorA, 2, -70);
@@ -115,7 +115,7 @@ void Sortida_4()
 	//Turn(90, 20, Lft);
 	MoveMotorAsync(motorA, 1.5, 70); //1.2
 	MoveMotorAsync(motorD, -2.1, 70);
-	Recta(Bwd, 1.1, 50, false, true);
+	Recta(Bwd, 1.1, 50, true, true);
 
 
 	//MoveMotor(motorD, -1, 40);
@@ -125,7 +125,8 @@ void Sortida_4()
 	//MoveMotorTime(motorA, 0.5, 20);
 
 	Recta(Fwd, 0.55, 30, false, false);
-	WaitForBlack(Fwd, 10, 20, Lft);   // Detectem banc
+	WaitForBlack(Fwd, 10, 20, Lft);
+	delay(150);// Detectem banc
 	MoveMotor(motorD, 1.2, 70);
 	flushButtonMessages();
 	waitForButtonPress();
