@@ -43,13 +43,12 @@ void Align_S1()
 }
 void Sortida_1()
 {
-
 	//fase 1: anada
-	//Align wall(no acabat)
 	waitForButtonPress();
 	flushButtonMessages();
 	resetGyro(S2);
-	//Recta(Bwd, 0.04, 50, false, false);
+
+	//sortida
 	Recta(Fwd, 1.5, 40, false, false, 1, 0.85);
 	WaitForBlack(Fwd, 10, 30, Rgt, false);
 	delay(100);
@@ -61,26 +60,24 @@ void Sortida_1()
 	setMotorSpeed(motorB, 0);
 	setMotorSpeed(motorC, 0);
 
+	//Ens recoloquem
 	if (getGyroDegrees(S2) > -47)
 	Turn(-50, 60, Rgt);
 	else if (getGyroDegrees(S2) < -53)
 	Turn(-50, 60, Lft);
 
+	//Coloquem wall
 	MoveMotor(motorA, 0.2, -50);
 	MoveMotorAsync(motorD, 0.3, 70); //0.4
 
-	WaitForLine(Fwd, 10, 20, Lft);   // Detectem banc
-	//delay(250);
-	//resetGyro(S2);
-	Recta(Fwd, 0.4, 30, false, false); //Avançar per tirar pont //0.5
-
-	//tirar pont
-	//MoveMotor(motorD, 1.5, -60);//1
-	//MoveMotor(motorA, 0.3, -50);
-
-// deixar peça i moure grua
+	// baixem pon i movem grua
+	WaitForLine(Fwd, 10, 20, Lft);  // Detectem banc
+	Recta(Fwd, 0.2, 30, false, false); //Avançar per tirar pont //0.5
 	MoveMotorAsync(motorD, 2.7, -70);//1
-	Recta(Fwd, 0.8, 40, false, false);//0.7
+	Recta(Fwd, 1, 40, false, false);//0.7
+	Recta(Bwd, 0.2, 70, false, false);
+
+	//Ens recoloquem
 	setMotorSpeed(motorB, 0);
 	setMotorSpeed(motorC, 0);
 	delay(100);
@@ -89,67 +86,54 @@ void Sortida_1()
 	else if (getGyroDegrees(S2) < -54)
 		Turn(-50, 60, Lft);
 
+	//Movem Wall per sortir
 	MoveMotor(motorA, 0.9, -50);
-//fase 2
 	MoveMotor(motorD, 0.6, 70); //2.8
 	MoveMotorAsync(motorD, 2.2, 70);//1
 	MoveMotor(motorA, 1.3, 70);//1.4
 
-
+	//Sortim i arrivem a tren
 	Recta(Fwd, 0.45, 30);
 	while(getColorReflected(S4)>=30){
 	setMotorSpeed(motorB, -15);
 	setMotorSpeed(motorC, 10);
 	}
-
 	FollowLine(1.7, 40, Lft, Rgt, false, false, 35, 0.9, 60, 0.1);
 	WaitForLine(Fwd, 10, 20, Rgt);
-	//Recta(Fwd, 0.1, 50, false, false);//1
+
+	//Anem a paret
 	Turn(-140, 30, Rgt);
- //Tirem paquet helicopter
 	MoveMotorAsync(motorD, 1.3, -70);
 	Recta(Bwd, 2.3, 70, false, false);//1 //2.5
 	resetGyro(S2);
 
+	//Tirem paquet helicopter
 	MoveMotorTime(motorA, 1.5, -60);
-	//MoveMotor(motorD, 1, 60);
 
-	//fase 3
+	//Fem tren
+	//Avancem fins balnca
 	MoveMotor(motorA, 1.7, 70); //1.1
-
 	MoveMotorAsync(motorD, 1.3, -40);//0.8
 	resetMotorEncoder(motorC);
 	resetMotorEncoder(motorB);
 	WaitForLine(Fwd, 10, 30, Rgt, false);
 	setMotorSpeed(motorA, 20);
-	//float count;
-	//float count1;
-	//float motormov;
-	//count = getMotorEncoder(motorC);
-	//count1 = count  + 395;
-	//count1 = count1/-10;
-	//motormov = count1 * 0.13;
-	//MoveMotor(motorA, -motormov, 30);//MoveMotor(30)
-	//count = getMotorEncoder(motorC)/360;
-	//float mov;
-	//mov = 1.5 + count;
-	//Recta(Fwd, mov-0.8, 20, false, true, 0.98);//0.4
-	Recta(Fwd, 0.5, 30, false, false, 0.98, 1);
+	//Fem tren
+	Recta(Fwd, 0.3, 30, false, false, 0.98, 1);
 	setMotorSpeed(motorA, 0);
-	Recta(Fwd, 0.6, 10, false, true);
+	Recta(Fwd, 0.8, 10, false, true);
 	MoveMotor(motorA, 0.2, -70);//0.8
 	Recta(Fwd, 0.75, 40, false, false);
 	MoveMotor(motorD, 0.2, -70);
+	//Agafem blocs
 	Recta(Fwd, 0.75, 40, false, false);//0.8
-	//MoveMotor(motorA, -1.25 -motormov, 30);//MoveMotor(30) //-1.2
 
-
+	//Assegurem
 	setMotorSpeed(motorB, -40);
 	setMotorSpeed(motorC, -40);
 	delay(300);
 	setMotorSpeed(motorB, 0);
 	setMotorSpeed(motorC, 0);
-
 	setMotorSpeed(motorB, -40);
 	setMotorSpeed(motorC, -40);
 	delay(300);
@@ -162,20 +146,18 @@ void Sortida_1()
 	setMotorSpeed(motorB, 0);
 	setMotorSpeed(motorC, 0);
 
-//Tornem
+	//Tornem
 	setMotorSpeed(motorD, 50);
 	delay(300);
 	setMotorSpeed(motorA, -35);
-
-	//MoveMotorTime(motorD, 2, 70);//2
-	//MoveMotorTime(motorA, 2, -35);//2
+	//Anem fins blanca
 	Recta(Bwd, 1.95, 50, false);//1.5 //2
 	setMotorSpeed(motorD, 0);
 	setMotorSpeed(motorA, 0);
+	//Agafem linea negre
 	Turn(-90,40,Rgt);
 	WaitForBlack(Fwd, 10, 40, Lft, false);   // Detectem negre
 	Recta(Fwd, 0.3, 20, false, false);
-
 		while(getColorReflected(S4)<=75){//85
 		setMotorSpeed(motorC, 30);
 		setMotorSpeed(motorB, -30);
@@ -200,7 +182,6 @@ void Sortida_1()
 		setMotorSpeed(motorC, 0);
 		delay(10);
 
-	//MoveMotorAsync(motorD, 0.3, 70);//2
 	FollowLine(0.4, 45, Lft, Rgt, false, false, 0, 0.9, 60, 0.1);  // primer tram
 
 		while(getColorReflected(S4)>=55){
@@ -222,12 +203,15 @@ void Sortida_1()
 		setMotorSpeed(motorC, 0);
 		setMotorSpeed(motorB, 0);
 
+	//Acavem de tornar
 	MoveMotorAsync(motorA, 1.7, 40);
 	FollowLine(1.8, 60, Lft, Rgt, false, false, 35, 0.9, 60, 0.1);
-	MoveMotorAsync(motorD, 1, -70);
+	MoveMotorAsync(motorD, 0.3, -50);
 	Recta(Fwd, 1.5, 75, false, false, 1, 0.9);
-	MoveMotorAsync(motorD, 2, -70);
 	Recta(Fwd, 4.5, 75, false, false);
 	setMotorSpeed(motorB, 0);
 	setMotorSpeed(motorC, 0);
+	delay(4000);
+	MoveMotor(motorD, 0.7, 50);
+	MoveMotor(motorD, 3, -50);
 }

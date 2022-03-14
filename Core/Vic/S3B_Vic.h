@@ -72,29 +72,26 @@ void Sortida_4()
 	//Turn(15, 20, Lft);
 	FollowLine(0.5, 40, Rgt, Lft, false, false, 65,  0.7, 50, 0.2); //0.5, 50 //0.7, 50, 0.12
 	FollowLine(0.8, 40, Rgt, Lft, false, false, 65,  0.35, 35, 0.1); //0.5, 50 //0.4, 40
-	MoveMotorAsync(motorD, 0.4, 40);
+	MoveMotor(motorD, 0.4, 40);
 	MoveMotorAsync(motorA, 1.5, -70);
-	FollowLine(0.8, 40, Rgt, Lft, false, false, 65,  0.35, 35, 0.1); //0.5, 50 //1.1 //0.4, 40
+	FollowLine(0.9, 40, Rgt, Lft, false, false, 65,  0.35, 35, 0.1); //0.5, 50 //1.1 //0.4, 40
 	setMotorSpeed(motorB, 0);
 	setMotorSpeed(motorC, 0);
 
 	MoveMotor(motorD, 1, 70);
 	MoveMotorAsync(motorD, 1.2, 70);//2.6
 	//resetGyro(S2);
-	Recta(Bwd, 0.9, 50,false, false);
-	Turn(-52, 30, Rgt); //32 //-50
+	Recta(Bwd, 1, 50,false, false);
+	Turn(-49, 30, Rgt); //32 //-50
 	MoveMotorAsync(motorA, 1.6, 60);
-	MoveMotorAsync(motorD, -1, 40); //-1.2
+	//MoveMotorAsync(motorD, -1, 40); //-1.2
 	Recta(Bwd, 2.3, 70, false, false);
 	WaitForLine(Bwd, 10, 30, Lft);   // Detectem banc
-	//Align(Bwd, 2);
-	//resetGyro(S2);
-	//Recta(Fwd, 0.2, 20, false, false);
 	Turn(40, 30, Lft); //30
-	//MoveMotorTime(motorA, 1.5, 40);
 	WaitForBlack3(Fwd, 10, 20, Lft, false);   // Detectem banc
-	MoveMotorAsync(motorD, -2.6, 50); //-3
+	//MoveMotorAsync(motorD, -3.6, 50); //-3
 	Recta(Fwd, 0.55, 40, false, true); //0.52
+	MoveMotor(motorD, -3.6, 50);
 
 	MoveMotor(motorA, 2, -70);
 	MoveMotorAsync(motorA, 0.4, -70)
@@ -116,7 +113,6 @@ void Sortida_4()
 	MoveMotorAsync(motorA, 1.5, 70); //1.2
 	MoveMotorAsync(motorD, -2.1, 70);
 	Recta(Bwd, 1.1, 50, true, true);
-
 
 	//MoveMotor(motorD, -1, 40);
 
