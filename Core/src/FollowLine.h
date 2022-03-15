@@ -31,7 +31,6 @@ void FollowLine(float distance, float speed, float sensor, float side, bool bAcc
 		{
 			ColorBalance = COLOR_BALANCE_RIGHT_LEFT;
 		}
-		//float sensorstop = S4;
 	}
 
 	if (Colorbalance != 0)
@@ -76,12 +75,6 @@ void FollowLine(float distance, float speed, float sensor, float side, bool bAcc
 
 
 	PID pid;
-	//InitPID(pid, 0.5, 0.0, 0.02, 0.005);
-	//InitPID(pid, 1, 0.0, 0.1, 0.005);
-	//InitPID(pid, 1, 50, 0.15, 0.005);
-	//InitPID(pid, 0.5, 40, 0.35, 0.005);
-	//InitPID(pid, 0.35, 15, 0.035, 0.005);
-		//InitPID(pid, 0.35, 6, 0, 0.005);
 	InitPID(pid, prop_value, int_value, dev_value, 0.005);
 
 	if (distance == 0)
@@ -101,7 +94,8 @@ void FollowLine(float distance, float speed, float sensor, float side, bool bAcc
 		datalogAddValue(1, turnRate);
 		datalogAddValue(2, pid.ki * pid.integ * pid.dt);
 
-		setMotorSync(motorB, motorC, turnRate, c_speed);
+		setMotorSpeed(motorB, c_speed);
+		setMotorSpeed(motorC, c_speed);
 		}
 	 while ((getColorReflected(side == Lft ? S4 : S3) < 70)
 	}

@@ -35,9 +35,14 @@
 //
 task main()
 {
-Align(Fwd, 5);
-//MoveMotor(motorD, 2.5, 30);
-//MoveMotor(motorA, 1.2, 30);
-//MoveMotor(motorA, 0.2, 30);
-//Recta(Bwd, 0.85, 50, true, true, 0.9);
+	flushButtonMessages();
+	//Recta(Bwd, 0.2, 60, true, true);
+	MoveMotorAsync(motorA, 1, 80);
+	MoveMotor(motorD, 1.7, 80);
+
+
+	WaitForBlack(Fwd, 10, 30, Lft, false);
+	delay(100);
+	WaitForLine(Fwd, 10, 30, Lft);
+
 }

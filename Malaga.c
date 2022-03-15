@@ -27,10 +27,10 @@
 #define VEATRIZ
 
 #include "Core/Core.h"
-#include "S1_Ten.h"
-#include "S2_Ten.h"
-#include "S3A_Ten.h"
-#include "S3B_Ten.h"
+#include "STren_Mal.h"
+#include "SDron_Mal.h"
+#include "SCheta_Mal.h"
+#include "SBlocs_Mal.h"
 
 //#include "Sortida_2bR.h"
 //#include "Sortida_2bR_Short.h"

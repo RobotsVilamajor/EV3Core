@@ -32,7 +32,7 @@
 //#include "Sortida_2bR_Short.h"
 //#include "Sortida_3R.h"
 //#include "Sortida_4_Robopro.h"
-void Align_S2()
+void Align_S1()
 {
 	flushButtonMessages();
 	MoveMotorTime(motorD, 2, 70);
@@ -41,7 +41,7 @@ void Align_S2()
 	MoveMotor(motorA, 1.6, 30);
 }
 
-void Sortida_2()
+void Sortida_1()
 {
 	////Align wall(no acabat)
 
