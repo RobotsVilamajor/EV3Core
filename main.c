@@ -35,14 +35,72 @@
 //
 task main()
 {
-	flushButtonMessages();
-	//Recta(Bwd, 0.2, 60, true, true);
-	MoveMotorAsync(motorA, 1, 80);
-	MoveMotor(motorD, 1.7, 80);
+	resetGyro(S2);
 
+	//Tornem
+	MoveMotor(motorD, 0.5, 80);
+	MoveMotorAsync(motorA, 0.5, -80);
+	MoveMotor(motorD, 2, 70);
+	Recta(Bwd, 1.5, 50, false, true);//1.8
 
-	WaitForBlack(Fwd, 10, 30, Lft, false);
-	delay(100);
-	WaitForLine(Fwd, 10, 30, Lft);
+	//Agafem linea negre
+	Turn(-90, 20, Rgt);
+	WaitForBlack(Fwd, 10, 40, Lft, false);   // Detectem negre
+	Recta(Fwd, 0.3, 20, false, false);
+		while(getColorReflected(S4)<=75){//85
+		setMotorSpeed(motorC, 30);
+		setMotorSpeed(motorB, -30);
+		}
+		setMotorSpeed(motorB, 0);
+		setMotorSpeed(motorC, 0);
+		delay(10);
 
+		while(getColorReflected(S4)>=45){
+		setMotorSpeed(motorC, 30);
+		setMotorSpeed(motorB, -40);
+		}
+		setMotorSpeed(motorB, 0);
+		setMotorSpeed(motorC, 0);
+		delay(10);
+
+		while(getColorReflected(S4)<=20){
+		setMotorSpeed(motorC, -20);
+		setMotorSpeed(motorB, 20);
+		}
+		setMotorSpeed(motorB, 0);
+		setMotorSpeed(motorC, 0);
+		delay(10);
+
+	FollowLine(0.4, 45, Lft, Rgt, false, false, 0, 0.9, 60, 0.1);  // primer tram
+
+		while(getColorReflected(S4)>=55){
+		setMotorSpeed(motorC, 20);
+		setMotorSpeed(motorB, -20);
+		}
+
+	FollowLine(0.5, 60, Lft, Rgt, false, false, 50, 0.9, 60, 0.1);  // primer tram
+
+	//Gir chungo pon
+	WaitForBlack2(Fwd, 10, 30, Rgt, 1, 0.6, false);//0.7   // Detectem negre
+	WaitForLine2(Fwd, 10, 20, Lft, 1, 0.6, false);   // Detectem blanc
+	Recta(Fwd, 0.1, 20, false, false, 0.75);
+
+		while(getColorReflected(S4)>=20){
+		setMotorSpeed(motorC, -30);
+		setMotorSpeed(motorB, 30);
+		}
+		delay(40);
+		setMotorSpeed(motorC, 0);
+		setMotorSpeed(motorB, 0);
+
+	//Acavem de tornar
+	FollowLine(1.8, 60, Lft, Rgt, false, false, 35, 0.9, 60, 0.1);
+	MoveMotorAsync(motorD, 0.3, -50);
+	Recta(Fwd, 1.5, 75, false, false, 1, 0.9);
+	Recta(Fwd, 4.5, 75, false, false);
+	setMotorSpeed(motorB, 0);
+	setMotorSpeed(motorC, 0);
+	delay(4000);
+	MoveMotor(motorD, 0.7, 50);
+	MoveMotor(motorD, 3, -50);
 }
