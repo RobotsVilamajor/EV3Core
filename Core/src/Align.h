@@ -9,8 +9,8 @@ bool HasEnded(float errorL, float errorR, float dErrorL, float dErrorR)
 void Align(float dir1, float time, float colorbalanceright = ALIGN_TARGET_RIGHT, float colorbalanceleft = ALIGN_TARGET_LEFT, float dir2 = dir1)
 {
 	//setMotorSync(motorC, motorB, 0, 12 * dir);
-	setMotorspeed(motorB, dir2);
-	setMotorspeed(motorC, dir2);
+	setMotorspeed(motorB, 15*dir2);
+	setMotorspeed(motorC, 15*dir2);
 
 	while (getColorReflected(S3) < ALIGN_MIN_WHITE || getColorReflected(S4) < ALIGN_MIN_WHITE) {}
 
@@ -44,15 +44,15 @@ void Align(float dir1, float time, float colorbalanceright = ALIGN_TARGET_RIGHT,
 		float dErrorL = errorL - prev_errL;
 		float dErrorR = errorR - prev_errR;
 
-		datalogAddValue(0, (int)(errorL));
+		//datalogAddValue(0, (int)(errorL));
 		//datalogAddValue(0, (int)(dErrorL));
-    datalogAddValue(1, (int)(speedL * 10));
-    datalogAddValue(2, (int)(dErrorL));
+    //datalogAddValue(1, (int)(speedL * 10));
+    //datalogAddValue(2, (int)(dErrorL));
     //datalogAddValue(2, (int)(getMotorEncoder(motorC) - iValL);
 
-    datalogAddValue(3, (int)(errorR));
-    datalogAddValue(4, (int)(speedR * 10));
-    datalogAddValue(5, (int)(dErrorR));
+    //datalogAddValue(3, (int)(errorR));
+    //datalogAddValue(4, (int)(speedR * 10));
+    //datalogAddValue(5, (int)(dErrorR));
     //datalogAddValue(5, (int)(getMotorEncoder(motorB) - iValR);
 
 		displayCenteredBigTextLine(4, "%d - %d", getColorReflected(S4), getColorReflected(S3));

@@ -49,76 +49,84 @@ void Sortida_4()
 	//sortida
 	MoveMotorAsync(motorD, 0.7, 50);
 	MoveMotorAsync(motorA, 1.7, 50);
-	Recta(Fwd, 1.5, 40, false, false, 1, 0.93); //0.9
-	FollowLine(2.5, 40, Rgt, Lft, false, false, 45, 0.7, 50, 0.2);  //0.9, 60, 0.1 // primer tram
-	MoveMotorAsync(motorD, 0.45, -50);//0.7
-	MoveMotorAsync(motorA, 0.5, -50); //0.8
-	FollowLine(2.5, 50, Rgt, Lft, false, false, 60, 0.35, 40, 0.1);  //0.4, 35, 0.1// segon tram
-	//Trobem blanc i aliniem wall
-	WaitForLine(Fwd, 10, 20, Lft, false);
-	MoveMotorAsync(motorD, 0.88, -50);
-	Recta(Fwd, 0.4, 30, false, false); //0.5 // ens posicionem per deixar helicopter
-	setMotorSpeed(motorB, 0);
-	setMotorSpeed(motorC, 0);
+	Recta(Fwd, 1.5, 40, false, false, 1, 0.9);
+	WaitForBlack(Fwd, 10, 30, Rgt, false);
+	delay(100);
+	WaitForLine(Fwd, 10, 30, Rgt, false);
 
-	//Deixem paquet
+	//Tram 1: Gir
+	FollowLine(2.5, 40, Rgt, Lft, false, false, 45,  0.7, 50, 0.2);  // primer tram //1
+
+	//Tram 2:
+	FollowLine(0.8, 50, Rgt, Lft, false, false, 45, 0.3, 45, 0.1); //0.5
+
+	//Tram 3: Arribem pon
+	FollowLine(0, 50, Rgt, Lft, false, false, 45, 0.3, 45, 0.1);
+	MoveMotorAsync(motorD, 0.45, -80);//0.7
+	MoveMotorAsync(motorA, 0.5, -80); //0.8
+	FollowLine(0.8, 50, Rgt, Lft, false, false, 45, 0.3, 45, 0.1);
+	FollowLine(0, 50, Rgt, Lft, false, false, 45, 0.3, 45, 0.1);
+	Recta(Fwd, 0.5, 30, false, true);
+
+	//Deixar millora
 	MoveMotor(motorA, 0.8, 70);
-	MoveMotorAsync(motorD, 0.7, 70);
+	MoveMotorTime(motorA, 0.4, 70);
+	MoveMotor(motorD, 1, 70);
+	MoveMotor(motorA, 1.1, -70);
 
-	//Abancem fins zona blava
+	//Anem bloc blau
+	MoveMotorAsync(motorA, 0.9, 50); //0.9
 	FollowLine(0.5, 40, Rgt, Lft, false, false, 65,  0.7, 50, 0.2); //0.5, 50 //0.7, 50, 0.12
-	FollowLine(0.8, 40, Rgt, Lft, false, false, 65,  0.35, 35, 0.1); //0.5, 50 //0.4, 40
-	MoveMotor(motorD, 0.4, 40);
-	MoveMotorAsync(motorA, 1.5, -70);
-	FollowLine(0.9, 40, Rgt, Lft, false, false, 65,  0.35, 35, 0.1); //0.5, 50 //1.1 //0.4, 40
+	FollowLine(0.8, 40, Rgt, Lft, false, false, 65,  0.5, 40, 0.1); //0.5, 50 //0.4, 40
+	FollowLine(0.9, 40, Rgt, Lft, false, false, 65,  0.3, 40, 0.1); //0.5, 50 //1.1 //0.4, 40
 	setMotorSpeed(motorB, 0);
 	setMotorSpeed(motorC, 0);
 
 	//Deixem bloc balu
+	//MoveMotorTime(motorA, 0.3, -70);
+	MoveMotor(motorA, 1.7, -80); //1.2
 	MoveMotor(motorD, 1, 70);
-	MoveMotorAsync(motorD, 1.2, 70);//2.6
+	delay(10);
+	//MoveMotorAsync(motorD, 1.2, 70);//2.6
 
 	//Tornem per anar a l'útlima zona
+	//MoveMotorAsync(motorA, 1.6, 70); //1.6
 	Recta(Bwd, 1, 50,false, false);
-	Turn(-49, 30, Rgt); //32 //-50
-	MoveMotorAsync(motorA, 1.6, 60);
-	Recta(Bwd, 2.3, 70, false, false);
-	WaitForLine(Bwd, 10, 30, Lft);   // Detectem banc
-
-	//Ens encarem
-	Turn(40, 30, Lft); //30
-	WaitForBlack3(Fwd, 10, 20, Lft, false);   // Detectem banc
-
-	//Deixem blocs
-	Recta(Fwd, 0.55, 40, false, true); //0.52
-	MoveMotor(motorD, -3.6, 50);
-	MoveMotor(motorA, 2, -70);
-	MoveMotorAsync(motorA, 0.4, -70)
-	MoveMotor(motorD, 2, 70);
-
-	//Enterm a la cuina
-	while(getColorReflected(S3) > 20){
-		setMotorSpeed(motorB, -40);
-		setMotorSpeed(motorC, -17);
-	}
+	Turn(-47, 20, Rgt); //32 //-50
+	setmotorspeed(motorA, 60);
+	Recta(Bwd, 2.25, 70, false, false); //2.3
+	setmotorspeed(motorA, 0);
+	WaitForLine(Bwd, 10, 30, Lft);
+	Recta(Fwd, 0.1, 50, false, false);
 	setMotorSpeed(motorB, 0);
 	setMotorSpeed(motorC, 0);
-	if (getGyroDegrees(S2) > 133)
-		Turn(130, 60, Rgt);
-	else if (getGyroDegrees(S2) < 127)
-		Turn(130, 60, Lft);
 
-	//Ens aliniem
-	MoveMotorAsync(motorA, 1.5, 70); //1.2
-	MoveMotorAsync(motorD, -2.1, 70);
-	Recta(Bwd, 1.1, 50, true, true);
+	//Ens encarem
+	Turn(43, 20, Lft); //43
+
+	Align(Fwd, 2);
+	Recta(Fwd, 0.6, 50); //0.6
+	MoveMotor(motorD, 2.3, -80);
+	MoveMotor(motorA, 2, -60);
+	MoveMotorTime(motorA, 0.3, -80);
+
+	MoveMotor(motorD, 2.3, 80);
+	Recta(Fwd, 0.8, 50, false, false);
+	Recta(Fwd, 0.3, 20, false, false);
+	resetGyro(S2);
+	delay(100);
+	Recta(Bwd, 0.15, 50, false, false);
+	MoveMotorAsync(motorA, 1.7, 70); //1.2
+	Turn(90, 20, Lft);
+	Recta(Bwd, 0.45, 20, false, false);
+	setMotorSpeed(motorB, 0);
+	setMotorSpeed(motorC, 0);
 
 	//Fem la part final
-	Recta(Fwd, 0.55, 30, false, false);
-	WaitForBlack(Fwd, 10, 20, Lft);
-	delay(150);// Detectem banc
-	MoveMotor(motorD, 1.2, 70);
+	MoveMotor(motorD, 3, -80);
+	Recta(Fwd, 0.45, 30, true, false);
+	WaitForBlack(Fwd, 10, 20, Rgt);
+	delay(150);
 	flushButtonMessages();
 	waitForButtonPress();
-
 }
